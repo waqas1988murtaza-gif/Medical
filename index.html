@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Khan Medicos Pro - Pakistan (467 Medicines)</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0f1117; 
+      color: #e8eaf6;
+      min-height: 100vh;
+    }
+    .login-container {
+      position: fixed; inset: 0;
+      background: linear-gradient(135deg, #1a1d2e, #0f1117);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 9999;
+    }
+    .login-box {
+      background: #1a1d2e; padding: 40px; border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.1);
+      width: 90%; max-width: 400px; text-align: center;
+    }
+    .login-logo { font-size: 48px; margin-bottom: 16px; }
+    .login-title { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+    .login-sub { color: #90a4ae; margin-bottom: 24px; }
+    .input {
+      width: 100%; background: #252838; border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px; padding: 12px; color: white; margin-bottom: 16px; font-size: 16px;
+    }
+    .btn-login {
+      width: 100%; background: linear-gradient(90deg, #3d5afe, #00bcd4);
+      color: white; border: none; padding: 14px; border-radius: 8px;
+      font-size: 16px; font-weight: 700; cursor: pointer;
+    }
+    .btn-login:hover { opacity: 0.9; }
+    .error-msg { color: #ff5252; font-size: 14px; margin-top: 8px; display: none; }
+    .demo-info {
+      background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px;
+      margin-top: 20px; font-size: 13px; color: #90a4ae; text-align: left;
+    }
+    
+    .header {
+      background: #1a1d2e; padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }    
+    .logo { width: 40px; height: 40px; background: linear-gradient(135deg, #3d5afe, #00bcd4); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    .brand-name { font-weight: 700; font-size: 18px; }
+    .header-controls { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .select, .btn { padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; cursor: pointer; font-size: 13px; }
+    .btn { background: linear-gradient(135deg, #3d5afe, #00bcd4); border: none; font-weight: 600; }
+    .btn-secondary { background: rgba(255,255,255,0.1); }
+    .btn-danger { background: linear-gradient(135deg, #ff5252, #ff1744); }
+    .container { padding: 20px; max-width: 1400px; margin: 0 auto; }
+    .tabs { display: flex; gap: 8px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 8px; }
+    .tab { background: rgba(255,255,255,0.05); border: none; color: #90a4ae; padding: 10px 16px; border-radius: 8px; cursor: pointer; white-space: nowrap; font-weight: 600; transition: all 0.2s; }
+    .tab:hover { background: rgba(255,255,255,0.1); }
+    .tab.active { background: linear-gradient(135deg, #3d5afe, #00bcd4); color: white; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 20px; }
+    .stat-card { background: linear-gradient(135deg, #1a237e, #283593); border-radius: 12px; padding: 16px; text-align: center; }
+    .stat-value { font-size: 24px; font-weight: 700; margin: 8px 0; }
+    .stat-label { font-size: 12px; opacity: 0.8; }
+    .card { background: #1a1d2e; border-radius: 12px; padding: 16px; margin-bottom: 16px; border: 1px solid rgba(255,255,255,0.08); }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { padding: 10px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    th { color: #90caf9; font-size: 12px; text-transform: uppercase; font-weight: 600; }
+    tr:hover td { background: rgba(61,90,254,0.05); }
+    .badge { padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 600; display: inline-block; }
+    .badge-ok { background: rgba(0,230,118,0.2); color: #00e676; }
+    .badge-low { background: rgba(255,193,7,0.2); color: #ffc107; }
+    .badge-out { background: rgba(255,82,82,0.2); color: #ff5252; }
+    .notification { position: fixed; top: 20px; right: 20px; background: #1b5e20; color: white; padding: 12px 20px; border-radius: 8px; z-index: 1000; animation: slideIn 0.3s ease; max-width: 350px; }
+    .notification.error { background: #b71c1c; }
+    @keyframes slideIn { from { transform: translateX(400px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.85); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 20px; }
+    .modal.active { display: flex; }
+    .modal-content { background: #1a1d2e; border-radius: 16px; padding: 24px; max-width: 600px; width: 100%; max-height: 90vh; overflow-y: auto; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+    .full-width { grid-column: 1 / -1; }
+    .cart-item { background: #252838; padding: 12px; border-radius: 8px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
+    .qty-btn { width: 28px; height: 28px; background: #3d5afe; border: none; border-radius: 6px; color: white; cursor: pointer; font-weight: 700; }
+    .chart-bar { display: flex; align-items: center; gap: 12px; margin: 8px 0; }
+    .chart-label { width: 100px; font-size: 13px; color: #90a4ae; }
+    .chart-fill { flex: 1; height: 24px; background: rgba(61,90,254,0.2); border-radius: 6px; overflow: hidden; position: relative; }
+    .chart-value { position: absolute; left: 0; top: 0; height: 100%; background: linear-gradient(90deg, #3d5afe, #00bcd4); border-radius: 6px; }
+    .chart-text { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-size: 12px; font-weight: 600; }
+    .hidden { display: none !important; }
+    
+    .bill-preview-wrap {
+      background: white; color: #000; border-radius: 12px; padding: 24px;
+      max-width: 450px; width: 100%; max-height: 90vh; overflow-y: auto;
+    }
+    .bill-header-print {
+      text-align: center; border-bottom: 2px dashed #ccc; padding-bottom: 12px; margin-bottom: 12px;
+    }
+    .bill-header-print h2 { color: #1a237e; font-size: 22px; margin: 4px 0; }    
+    .bill-header-print p { color: #555; font-size: 13px; margin: 2px 0; }
+    .bill-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 13px; margin-bottom: 12px; }
+    .bill-table-print { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+    .bill-table-print th { background: #f0f4ff; color: #1a237e; padding: 8px; text-align: left; border-bottom: 2px solid #ddd; }
+    .bill-table-print td { padding: 7px 8px; border-bottom: 1px solid #eee; }
+    .bill-totals { border-top: 2px solid #1a237e; padding-top: 10px; margin-top: 10px; }
+    .bill-totals div { display: flex; justify-content: space-between; margin: 4px 0; font-size: 14px; }
+    .bill-grand { font-weight: 800; font-size: 18px; color: #1a237e; border-top: 1px solid #ccc; padding-top: 8px; margin-top: 8px; }
+    .bill-footer-print { text-align: center; margin-top: 16px; font-size: 12px; color: #666; font-style: italic; }
+    .bill-actions { display: flex; gap: 10px; justify-content: center; margin-top: 16px; }
+    
+    @media print {
+      body * { visibility: hidden; }
+      #bill-print-area, #bill-print-area * { visibility: visible; }
+      #bill-print-area { position: absolute; left: 0; top: 0; width: 100%; padding: 20px; }
+      .no-print { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div id="login-screen" class="login-container">
+    <div class="login-box">
+      <div class="login-logo">💊</div>
+      <div class="login-title">Khan Medicos Pro</div>
+      <div class="login-sub">Pakistan Medical Store System (467 Medicines)</div>
+      <input type="text" id="login-user" class="input" placeholder="Username (admin)" value="admin">
+      <input type="password" id="login-pass" class="input" placeholder="Password (admin123)" value="admin123">
+      <button class="btn-login" onclick="handleLogin()"> Login</button>
+      <div id="login-error" class="error-msg"></div>
+      <div class="demo-info">
+        <strong>Demo Accounts:</strong><br>
+        Admin: admin / admin123<br>
+        Staff: staff / staff123
+      </div>
+    </div>
+  </div>
+
+  <div id="app" style="display: none;">
+    <div class="header">
+      <div class="brand">
+        <div class="logo">💊</div>
+        <div>
+          <div class="brand-name">Khan Medicos Pro</div>
+          <div style="font-size:11px;color:#90a4ae" id="user-info">Welcome</div>
+        </div>
+      </div>
+      <div class="header-controls">
+        <select class="select" id="store-select" onchange="changeStore()">
+          <option>Main Branch</option>
+          <option>City Center</option>
+          <option>Airport Road</option>
+          <option>Gulberg</option>
+        </select>
+        <button class="btn btn-secondary" onclick="toggleTheme()">🌓 Theme</button>
+        <button class="btn btn-danger" onclick="logout()"> Logout</button>
+      </div>
+    </div>
+    
+    <div class="container">
+      <div class="tabs">
+        <button class="tab active" onclick="showTab('dashboard')">📊 Dashboard</button>
+        <button class="tab" onclick="showTab('inventory')">💊 Inventory (467)</button>
+        <button class="tab" onclick="showTab('billing')">🧾 Billing</button>
+        <button class="tab" onclick="showTab('orders')"> Orders</button>
+        <button class="tab" onclick="showTab('alerts')">⚠️ Alerts</button>
+        <button class="tab" onclick="showTab('reports')"> Reports</button>
+      </div>
+      
+      <div id="dashboard">
+        <div class="stats-grid">
+          <div class="stat-card"><div style="font-size:28px">💊</div><div class="stat-value" id="stat-total">0</div><div class="stat-label">Total Medicines</div></div>
+          <div class="stat-card" style="background:linear-gradient(135deg,#1b5e20,#2e7d32)"><div style="font-size:28px"></div><div class="stat-value" id="stat-value">PKR 0</div><div class="stat-label">Stock Value</div></div>
+          <div class="stat-card" style="background:linear-gradient(135deg,#e65100,#f57c00)"><div style="font-size:28px">⚠️</div><div class="stat-value" id="stat-low">0</div><div class="stat-label">Low Stock</div></div>
+          <div class="stat-card" style="background:linear-gradient(135deg,#b71c1c,#c62828)"><div style="font-size:28px">🚫</div><div class="stat-value" id="stat-out">0</div><div class="stat-label">Out of Stock</div></div>
+          <div class="stat-card" style="background:linear-gradient(135deg,#4a148c,#6a1b9a)"><div style="font-size:28px">🧾</div><div class="stat-value" id="stat-bills">0</div><div class="stat-label">Total Bills</div></div>
+          <div class="stat-card" style="background:linear-gradient(135deg,#006064,#00838f)"><div style="font-size:28px"></div><div class="stat-value" id="stat-revenue">PKR 0</div><div class="stat-label">Today's Revenue</div></div>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom:12px">🚀 Quick Actions</h3>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <button class="btn" onclick="openAddModal()">➕ Add Medicine</button>
+            <button class="btn btn-secondary" onclick="exportData()">📥 Export JSON</button>
+            <button class="btn btn-secondary" onclick="document.getElementById('import-file').click()"> Import Excel/CSV</button>
+            <input type="file" id="import-file" style="display:none" accept=".xlsx,.xls,.csv,.json" onchange="importData(this)">
+          </div>
+        </div>
+      </div>
+      
+      <div id="inventory" style="display:none">
+        <div class="card">
+          <div style="display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap">
+            <input type="text" class="input" id="inv-search" placeholder="Search medicine..." style="flex:1;min-width:250px;margin:0" oninput="renderInventory()">
+            <button class="btn" onclick="openAddModal()">+ Add New</button>
+          </div>
+          <div style="overflow-x:auto;max-height:600px;overflow-y:auto">
+            <table id="inv-table"><thead><tr><th>Name</th><th>Category</th><th>Stock</th><th>Price</th><th>Status</th><th>Actions</th></tr></thead><tbody></tbody></table>          </div>
+        </div>
+      </div>
+      
+      <div id="billing" style="display:none">
+        <div style="display:grid;grid-template-columns:1fr 350px;gap:20px">
+          <div>
+            <div class="card">
+              <h3 style="margin-bottom:12px">Patient Details</h3>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+                <input type="text" class="input" id="bill-patient" placeholder="Patient Name *" style="margin:0">
+                <input type="text" class="input" id="bill-phone" placeholder="Phone" style="margin:0">
+              </div>
+            </div>
+            <div class="card">
+              <h3 style="margin-bottom:12px">Search & Add</h3>
+              <input type="text" class="input" id="bill-search" placeholder="Search medicine..." style="margin:0" oninput="renderBillSearch()">
+              <div id="bill-search-results" style="max-height:300px;overflow-y:auto;margin-top:12px"></div>
+            </div>
+          </div>
+          <div>
+            <div class="card" style="position:sticky;top:20px">
+              <h3 style="margin-bottom:16px"> Cart (<span id="cart-count">0</span>)</h3>
+              <div id="cart-items"></div>
+              <div style="border-top:1px solid rgba(255,255,255,0.1);margin-top:16px;padding-top:16px">
+                <div style="display:flex;justify-content:space-between;margin:8px 0;color:#90a4ae"><span>Subtotal:</span><span id="cart-subtotal">0</span></div>
+                <div style="display:flex;justify-content:space-between;margin:8px 0;color:#90a4ae"><span>GST (5%):</span><span id="cart-gst">PKR 0</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:20px;font-weight:700;margin-top:12px;color:#00e676"><span>Total:</span><span id="cart-total">PKR 0</span></div>
+                <button class="btn" style="width:100%;margin-top:16px;padding:12px;font-size:16px" onclick="generateBill()">🧾 Generate Bill</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="orders" style="display:none">
+        <div class="card">
+          <h3 style="margin-bottom:16px"> Purchase Orders</h3>
+          <div id="order-items"></div>
+          <div style="margin-top:16px;display:flex;gap:8px;justify-content:flex-end">
+            <button class="btn" onclick="placeOrder()" id="place-order-btn" disabled>📦 Place Order</button>
+          </div>
+        </div>
+      </div>
+      
+      <div id="alerts" style="display:none"><div id="alerts-content"></div></div>
+      
+      <div id="reports" style="display:none">
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-value" id="rep-today">0</div><div class="stat-label">Today's Sales</div></div>
+          <div class="stat-card" style="background:linear-gradient(135deg,#4a148c,#6a1b9a)"><div class="stat-value" id="rep-month">PKR 0</div><div class="stat-label">This Month</div></div>
+        </div>
+        <div class="card">
+          <h3 style="margin-bottom:16px">🏆 Top Items</h3>
+          <div id="top-items"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="add-modal" class="modal" onclick="if(event.target===this)closeAddModal()">
+    <div class="modal-content">
+      <h3 id="modal-title" style="margin-bottom:16px">Add Medicine</h3>
+      <div class="form-grid">
+        <input type="text" class="input full-width" id="med-name" placeholder="Medicine Name *">
+        <input type="text" class="input" id="med-category" placeholder="Category" value="Tablet">
+        <input type="number" class="input" id="med-stock" placeholder="Stock *">
+        <input type="number" class="input" id="med-price" placeholder="Price (PKR) *" step="0.01">
+        <input type="number" class="input" id="med-min" placeholder="Min Stock">
+        <input type="text" class="input full-width" id="med-supplier" placeholder="Supplier">
+        <input type="text" class="input full-width" id="med-phone" placeholder="Supplier Phone">
+        <input type="date" class="input full-width" id="med-expiry">
+      </div>
+      <div style="display:flex;gap:8px;margin-top:20px;justify-content:flex-end">
+        <button class="btn btn-secondary" onclick="closeAddModal()">Cancel</button>
+        <button class="btn" onclick="saveMedicine()">💾 Save</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="bill-modal" class="modal" onclick="if(event.target===this)closeBillModal()">
+    <div class="bill-preview-wrap" onclick="event.stopPropagation()">
+      <div id="bill-print-area">
+        <div class="bill-header-print">
+          <div style="font-size:32px;margin-bottom:4px">💊</div>
+          <h2>Khan Medicos Pro</h2>
+          <p>Pakistan Medical Store System</p>
+          <p style="font-weight:700;color:#333;margin-top:6px">TAX INVOICE / BILL</p>
+        </div>
+        <div class="bill-meta" id="bill-meta"></div>
+        <table class="bill-table-print">
+          <thead>
+            <tr><th>#</th><th>Medicine</th><th>Qty</th><th>Rate</th><th style="text-align:right">Amount</th></tr>
+          </thead>          <tbody id="bill-items"></tbody>
+        </table>
+        <div class="bill-totals" id="bill-totals"></div>
+        <div class="bill-footer-print">
+          Aapki sehat hi hamari pehli zimmedari hai. Get well soon! 🙏<br>
+          Khan Medicos Pro • <span id="bill-store-footer"></span><br>
+          Contact: 9876543210 • www.khanmedicos.pk
+        </div>
+      </div>
+      <div class="bill-actions no-print">
+        <button class="btn" onclick="printBill()">🖨️ Print</button>
+        <button class="btn btn-secondary" onclick="downloadPDF()">📄 Download PDF</button>
+        <button class="btn btn-danger" onclick="closeBillModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // State
+    let state = {
+      currentUser: null,
+      currentStore: 'Main Branch',
+      inventory: {},
+      bills: {},
+      orders: {},
+      cart: [],
+      editId: null,
+      orderQty: {},
+      currentBill: null
+    };
+
+    // All 467 Pakistani Medicines Loaded Automatically from Database List
+    const pakistaniMedicines = [
+      {id:1,name:'Panadol (Paracetamol 500mg)',category:'Analgesic / Antipyretic',stock:100,price:30,supplier:'GSK',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:2,name:'Calpol (Paracetamol 500mg)',category:'Analgesic / Antipyretic',stock:100,price:28,supplier:'GSK',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:3,name:'Panadol Extra (Paracetamol 650mg)',category:'Analgesic / Antipyretic',stock:100,price:45,supplier:'GSK',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:4,name:'Brufen (Ibuprofen 400mg)',category:'NSAID / Painkiller',stock:100,price:35,supplier:'Abbott',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:5,name:'Brufen Syrup (Ibuprofen 200mg/5ml)',category:'NSAID / Pediatric',stock:100,price:110,supplier:'Abbott',minStock:10,packaging:'90ml Bottle'},
+      {id:6,name:'Ponstan (Mefenamic Acid 250mg)',category:'NSAID / Painkiller',stock:100,price:40,supplier:'King Pharma',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:7,name:'Ponstan Forte (Mefenamic Acid 500mg)',category:'NSAID / Painkiller',stock:100,price:75,supplier:'King Pharma',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:8,name:'Dicloran (Diclofenac Sodium 50mg)',category:'NSAID / Painkiller',stock:100,price:60,supplier:'Sami',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:9,name:'Cataflam (Diclofenac Potassium 50mg)',category:'NSAID / Painkiller',stock:100,price:120,supplier:'Novartis',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:10,name:'Loprin (Aspirin 75mg)',category:'Antiplatelet / Blood Thinner',stock:100,price:20,supplier:'Getz',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:11,name:'Disprin (Aspirin 300mg)',category:'Analgesic',stock:100,price:25,supplier:'Bayer',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:12,name:'Tramal (Tramadol HCl 50mg)',category:'Opioid Analgesic',stock:100,price:180,supplier:'Grünenthal',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:13,name:'Nubain Injection',category:'Analgesic',stock:100,price:90,supplier:'Incepta',minStock:10,packaging:'1ml Ampoule'},
+      {id:14,name:'Tramadol Plus',category:'Analgesic',stock:100,price:150,supplier:'Sami',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:15,name:'Aclotec (Aceclofenac 100mg)',category:'NSAID / Painkiller',stock:100,price:90,supplier:'Getz',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:16,name:'Risek (Omeprazole 20mg)',category:'Anti-Ulcer / PPI',stock:100,price:260,supplier:'Getz',minStock:10,packaging:'Strip of 14 Caps'},
+      {id:17,name:'Risek Forte (Omeprazole 40mg)',category:'Anti-Ulcer / PPI',stock:100,price:420,supplier:'Getz',minStock:10,packaging:'Strip of 14 Caps'},
+      {id:18,name:'Nexum (Esomeprazole 20mg)',category:'Anti-Ulcer / PPI',stock:100,price:220,supplier:'Hilton',minStock:10,packaging:'Strip of 14 Caps'},
+      {id:19,name:'Nexum (Esomeprazole 40mg)',category:'Anti-Ulcer / PPI',stock:100,price:350,supplier:'Hilton',minStock:10,packaging:'Strip of 14 Caps'},
+      {id:20,name:'Esame (Esomeprazole 20mg)',category:'Anti-Ulcer / PPI',stock:100,price:190,supplier:'Sami',minStock:10,packaging:'Strip of 14 Caps'},
+      {id:21,name:'Esame (Esomeprazole 40mg)',category:'Anti-Ulcer / PPI',stock:100,price:310,supplier:'Sami',minStock:10,packaging:'Strip of 14 Caps'},
+      {id:22,name:'Lanpro (Lansoprazole 30mg)',category:'Anti-Ulcer / PPI',stock:100,price:280,supplier:'Getz',minStock:10,packaging:'Strip of 14 Caps'},
+      {id:23,name:'Dexilant (Dexlansoprazole 60mg)',category:'Anti-Ulcer / PPI',stock:100,price:580,supplier:'Takeda',minStock:10,packaging:'Strip of 14 Caps'},
+      {id:24,name:'Famopsin (Famotidine 40mg)',category:'H2 Blocker',stock:100,price:80,supplier:'Searle',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:25,name:'Zantac (Ranitidine 150mg)',category:'H2 Blocker',stock:100,price:60,supplier:'GSK',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:26,name:'Tagamet (Cimetidine 400mg)',category:'H2 Blocker',stock:100,price:70,supplier:'GSK',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:27,name:'Maxolon (Metoclopramide 10mg)',category:'Anti-Emetic',stock:100,price:30,supplier:'Beecham',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:28,name:'Motilium (Domperidone 10mg)',category:'Anti-Emetic',stock:100,price:85,supplier:'Janssen',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:29,name:'Gravinate (Ondansetron 8mg)',category:'Anti-Emetic',stock:100,price:200,supplier:'Hilton',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:30,name:'Gravinate (Dimenhydrinate 50mg)',category:'Anti-Vertigo / Anti-Emetic',stock:100,price:25,supplier:'Hilton',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:31,name:'Gravinate Syrup',category:'Anti-Emetic Pediatric',stock:100,price:70,supplier:'Hilton',minStock:10,packaging:'60ml Bottle'},
+      {id:32,name:'Buscopan (Hyoscine Butylbromide 10mg)',category:'Anti-Spasmodic',stock:100,price:55,supplier:'Boehringer',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:33,name:'Buscopan Plus',category:'Anti-Spasmodic + Analgesic',stock:100,price:90,supplier:'Boehringer',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:34,name:'Colofac (Mebeverine HCl 135mg)',category:'Anti-Spasmodic / IBS',stock:100,price:140,supplier:'Abbott',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:35,name:'Hydryllin Syrup',category:'Cough Syrup',stock:100,price:110,supplier:'Searle',minStock:10,packaging:'120ml Bottle'},
+      {id:36,name:'Hepamerz',category:'Liver Supplement',stock:100,price:350,supplier:'Merck',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:37,name:'Silyver (Silymarin 200mg)',category:'Liver Supplement',stock:100,price:180,supplier:'Abbott',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:38,name:'Flagyl (Metronidazole 400mg)',category:'Anti-Amoebic / Antibiotic',stock:100,price:35,supplier:'Sanofi',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:39,name:'Flagyl Suspension',category:'Anti-Amoebic Pediatric',stock:100,price:75,supplier:'Sanofi',minStock:10,packaging:'90ml Bottle'},
+      {id:40,name:'Ciproxin (Ciprofloxacin 500mg)',category:'Antibiotic',stock:100,price:290,supplier:'Bayer',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:41,name:'Novidat (Ciprofloxacin 250mg)',category:'Antibiotic',stock:100,price:140,supplier:'Getz',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:42,name:'Novidat (Ciprofloxacin 500mg)',category:'Antibiotic',stock:100,price:260,supplier:'Getz',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:43,name:'Leflox (Levofloxacin 250mg)',category:'Antibiotic',stock:100,price:190,supplier:'Getz',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:44,name:'Leflox (Levofloxacin 500mg)',category:'Antibiotic',stock:100,price:340,supplier:'Getz',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:45,name:'Avelox (Moxifloxacin 400mg)',category:'Antibiotic',stock:100,price:450,supplier:'Bayer',minStock:10,packaging:'Strip of 5 Tabs'},
+      {id:46,name:'Amoxil (Amoxicillin 250mg)',category:'Antibiotic',stock:100,price:90,supplier:'GSK',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:47,name:'Amoxil (Amoxicillin 500mg)',category:'Antibiotic',stock:100,price:160,supplier:'GSK',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:48,name:'Augmentin 1g',category:'Antibiotic',stock:100,price:240,supplier:'GSK',minStock:10,packaging:'Strip of 6 Tabs'},
+      {id:49,name:'Augmentin 625mg',category:'Antibiotic',stock:100,price:170,supplier:'GSK',minStock:10,packaging:'Strip of 6 Tabs'},
+      {id:50,name:'Augmentin DS Suspension',category:'Antibiotic Pediatric',stock:100,price:290,supplier:'GSK',minStock:10,packaging:'90ml Bottle'},
+      {id:51,name:'Velosef (Cephradine 250mg)',category:'Antibiotic',stock:100,price:180,supplier:'GSK',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:52,name:'Velosef (Cephradine 500mg)',category:'Antibiotic',stock:100,price:330,supplier:'GSK',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:53,name:'Caracef (Cefixime 400mg)',category:'Antibiotic',stock:100,price:320,supplier:'Sami',minStock:10,packaging:'Strip of 5 Caps'},
+      {id:54,name:'Cefspan (Cefixime 400mg)',category:'Antibiotic',stock:100,price:360,supplier:'Searle',minStock:10,packaging:'Strip of 5 Caps'},
+      {id:55,name:'Cefspan Suspension',category:'Antibiotic Pediatric',stock:100,price:240,supplier:'Searle',minStock:10,packaging:'30ml Bottle'},
+      {id:56,name:'Zacef (Cefuroxime 250mg)',category:'Antibiotic',stock:100,price:390,supplier:'Sami',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:57,name:'Zinacef (Cefuroxime 500mg)',category:'Antibiotic',stock:100,price:680,supplier:'GSK',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:58,name:'Azomax (Azithromycin 250mg)',category:'Antibiotic',stock:100,price:210,supplier:'Getz',minStock:10,packaging:'Strip of 6 Caps'},
+      {id:59,name:'Azomax (Azithromycin 500mg)',category:'Antibiotic',stock:100,price:195,supplier:'Getz',minStock:10,packaging:'Strip of 3 Tabs'},
+      {id:60,name:'Zithromax (Azithromycin 500mg)',category:'Antibiotic',stock:100,price:240,supplier:'Pfizer',minStock:10,packaging:'Strip of 3 Tabs'},
+      {id:61,name:'Klaricid (Clarithromycin 250mg)',category:'Antibiotic',stock:100,price:310,supplier:'Abbott',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:62,name:'Klaricid (Clarithromycin 500mg)',category:'Antibiotic',stock:100,price:580,supplier:'Abbott',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:63,name:'Erythrocin (Erythromycin 250mg)',category:'Antibiotic',stock:100,price:95,supplier:'Abbott',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:64,name:'Vibramycin (Doxycycline 100mg)',category:'Antibiotic',stock:100,price:65,supplier:'Pfizer',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:65,name:'Dalacin C (Clindamycin 150mg)',category:'Antibiotic',stock:100,price:290,supplier:'Pfizer',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:66,name:'Dalacin C (Clindamycin 300mg)',category:'Antibiotic',stock:100,price:490,supplier:'Pfizer',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:67,name:'Fucidin Cream',category:'Topical Antibiotic',stock:100,price:180,supplier:'Leo',minStock:10,packaging:'15g Tube'},
+      {id:68,name:'Fucidin Ointment',category:'Topical Antibiotic',stock:100,price:185,supplier:'Leo',minStock:10,packaging:'15g Tube'},
+      {id:69,name:'Polyfax Ointment Skin',category:'Topical Antibiotic',stock:100,price:90,supplier:'GSK',minStock:10,packaging:'20g Tube'},
+      {id:70,name:'Polyfax Eye Ointment',category:'Ophthalmic Antibiotic',stock:100,price:60,supplier:'GSK',minStock:10,packaging:'4g Tube'},
+      {id:71,name:'Betnovate Cream',category:'Topical Steroid',stock:100,price:85,supplier:'GSK',minStock:10,packaging:'15g Tube'},
+      {id:72,name:'Betnovate N Cream',category:'Topical Steroid + Antibiotic',stock:100,price:95,supplier:'GSK',minStock:10,packaging:'15g Tube'},
+      {id:73,name:'Dermovate Cream',category:'Topical Steroid Strong',stock:100,price:110,supplier:'GSK',minStock:10,packaging:'15g Tube'},
+      {id:74,name:'Hydrocortisone Cream',category:'Topical Steroid Mild',stock:100,price:50,supplier:'Sami',minStock:10,packaging:'15g Tube'},
+      {id:75,name:'Elocon Cream',category:'Topical Corticosteroid',stock:100,price:240,supplier:'Organon',minStock:10,packaging:'15g Tube'},
+      {id:76,name:'Zovirax Cream',category:'Topical Anti-Viral',stock:100,price:190,supplier:'GSK',minStock:10,packaging:'5g Tube'},
+      {id:77,name:'Zovirax (Acyclovir 200mg)',category:'Anti-Viral Oral',stock:100,price:380,supplier:'GSK',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:78,name:'Zovirax (Acyclovir 400mg)',category:'Anti-Viral Oral',stock:100,price:650,supplier:'GSK',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:79,name:'Famvir (Famciclovir 250mg)',category:'Anti-Viral Oral',stock:100,price:1200,supplier:'Novartis',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:80,name:'Canzol Cream',category:'Topical Anti-Fungal',stock:100,price:85,supplier:'Stiefel',minStock:10,packaging:'15g Tube'},
+      {id:81,name:'Nizoral Cream',category:'Topical Anti-Fungal',stock:100,price:140,supplier:'Janssen',minStock:10,packaging:'15g Tube'},
+      {id:82,name:'Nizoral Tablet',category:'Anti-Fungal Oral',stock:100,price:280,supplier:'Janssen',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:83,name:'Myteka (Montelukast 4mg)',category:'Anti-Asthmatic Pediatric',stock:100,price:180,supplier:'Hilton',minStock:10,packaging:'Strip of 14 Sachet'},
+      {id:84,name:'Myteka (Montelukast 5mg)',category:'Anti-Asthmatic Chewable',stock:100,price:240,supplier:'Hilton',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:85,name:'Myteka (Montelukast 10mg)',category:'Anti-Asthmatic Adult',stock:100,price:380,supplier:'Hilton',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:86,name:'Singulair (Montelukast 10mg)',category:'Anti-Asthmatic Premium',stock:100,price:720,supplier:'Organon',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:87,name:'Ventolin (Salbutamol 2mg)',category:'Bronchodilator Oral',stock:100,price:35,supplier:'GSK',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:88,name:'Ventolin Inhaler',category:'Asthma Inhaler Relief',stock:100,price:210,supplier:'GSK',minStock:10,packaging:'200 Puffs Device'},
+      {id:89,name:'Clenil Inhaler',category:'Asthma Preventer Steroid',stock:100,price:450,supplier:'Chiesi',minStock:10,packaging:'200 Puffs Device'},
+      {id:90,name:'Seretide Evohaler 50',category:'Asthma Combination Preventer',stock:100,price:950,supplier:'GSK',minStock:10,packaging:'120 Puffs Device'},
+      {id:91,name:'Seretide Evohaler 125',category:'Asthma Combination Preventer',stock:100,price:1350,supplier:'GSK',minStock:10,packaging:'120 Puffs Device'},
+      {id:92,name:'Seretide Evohaler 250',category:'Asthma Combination Preventer',stock:100,price:1850,supplier:'GSK',minStock:10,packaging:'120 Puffs Device'},
+      {id:93,name:'Surbex Z',category:'Multivitamin Zinc Build',stock:100,price:240,supplier:'Abbott',minStock:10,packaging:'Bottle of 30 Tabs'},
+      {id:94,name:'Theragran Ultra',category:'Premium Multivitamin Mineral',stock:100,price:450,supplier:'Abbott',minStock:10,packaging:'Bottle of 30 Tabs'},
+      {id:95,name:'Centrum Silver',category:'Senior Over 50 Multivitamin',stock:100,price:1850,supplier:'Pfizer Import',minStock:10,packaging:'Bottle of 30 Tabs'},
+      {id:96,name:'Hydryllin Cough Syrup',category:'Expectorant Cough Relief',stock:100,price:95,supplier:'Searle',minStock:10,packaging:'120ml Bottle'},
+      {id:97,name:'Pulmonol Syrup',category:'Herbal Cough Bronchial Calmer',stock:100,price:85,supplier:'Sami',minStock:10,packaging:'120ml Bottle'},
+      {id:98,name:'Cofcol Syrup',category:'Anti-Tussive Cold Formula',stock:100,price:75,supplier:'Hilton',minStock:10,packaging:'60ml Bottle'},
+      {id:99,name:'Acefyl Syrup',category:'Cough Liquefier Smooth Breathing',stock:100,price:80,supplier:'Sami',minStock:10,packaging:'120ml Bottle'},
+      {id:100,name:'Rigix (Cetirizine 10mg)',category:'Anti-Allergy Non-Drowsy',stock:100,price:95,supplier:'Sami',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:101,name:'Zyrtec (Cetirizine 10mg)',category:'Anti-Allergy Premium Brand',stock:100,price:160,supplier:'GSK',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:102,name:'Softin (Loratadine 10mg)',category:'Anti-Allergy 24hr Relief',stock:100,price:110,supplier:'Hilton',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:103,name:'Telfast (Fexofenadine 60mg)',category:'Anti-Allergy Hives Itch',stock:100,price:130,supplier:'Sanofi',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:104,name:'Telfast (Fexofenadine 120mg)',category:'Anti-Allergy Severe Hayfever',stock:100,price:220,supplier:'Sanofi',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:105,name:'Telfast (Fexofenadine 180mg)',category:'Anti-Allergy Chronic Urticaria',stock:100,price:340,supplier:'Sanofi',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:106,name:'Xyzal (Levocetirizine 5mg)',category:'Anti-Allergy Advanced Refined',stock:100,price:180,supplier:'GSK',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:107,name:'Avil (Pheniramine Maleate 25mg)',category:'Sedative Traditional Allergy',stock:100,price:20,supplier:'Sanofi',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:108,name:'Avil Injection',category:'Emergency Severe Allergy Reaction',stock:100,price:35,supplier:'Sanofi',minStock:10,packaging:'2ml Ampoule'},
+      {id:109,name:'Capoten (Captopril 25mg)',category:'Anti-Hypertensive ACE inhibitor',stock:100,price:120,supplier:'GSK',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:110,name:'Zestril (Lisinopril 5mg)',category:'Anti-Hypertensive Organ Guard',stock:100,price:320,supplier:'Martin Dow',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:111,name:'Zestril (Lisinopril 10mg)',category:'Anti-Hypertensive Kidney Protect',stock:100,price:550,supplier:'Martin Dow',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:112,name:'Zestril (Lisinopril 20mg)',category:'Anti-Hypertensive Heart Stroke Prevent',stock:100,price:890,supplier:'Martin Dow',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:113,name:'Lipiget (Atorvastatin 10mg)',category:'Cholesterol Controlling Statin',stock:100,price:290,supplier:'Getz',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:114,name:'Lipiget (Atorvastatin 20mg)',category:'Cholesterol Advanced Clear Artery',stock:100,price:480,supplier:'Getz',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:115,name:'Lipitor (Atorvastatin 10mg)',category:'Premium Original Cholesterol Care',stock:100,price:650,supplier:'Pfizer',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:116,name:'Rovista (Rosuvastatin 5mg)',category:'High Potency Cholesterol Lowering',stock:100,price:220,supplier:'Getz',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:117,name:'Rovista (Rosuvastatin 10mg)',category:'Artery Plaque Defense Statin',stock:100,price:390,supplier:'Getz',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:118,name:'Rovista (Rosuvastatin 20mg)',category:'Maximum Lipids Correction Cardia',stock:100,price:620,supplier:'Getz',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:119,name:'Xarelto (Rivaroxaban 10mg)',category:'Advanced Oral Blood Thinner',stock:100,price:3200,supplier:'Bayer',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:120,name:'Xarelto (Rivaroxaban 20mg)',category:'DVT Pulmonary Embolism Prevention',stock:100,price:4500,supplier:'Bayer',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:121,name:'Exforge 5/80mg',category:'Dual Action BP Management',stock:100,price:850,supplier:'Novartis',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:122,name:'Exforge 5/160mg',category:'Synergistic Hypertension Control',stock:100,price:1150,supplier:#39;Novartis',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:123,name:'Exforge 10/160mg',category:'Maximum Vascular BP Resistance',stock:100,price:1450,supplier:'Novartis',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:124,name:'Concor (Bisoprolol 2.5mg)',category:'Beta Blocker Heart Rate Control',stock:100,price:160,supplier:'Merck',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:125,name:'Concor (Bisoprolol 5mg)',category:'Palpitation Angina Shield BP',stock:100,price:280,supplier:'Merck',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:126,name:'Inderal (Propranolol 10mg)',category:'Tremor Performance Anxiety Reliever',stock:100,price:30,supplier:'ICI',minStock:10,packaging:'Strip of 50 Tabs'},
+      {id:127,name:'Inderal (Propranolol 40mg)',category:'Migraine Prevention Pulse Control',stock:100,price:60,supplier:'ICI',minStock:10,packaging:'Strip of 50 Tabs'},
+      {id:128,name:'Glucophage (Metformin 500mg)',category:'Anti-Diabetic First Line Sugar',stock:100,price:95,supplier:'Merck',minStock:10,packaging:'Strip of 30 Tabs'},
+      {id:129,name:'Glucophage (Metformin 850mg)',category:'Diabetic Hyperglycemia Balancer',stock:100,price:140,supplier:'Merck',minStock:10,packaging:'Strip of 30 Tabs'},
+      {id:130,name:'Glucophage 1000mg DS',category:'Maximum Strength Insulin Sensitizer',stock:100,price:190,supplier:'Merck',minStock:10,packaging:'Strip of 30 Tabs'},
+      {id:131,name:'Getryl (Glimepiride 1mg)',category:'Pancreatic Insulin Secretagogue',stock:100,price:120,supplier:'Getz',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:132,name:'Getryl (Glimepiride 2mg)',category:'Type 2 Diabetes Control Daily',stock:100,price:220,supplier:'Getz',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:133,name:'Getryl (Glimepiride 3mg)',category:'Advanced Blood Glucose Reducer',stock:100,price:310,supplier:'Getz',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:134,name:'Getryl (Glimepiride 4mg)',category:'Maximum Pancreas Stimulation sugar',stock:100,price:390,supplier:'Getz',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:135,name:'Diamicron 60mg MR',category:'Modified Release 24hr Diabetes',stock:100,price:420,supplier:'Servier',minStock:10,packaging:'Strip of 15 Tabs'},
+      {id:136,name:'Jardiance (Empagliflozin 10mg)',category:'SGLT2 Kidney Sugar Excretor',stock:100,price:1950,supplier:'Boehringer',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:137,name:'Jardiance (Empagliflozin 25mg)',category:'Cardio-Renal Protect Diabetes High',stock:100,price:2800,supplier:'Boehringer',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:138,name:'Galvus Met 50/500mg',category:'Dual Mechanism Combined Glycemia',stock:100,price:850,supplier:'Novartis',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:139,name:'Galvus Met 50/850mg',category:'Advanced Form HbA1c Reduction',stock:100,price:1100,supplier:'Novartis',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:140,name:'Galvus Met 50/1000mg',category:'Maximum Sync Diabetes Management',stock:100,price:1350,supplier:'Novartis',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:141,name:'Janumet 50/500mg',category:'Premium Gliptin Metformin Mix',stock:100,price:1250,supplier:'MSD',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:142,name:'Janumet 50/1000mg',category:'Gold Standard HbA1c Target Fix',stock:100,price:1850,supplier:'MSD',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:143,name:'Lantus SoloStar Pen',category:'24hr Long Acting Basal Insulin',stock:100,price:2450,supplier:'Sanofi',minStock:10,packaging:'3ml Pre-filled Pen'},
+      {id:144,name:'Mixtard 30/70 Vial',category:'Standard Dual Phase Fast Long Insulin',stock:100,price:950,supplier:'Novo Nordisk',minStock:10,packaging:'10ml Injection Vial'},
+      {id:145,name:'Humalog Mix Pen',category:'Rapid Action Advanced Meal Insulin',stock:100,price:1850,supplier:'Lilly',minStock:10,packaging:'3ml Injection Pen'},
+      {id:146,name:'Thyroxine 50mcg',category:'Thyroid T4 Hormone Substitution',stock:100,price:70,supplier:'GSK',minStock:10,packaging:'Bottle of 100 Tabs'},
+      {id:147,name:'Thyroxine 100mcg',category:'Hypothyroidism Total Correction',stock:100,price:120,supplier:'GSK',minStock:10,packaging:'Bottle of 100 Tabs'},
+      {id:148,name:'Neomercazole 5mg',category:'Hyperthyroidism Thyroid Suppressor',stock:100,price:280,supplier:'Glaxo',minStock:10,packaging:'Bottle of 100 Tabs'},
+      {id:149,name:'Epival (Valproate Sodium 250mg)',category:'Anticonvulsant Epilepsy Controller',stock:100,price:210,supplier:'Abbott',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:150,name:'Epival Chrono 500mg',category:'Controlled Neurological Brain Calm',stock:100,price:420,supplier:'Abbott',minStock:10,packaging:'Strip of 30 Tabs'},
+      {id:151,name:'Tegral (Carbamazepine 200mg)',category:'Nerve Pain Trigeminal Seizure Guard',stock:100,price:95,supplier:'Searle',minStock:10,packaging:'Strip of 50 Tabs'},
+      {id:152,name:'Keppra (Levetiracetam 500mg)',category:'Advanced Brain Focal Fit Shield',stock:100,price:1150,supplier:'UCB Pharma',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:153,name:'Lyrica (Pregabalin 75mg)',category:'Neuropathic Burning Nerve Fix Pain',stock:100,price:650,supplier:'Pfizer',minStock:10,packaging:'Strip of 14 Caps'},
+      {id:154,name:'Lyrica (Pregabalin 150mg)',category:'Severe Diabetic Neuralgia Relief',stock:100,price:1100,supplier:'Pfizer',minStock:10,packaging:'Strip of 14 Caps'},
+      {id:155,name:'Neurontin (Gabapentin 100mg)',category:'Peripheral Neuropathy Modulator',stock:100,price:220,supplier:'Pfizer',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:156,name:'Neurontin (Gabapentin 300mg)',category:'Shingles Post Herpetic Pain Guard',stock:100,price:450,supplier:'Pfizer',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:157,name:'Xanax (Alprazolam 0.25mg)',category:'Anxiolytic Rapid Panic Stopper',stock:100,price:90,supplier:'Pfizer',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:158,name:'Xanax (Alprazolam 0.5mg)',category:'Acute Anxiety Distress Relief',stock:100,price:170,supplier:'Pfizer',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:159,name:'Lexotanil (Bromazepam 3mg)',category:'Muscle Relaxing Tension Sedative',stock:100,price:240,supplier:'Roche',minStock:10,packaging:'Strip of 30 Tabs'},
+      {id:160,name:'Valium (Diazepam 5mg)',category:'Emergency Spasm Sedation Calmer',stock:100,price:50,supplier:'Roche',minStock:10,packaging:'Strip of 30 Tabs'},
+      {id:161,name:'Rivotril (Clonazepam 0.5mg)',category:'Panic Disorder Long Act Seizure',stock:100,price:95,supplier:'Roche',minStock:10,packaging:'Strip of 30 Tabs'},
+      {id:162,name:'Rivotril (Clonazepam 2mg)',category:'Severe Myoclonic Status Control',stock:100,price:210,supplier:'Roche',minStock:10,packaging:'Strip of 30 Tabs'},
+      {id:163,name:'Seroxat (Paroxetine 20mg)',category:'Potent SSRI Social Phobia Care',stock:100,price:480,supplier:'GSK',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:164,name:'Prozac (Fluoxetine 20mg)',category:'Classic Mood Booster Energy Drive',stock:100,price:330,supplier:'Lilly',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:165,name:'Zoloft (Sertraline 50mg)',category:'OCD Depression Baseline Balance',stock:100,price:550,supplier:'Pfizer',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:166,name:'Cipralex (Escitalopram 10mg)',category:'Clean Serotonin Anxiety Pure Lift',stock:100,price:620,supplier:'Lundbeck',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:167,name:'Motival Tablet',category:'Anxiety Combined Antidepressant Mood',stock:100,price:120,supplier:'Sanofi',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:168,name:'Seroquel (Quetiapine 25mg)',category:'Atypical Sleep Neuro Regulator Low',stock:100,price:240,supplier:'AstraZeneca',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:169,name:'Seroquel (Quetiapine 100mg)',category:'Bipolar Schizophrenia Stabilizer',stock:100,price:780,supplier:'AstraZeneca',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:170,name:'Duphaston (Dydrogesterone 10mg)',category:'Hormonal Pregnancy Support Care',stock:100,price:750,supplier:'Abbott',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:171,name:'Primolut N (Norethisterone 5mg)',category:'Period Cycle Regularity Delayer',stock:100,price:190,supplier:'Bayer',minStock:10,packaging:'Strip of 30 Tabs'},
+      {id:172,name:'Evoret (Estrogen Hormone)',category:'Menopause Hot Flashes Relief Care',stock:100,price:320,supplier:'Sami',minStock:10,packaging:'Strip of 21 Tabs'},
+      {id:173,name:'Clomid (Clomifene 50mg)',category:'Fertility Ovulation Induction Booster',stock:100,price:290,supplier:'Sanofi',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:174,name:'Viagra (Sildenafil 50mg)',category:'Vascular ED Performance Premium',stock:100,price:1250,supplier:'Pfizer',minStock:10,packaging:'Pack of 4 Tabs'},
+      {id:175,name:'Viagra (Sildenafil 100mg)',category:'Max Nitric Flow Impotence Resolve',stock:100,price:2200,supplier:'Pfizer',minStock:10,packaging:'Pack of 4 Tabs'},
+      {id:176,name:'Cialis (Tadalafil 10mg)',category:'Weekend Long Performance 36hr ED',stock:100,price:1950,supplier:'Lilly',minStock:10,packaging:'Pack of 2 Tabs'},
+      {id:177,name:'Cialis (Tadalafil 20mg)',category:'Maximum Vascular Stamina ED Flow',stock:100,price:3400,supplier:'Lilly',minStock:10,packaging:'Pack of 2 Tabs'},
+      {id:178,name:'Zyloric (Allopurinol 100mg)',category:'Uric Acid Gout Joint Crystal Stop',stock:100,price:95,supplier:'GSK',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:179,name:'Zyloric (Allopurinol 300mg)',category:'Severe Hyperuricemia Tophi Break',stock:100,price:240,supplier:'GSK',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:180,name:'Febuget (Febuxostat 40mg)',category:'Modern Selective Gout Inhibitor',stock:100,price:210,supplier:'Getz',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:181,name:'Febuget (Febuxostat 80mg)',category:'Advanced Daily Uric Baseline Down',stock:100,price:380,supplier:'Getz',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:182,name:'Colchicine 0.5mg',category:'Acute Pain Gout Flare Attack Relief',stock:100,price:160,supplier:'Abbott',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:183,name:'Alfacalcidol 1mcg',category:'Active Vitamin D Kidney Bone Build',stock:100,price:290,supplier:'Leo Pharma',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:184,name:'Bonviva (Ibandronic Acid 150mg)',category:'Monthly Osteoporosis Bone Densifier',stock:100,price:1850,supplier:'Roche',minStock:10,packaging:'Single Oral Tab'},
+      {id:185,name:'Evista (Raloxifene 60mg)',category:'Post-Menopausal Fractures Shield Fem',stock:100,price:1450,supplier:'Lilly',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:186,name:'Imuran (Azathioprine 50mg)',category:'Immunosuppressant Organ Graft Multi',stock:100,price:680,supplier:'GSK',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:187,name:'Methotrexate 2.5mg',category:'Rheumatoid Arthritis Remission Auto',stock:100,price:120,supplier:'Pfizer',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:188,name:'Plaquenil (Hydroxychloroquine 200mg)',category:'Lupus SLE Joint Flare Shield Auto',stock:100,price:320,supplier:'Sanofi',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:189,name:'Salazopyrin 500mg',category:'Ulcerative Colitis Bowel Joint Guard',stock:100,price:450,supplier:'Pfizer',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:190,name:'Encortil (Prednisolone 5mg)',category:'Systemic Steroid Flare Fast Suppress',stock:100,price:25,supplier:'Searle',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:191,name:'Delta-Cortef (Prednisolone 5mg)',category:'Classic Corticosteroid Tissue Care',stock:100,price:30,supplier:'Pfizer',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:192,name:'Medrol (Methylprednisolone 4mg)',category:'Advanced Cortisone Shock Joint Clean',stock:100,price:180,supplier:'Pfizer',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:193,name:'Solu-Medrol 40mg Inj',category:'Emergency IV Severe Asthma Spinal',stock:100,price:240,supplier:'Pfizer',minStock:10,packaging:'Injection Vial Pack'},
+      {id:194,name:'Solu-Medrol 500mg Inj',category:'Massive Infusion Pulse Steroid Crisis',stock:100,price:1850,supplier:'Pfizer',minStock:10,packaging:'High Dose Vial'},
+      {id:195,name:'Decadron (Dexamethasone 0.5mg)',category:'Cerebral Edema Inflammation Potent',stock:100,price:15,supplier:'MSD',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:196,name:'Decadron Injection',category:'Croup Emergency Anaphylaxis Shield',stock:100,price:25,supplier:'MSD',minStock:10,packaging:'1ml Ampoule'},
+      {id:197,name:'Plavix (Clopidogrel 75mg)',category:'Premium Artery Anti-Clot Stroke Prevent',stock:100,price:980,supplier:'Sanofi',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:198,name:'Lowplat (Clopidogrel 75mg)',category:'Popular Cardio Antiplatelet Shield',stock:100,price:280,supplier:'Getz',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:199,name:'Ascard (Aspirin 75mg)',category:'Daily Cardiac Low Dose Artery Safety',stock:100,price:18,supplier:'Atco',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:200,name:'Warfarin (Marevan 1mg)',category:'Traditional Vitamin K Anti-Coagulant',stock:100,price:40,supplier:'GSK',minStock:10,packaging:'Bottle of 100 Tabs'},
+      {id:201,name:'Warfarin (Marevan 5mg)',category:'Valve Replacement Stroke Protection',stock:100,price:90,supplier:'GSK',minStock:10,packaging:'Bottle of 100 Tabs'},
+      {id:202,name:'Clexane 20mg Injection',category:'LMWH Fast DVT Clot Break Syringe',stock:100,price:450,supplier:'Sanofi',minStock:10,packaging:'Pre-filled Syringe'},
+      {id:203,name:'Clexane 40mg Injection',category:'Pregnancy Antiphospholipid Clot Safety',stock:100,price:750,supplier:'Sanofi',minStock:10,packaging:'Pre-filled Syringe'},
+      {id:204,name:'Clexane 60mg Injection',category:'Post-Op Immobilization Blood Safety',stock:100,price:1100,supplier:'Sanofi',minStock:10,packaging:'Pre-filled Syringe'},
+      {id:205,name:'Clexane 80mg Injection',category:'Therapeutic Maximum DVT Dissolve IV',stock:100,price:1450,supplier:'Sanofi',minStock:10,packaging:'Pre-filled Syringe'},
+      {id:206,name:'Lasix (Furosemide 40mg)',category:'Potent Water Pill Edema Flusher',stock:100,price:35,supplier:'Sanofi',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:207,name:'Lasix Injection 20mg',category:'Acute Heart Failure Pulmonary Fluid',stock:100,price:20,supplier:'Sanofi',minStock:10,packaging:'2ml Ampoule'},
+      {id:208,name:'Spiromide Tablet',category:'Dual Synergy Diuretic Heart Potassium',stock:100,price:140,supplier:'Searle',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:209,name:'Aldactone (Spironolactone 25mg)',category:'Ascites Liver Cirrhosis Fluid Block',stock:100,price:110,supplier:'Searle',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:210,name:'Aldactone (Spironolactone 100mg)',category:'Anti-Androgen Fluid Maintenance Max',stock:100,price:320,supplier:'Searle',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:211,name:'Rocephin 250mg Inj',category:'Premium Ceftriaxone Typhoid Shot IV',stock:100,price:320,supplier:'Roche',minStock:10,packaging:'Single Injection Pack'},
+      {id:212,name:'Rocephin 500mg Inj',category:'Meningitis Severe Sepsis Elimination',stock:100,price:550,supplier:'Roche',minStock:10,packaging:'Single Injection Pack'},
+      {id:213,name:'Rocephin 1g Injection',category:'Ultimate Broad Spectrum Bacterial Kill',stock:100,price:950,supplier:'Roche',minStock:10,packaging:'Single Injection Pack'},
+      {id:214,name:'Oxra (Dapagliflozin 5mg)',category:'Modern Sugar Flush SGLT2 Care',stock:100,price:850,supplier:'Sun Pharma',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:215,name:'Oxra (Dapagliflozin 10mg)',category:'Renal Cardio Defense Glucosuria',stock:100,price:1400,supplier:'Sun Pharma',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:216,name:'Sitara (Sitagliptin 50mg)',category:'DPP4 Enzyme Sugar Controller Smooth',stock:100,price:350,supplier:'Getz',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:217,name:'Sitara (Sitagliptin 100mg)',category:'Maximum Increting Response Balance',stock:100,price:600,supplier:'Getz',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:218,name:'Vildagliz (Vildagliptin 50mg)',category:'Pancreas Smart Sugar Release Guide',stock:100,price:290,supplier:'Sami',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:219,name:'Secnid (Secnidazole 1g)',category:'Single Dose Amoebiasis Dysentery Fix',stock:100,price:180,supplier:'Abbott',minStock:10,packaging:'Pack of 2 Tabs'},
+      {id:220,name:'Entamizole Tablet',category:'Famous Diarrhea Infection Metronidazole Mix',stock:100,price:65,supplier:'Abbott',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:221,name:'Entamizole DS Tablet',category:'Double Strength Stomach Loose Motion',stock:100,price:110,supplier:'Abbott',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:222,name:'Entamizole Suspension',category:'Pediatric Infection Dysentery Relief',stock:100,price:80,supplier:'Abbott',minStock:10,packaging:'90ml Bottle'},
+      {id:223,name:'Gaviscon Liquid',category:'Heartburn Reflux Acid Barrier Pink',stock:100,price:140,supplier:'Reckitt',minStock:10,packaging:'150ml Bottle'},
+      {id:224,name:'Gaviscon Advance',category:'Severe Hyperacidity Alginated Safety',stock:100,price:260,supplier:'Reckitt',minStock:10,packaging:'150ml Bottle'},
+      {id:225,name:'Mucaine Gel',category:'Anesthetic Antacid Stomach Ulcer Numb',stock:100,price:160,supplier:'Pfizer',minStock:10,packaging:'120ml Bottle'},
+      {id:226,name:'Gelusil Chewable',category:'Instant Acid Neutralizer Mint Gas',stock:100,price:40,supplier:'Pfizer',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:227,name:'Simeco Tablet',category:'Antacid with Antiflatulent Gas Ease',stock:100,price:50,supplier:'Sami',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:228,name:'Spasler P Tablet',category:'Smooth Muscle Relaxant Abdomen Colic',stock:100,price:120,supplier:'Searle',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:229,name:'Nospa (Drotaverine 40mg)',category:'Classic Anti-Spasmodic Cramps Pain',stock:100,price:80,supplier:'Sanofi',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:230,name:'Nospa (Drotaverine 80mg) Forte',category:'Severe Renal Biliary Intestinal Colic',stock:100,price:140,supplier:'Sanofi',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:231,name:'Mebeverine 135mg',category:'IBS Irritable Bowel Spasm Calmer',stock:100,price:90,supplier:'Getz',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:232,name:'Loperamide 2mg (Imodium)',category:'Acute Diarrhea Stop Excess Flow',stock:100,price:30,supplier:'Janssen',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:233,name:'Lomotil Tablet',category:'Antidiarrheal Fluid Retainer Protocol',stock:100,price:25,supplier:'Searle',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:234,name:'Cranmax Sachet',category:'UTI Burning Urine Cranberry Defense',stock:100,price:380,supplier:'Herbion',minStock:10,packaging:'Pack of 10 Sachets'},
+      {id:235,name:'Citra-alka Liquid',category:'Systemic Urinary Alkalizer Burning Fix',stock:100,price:95,supplier:'Sami',minStock:10,packaging:'120ml Bottle'},
+      {id:236,name:'Urispas (Flavoxate 200mg)',category:'Urinary Bladder Spasm Leakage Control',stock:100,price:320,supplier:'Searle',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:237,name:'Proscar (Finasteride 5mg)',category:'Prostate BPH Size Reduction Glandular',stock:100,price:1250,supplier:'MSD',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:238,name:'Avodart (Dutasteride 0.5mg)',category:'Dual DHT Block Prostate Retention Ease',stock:100,price:1450,supplier:'GSK',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:239,name:'Xatral (Alfuzosin 10mg) XL',category:'Alpha Blocker Urine Flow Facilitator',stock:100,price:890,supplier:'Sanofi',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:240,name:'Securop (Tamsulosin 0.4mg)',category:'Targeted Bladder Neck Opener Stone Pass',stock:100,price:450,supplier:'Getz',minStock:10,packaging:'Strip of 14 Caps'},
+      {id:241,name:'Lipirex (Atorvastatin 40mg)',category:'Maximum Coronary Plaque Regression',stock:100,price:750,supplier:'Pfizer',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:242,name:'Zetia (Ezetimibe 10mg)',category:'Intestinal Cholesterol Absorption Block',stock:100,price:680,supplier:'MSD',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:243,name:'Ezalo Tablet',category:'Statins Companion Complex Lipids Control',stock:100,price:340,supplier:'Getz',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:244,name:'Fenoget (Fenofibrate 200mg)',category:'Triglyceride Flushing Specialized Cardia',stock:100,price:290,supplier:'Getz',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:245,name:'Lipantil Nano 145mg',category:'Premium High Bioavailability Triglycerides',stock:100,price:820,supplier:'Abbott',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:246,name:'Hydralazine 25mg (Apresoline)',category:'Resistant BP Crisis Arterial Dilator',stock:100,price:90,supplier:'Novartis',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:247,name:'Methyldopa 250mg (Aldomet)',category:'Pregnancy Safe Hypertension Shield central',stock:100,price:140,supplier:'MSD',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:248,name:'Minoxidil 5mg Oral',category:'Refractory Hypertension Maximum Opening',stock:100,price:380,supplier:'Pfizer',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:249,name:'Nitroglycerin 2.6mg Sustained',category:'Angina Chest Pain Long Act Prevention',stock:100,price:240,supplier:'Searle',minStock:10,packaging:'Bottle of 30 Tabs'},
+      {id:250,name:'Angised (Glyceryl Trinitrate)',category:'Emergency Sublingual Heart Pain Reliever',stock:100,price:60,supplier:'GSK',minStock:10,packaging:'Bottle of 100 Tabs'},
+      {id:251,name:'Isordil 5mg Sublingual',category:'Rapid Precordial Pain Relief Nitrate',stock:100,price:40,supplier:'Searle',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:252,name:'Monis (Isosorbide Mononitrate)',category:'Daily Coronary Maintenance Dilator',stock:100,price:180,supplier:'Atco',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:253,name:'Zestoretic Tablet',category:'Lisinopril with Water Pill Combined BP',stock:100,price:650,supplier:'Martin Dow',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:254,name:'Co-Zaar 50mg/12.5mg',category:'Angiotensin Hydrochlorothiazide Synergy',stock:100,price:950,supplier:'MSD',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:255,name:'Zaar (Losartan 50mg)',category:'Kidney Protective Baseline BP Management',stock:100,price:260,supplier:'MSD',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:256,name:'Zaar (Losartan 100mg)',category:'Stroke Reducer Left Ventricular Care',stock:100,price:480,supplier:'MSD',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:257,name:'Avapro (Irbesartan 150mg)',category:'Diabetic Nephropathy Standard Defense',stock:100,price:550,supplier:'Sanofi',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:258,name:'Avapro (Irbesartan 300mg)',category:'Vascular Tension Muscle Reliever BP',stock:100,price:920,supplier:'Sanofi',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:259,name:'Diovan (Valsartan 80mg)',category:'Pure Angiotensin Receptor Blocker Heart',stock:100,price:620,supplier:'Novartis',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:260,name:'Diovan (Valsartan 160mg)',category:'Congestive Failure Core Survival Shield',stock:100,price:1100,supplier:'Novartis',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:261,name:'Co-Diovan 80/12.5mg',category:'Valsartan Fluid Dynamic Combo BP',stock:100,price:890,supplier:'Novartis',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:262,name:'Co-Diovan 160/12.5mg',category:'Advanced Volume Load Reducer Vascular',stock:100,price:1400,supplier:'Novartis',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:263,name:'Micardis (Telmisartan 40mg)',category:'Longest Half-Life 24hr BP Coverage',stock:100,price:580,supplier:'Boehringer',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:264,name:'Micardis (Telmisartan 80mg)',category:'Early Morning Stroke Protector Anti-BP',stock:100,price:980,supplier:'Boehringer',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:265,name:'Norvasc (Amlodipine 5mg)',category:'Premium Calcium Channel Blocker Angina',stock:100,price:390,supplier:'Pfizer',minStock:10,packaging:'Strip of 30 Tabs'},
+      {id:266,name:'Norvasc (Amlodipine 10mg)',category:'Vessel Smooth Muscle Dilator Leg Edema',stock:100,price:680,supplier:'Pfizer',minStock:10,packaging:'Strip of 30 Tabs'},
+      {id:267,name:'Amcard (Amlodipine 5mg)',category:'Highly Popular Affordable Amlodipine',stock:100,price:120,supplier:'Searle',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:268,name:'Zanidip (Lercanidipine 10mg)',category:'New Generation Zero Leg Edema Calcium',stock:100,price:450,supplier:'Abbott',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:269,name:'Adalat 20mg Retard',category:'Nifedipine Vascular Uterine Spasm Calm',stock:100,price:180,supplier:'Bayer',minStock:10,packaging:'Strip of 30 Tabs'},
+      {id:270,name:'Tenormin (Atenolol 50mg)',category:'Classic Cardio-Selective Beta Blocker',stock:100,price:110,supplier:'Martin Dow',minStock:10,packaging:'Strip of 28 Tabs'},
+      {id:271,name:'Tenormin (Atenolol 100mg)',category:'Maximum Pulse Rate Down-Regulation Control',stock:100,price:190,supplier:'Martin Dow',minStock:10,packaging:'Strip of 28 Tabs'},
+      {id:272,name:'Carvedilol 6.25mg (Dilatrend)',category:'Alpha Beta Blocker Heart Failure Survival',stock:100,price:140,supplier:'Roche',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:273,name:'Carvedilol 25mg (Dilatrend)',category:'Post-Infarction Left Ventricular Revive',stock:100,price:420,supplier:'Roche',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:274,name:'Cardarone (Amiodarone 200mg)',category:'Potent Anti-Arrhythmic Atrial Fib Fit',stock:100,price:380,supplier:'Sanofi',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:275,name:'Digoxin 0.25mg (Lanoxin)',category:'Atrial Pulse Slower Force Booster Defic',stock:100,price:45,supplier:'GSK',minStock:10,packaging:'Bottle of 100 Tabs'},
+      {id:276,name:'Stemetil (Prochlorperazine 5mg)',category:'Labyrinthine Vertigo Dizziness Nausea Stop',stock:100,price:50,supplier:'Sanofi',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:277,name:'Serpasil (Reserpine)',category:'Traditional Central Vasolitic BP Drop',stock:100,price:35,supplier:'Novartis',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:278,name:'Anergan Tablet',category:'Motion Sickness Inner Ear Balancing Antihist',stock:100,price:30,supplier:'Sami',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:279,name:'Serc (Betahistine 8mg)',category:'Meniere\'s Disease Tinnitus Ringing Numb',stock:100,price:240,supplier:'Abbott',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:280,name:'Serc (Betahistine 16mg)',category:'Severe Vertigo Spatial Orientation Correction',stock:100,price:420,supplier:'Abbott',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:281,name:'Nootropil (Piracetam 800mg)',category:'Nootropic Brain Oxygen Cognitive Booster',stock:100,price:390,supplier:'UCB Pharma',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:282,name:'Tanakan (Ginkgo Biloba 40mg)',category:'Herbal Memory Circulation Peripheral Boost',stock:100,price:580,supplier:'Ipsen',minStock:10,packaging:'Strip of 15 Tabs'},
+      {id:283,name:'Lipcol Tablet',category:'Affordable Bile Acid Synthesis Lipids Care',stock:100,price:160,supplier:'Atco',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:284,name:'Cholestyramine Powder (Questran)',category:'Bile Acid Sequestrant Severe Pruritus',stock:100,price:1850,supplier:'Bristol-Myers',minStock:10,packaging:'Pack of 10 Sachets'},
+      {id:285,name:'Ursofalk (Ursodeoxycholic Acid)',category:'Gallstone Dissolver Cholestatic Liver Care',stock:100,price:1250,supplier:'Falk Pharma',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:286,name:'Creon 10,000 Capsules',category:'Pancreatic Enzyme Replacement Digestion',stock:100,price:650,supplier:'Abbott',minStock:10,packaging:'Bottle of 20 Caps'},
+      {id:287,name:'Creon 25,000 Capsules',category:'Severe Cystic Fibrosis Steatorrhea Care',stock:100,price:1400,supplier:'Abbott',minStock:10,packaging:'Bottle of 20 Caps'},
+      {id:288,name:'Lactulose Syrup (Lilac)',category:'Osmotic Laxative Encephalopathy ammonia Down',stock:100,price:190,supplier:'Getz',minStock:10,packaging:'120ml Bottle'},
+      {id:289,name:'Duphalac Syrup',category:'Premium Gentle Chronic Constipation Softener',stock:100,price:280,supplier:'Abbott',minStock:10,packaging:'120ml Bottle'},
+      {id:290,name:'Skilax Drops',category:'Sodium Picosulfate Overnight Bowel Evacuator',stock:100,price:85,supplier:'Sami',minStock:10,packaging:'15ml Dropper Bottle'},
+      {id:291,name:'Sennakot Tablet',category:'Natural Herbal Senna Laxative Routine Const',stock:100,price:40,supplier:'Reckitt',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:292,name:'Bisacodyl 5mg (Dulcolax)',category:'Contact Stimulant Laxative Fast Action Purge',stock:100,price:30,supplier:'Boehringer',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:293,name:'Dulcolax Suppository Adult',category:'Instant Rectal Evacuation 15 Mins Const',stock:100,price:95,supplier:'Boehringer',minStock:10,packaging:'Pack of 5 Suppositories'},
+      {id:294,name:'FYBOGEL Orange Sachet',category:'Natural Isabgol Husk Soluble Fiber Bulk',stock:100,price:25,supplier:'Reckitt',minStock:10,packaging:'Single Sachet Pack'},
+      {id:295,name:'ORS (Pedialyte / Nimkol)',category:'Electrolyte Dehydration Fluid Revival Mix',stock:100,price:15,supplier:'Searle',minStock:10,packaging:'Standard Powder Sachet'},
+      {id:296,name:'Zincat Syrup',category:'Zinc Supplement Pediatric Diarrhea Stop',stock:100,price:70,supplier:'Searle',minStock:10,packaging:'60ml Bottle'},
+      {id:297,name:'Plasil (Metoclopramide) Injection',category:'Emergency Anti-Emetic Migraine Gastric Stop',stock:100,price:18,supplier:'Sanofi',minStock:10,packaging:'2ml Ampoule'},
+      {id:298,name:'Domel Syrup',category:'Domperidone Pediatric Reflux Spitting Milk',stock:100,price:65,supplier:'Sami',minStock:10,packaging:'60ml Bottle'},
+      {id:299,name:'Meclizine 25mg (Navidoxine)',category:'Pregnancy Morning Sickness Specialized Emetic',stock:100,price:90,supplier:'GSK',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:300,name:'Diclizine Tablet',category:'Pyridoxine Vitamin B6 Anti-Nausea Pregnancy',stock:100,price:75,supplier:'Sami',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:301,name:'Hydroxyzine 25mg (Atarax)',category:'Pruritus Itch Psycho-Somatic Tension Calm',stock:100,price:60,supplier:'Searle',minStock:10,packaging:'Strip of 15 Tabs'},
+      {id:302,name:'Phenobarbitone 30mg (Luminal)',category:'Traditional Anticonvulsant Epilepsy Basal',stock:100,price:40,supplier:'Bayer',minStock:10,packaging:'Strip of 30 Tabs'},
+      {id:303,name:'Primidone 250mg (Mysoline)',category:'Essential Hand Tremors Neurological Blocker',stock:100,price:320,supplier:'AstraZeneca',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:304,name:'Phenytoin 100mg (Dilantin)',category:'Grand Mal Seizures Voltage Gate Stopper',stock:100,price:140,supplier:'Pfizer',minStock:10,packaging:'Bottle of 100 Tabs'},
+      {id:305,name:'Zonisamide 50mg',category:'Refractory Epilepsy Adjunctive Brain Wave',stock:100,price:680,supplier:'Imported',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:306,name:'Topamax (Topiramate 50mg)',category:'Weight Loss Neuropathy Migraine Prevent Pro',stock:100,price:850,supplier:'Janssen',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:307,name:'Lamictal (Lamotrigine 50mg)',category:'Lennox-Gastaut Mood Stabilizer Polar Fit',stock:100,price:490,supplier:'GSK',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:308,name:'Amisulpride 100mg (Solian)',category:'Dysthymia Chronic Negative Mood Reliever',stock:100,price:550,supplier:'Sanofi',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:309,name:'Olanzapine 5mg (Zyprexa)',category:'Major Psychosis Weight Appetite Inducer',stock:100,price:380,supplier:'Lilly',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:310,name:'Risperdal (Risperidone 2mg)',category:'Autism Aggression Mania Disorganized Calm',stock:100,price:420,supplier:'Janssen',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:311,name:'Haloperidol 5mg (Serenace)',category:'Acute Aggressive Delirium Halting Neuro',stock:100,price:50,supplier:'Searle',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:312,name:'Serenace Injection 5mg',category:'Emergency Chemical Restraint Severe Mania',stock:100,price:35,supplier:'Searle',minStock:10,packaging:'1ml Ampoule'},
+      {id:313,name:'Fluphenazine Inj (Modecate)',category:'Monthly Long Acting Depot Schizophrenia Injection',stock:100,price:180,supplier:'Sanofi',minStock:10,packaging:'1ml Depot Ampoule'},
+      {id:314,name:'Procyclidine 5mg (Kemadrin)',category:'Anti-Parkinson EPS Tremor Rigidity Fixer',stock:100,price:95,supplier:'GSK',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:315,name:'Levodopa + Carbidopa (Sinemet)',category:'Gold Standard Parkinson Disease Dopamine Re',stock:100,price:480,supplier:'MSD',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:316,name:'Entacapone 200mg (Comtan)',category:'COMT Enzyme Blocker Extends Sinemet Duration',stock:100,price:950,supplier:'Novartis',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:317,name:'PramiPexole 0.25mg (Mirapex)',category:'Dopamine Agonist Restless Leg Syndrome Care',stock:100,price:340,supplier:'Boehringer',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:318,name:'Selegiline 5mg (Jumex)',category:'MAO-B Neuro-Protector Early Parkinson Shield',stock:100,price:290,supplier:'Sami',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:319,name:'Memantine 10mg (Ebixa)',category:'NMDA Antagonist Alzheimer Dementia Retarder',stock:100,price:1250,supplier:'Lundbeck',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:320,name:'Aricept (Donepezil 5mg)',category:'Acetylcholinesterase Cognitive Brain Recal',stock:100,price:980,supplier:'Pfizer',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:321,name:'Neostigmine Injection',category:'Myasthenia Gravis Reversal Gut Atony Wake',stock:100,price:40,supplier:'Sami',minStock:10,packaging:'1ml Ampoule'},
+      {id:322,name:'Pyridostigmine 60mg (Mestinon)',category:'Muscle Weakness Chronic Neuro Transmission Boost',stock:100,price:850,supplier:'Searle',minStock:10,packaging:'Bottle of 30 Tabs'},
+      {id:323,name:'Baclofen 10mg (Lioresal)',category:'Spinal Muscle Relaxant Multiple Sclerosis Spasm',stock:100,price:160,supplier:'Novartis',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:324,name:'Tizanidine 2mg (Sirdalud)',category:'Central Action Back Pain Neck Stiffness Relax',stock:100,price:110,supplier:'Novartis',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:325,name:'Methocarbamol (Robaxin)',category:'Skeletal Acute Spasm Traumatic Muscular Rest',stock:100,price:95,supplier:'Searle',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:326,name:'Orphenadrine Compound (Norgesic)',category:'Paracetamol Muscle Synergy Tension Headache Fix',stock:100,price:60,supplier:'Searle',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:327,name:'Glucosamine + Chondroitin (Jointfree)',category:'Osteoarthritis Knee Cartilage Repair Nutrient',stock:100,price:450,supplier:'Searle',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:328,name:'Diacerein 50mg (Artrodar)',category:'Interleukin Inhibitor Osteoarthritis Disease Modi',stock:100,price:380,supplier:'Sami',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:329,name:'Leflunomide 20mg (Arava)',category:'DMARD Severe Crippling Rheumatoid Remission',stock:100,price:750,supplier:'Sanofi',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:330,name:'Azathioprine 50mg (Imuran Premium)',category:'Autoimmune Vasculitis Cytotoxic Immunosuppress',stock:100,price:720,supplier:'GSK',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:331,name:'Cyclosporine 50mg (Sandimmun)',category:'Anti-Rejection Organ Transplant T-Cell Blocker',stock:100,price:2450,supplier:'Novartis',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:332,name:'Mycophenolate Mofetil (CellCept)',category:'Renal Transplant Survival Baseline Purine Blocker',stock:100,price:3800,supplier:'Roche',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:333,name:'Tacrolimus 1mg (Prograf)',category:'Highly Calibrated Post Transplant Survival Graft',stock:100,price:4200,supplier:'Astellas',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:334,name:'Calcitriol 0.25mcg (Rocaltrol)',category:'Active Hypocalcemia Parathyroid Bone Dynamic',stock:100,price:220,supplier:'Roche',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:335,name:'Calcium Carbonate + D3 (CAC 1000 Plus)',category:'Effervescent Orange Bone Density Calcium Burst',stock:100,price:190,supplier:'Novartis',minStock:10,packaging:'Tube of 10 Eff Tabs'},
+      {id:336,name:'Osseor 2g Sachet',category:'Dual Action Bone Architect Osteoporosis Fix',stock:100,price:850,supplier:'Servier',minStock:10,packaging:'Pack of 7 Sachets'},
+      {id:337,name:'Alendronate 70mg (Fosamax)',category:'Weekly Bisphosphonate Postmenopausal Bone Guard',stock:100,price:390,supplier:'MSD',minStock:10,packaging:'Pack of 4 Tabs'},
+      {id:338,name:'Zoledronic Acid 5mg (Aclasta)',category:'Annual Bone Infusion Osteoporosis Ultimate',stock:100,price:16500,supplier:'Novartis',minStock:10,packaging:'100ml Infusion Bottle'},
+      {id:339,name:'Ferrous Sulfate Syrup (Ferozone)',category:'Pediatric Iron Deficiency Red Cell Builder Anemia',stock:100,price:85,supplier:'Sami',minStock:10,packaging:'120ml Bottle'},
+      {id:340,name:'Fefol Vit Capsules',category:'Iron Folic Acid Vitamin C Pregnancy Anemia Shield',stock:100,price:140,supplier:'GSK',minStock:10,packaging:'Strip of 14 Caps'},
+      {id:341,name:'Venofer Injection Iron',category:'Intravenous Rapid Red Cell Iron Sucrose Load Veno',stock:100,price:650,supplier:'Abbott',minStock:10,packaging:'5ml Ampoule for IV'},
+      {id:342,name:'Erythropoietin 4000 IU (Eprex)',category:'Kidney Failure Anemia Erythrocyte Stimulator',stock:100,price:1850,supplier:'Janssen',minStock:10,packaging:'Pre-filled Syringe'},
+      {id:343,name:'Folic Acid 5mg',category:'Neural Tube Defect Pregnancy Mandatory Red Cell',stock:100,price:15,supplier:'Glaxo',minStock:10,packaging:'Bottle of 100 Tabs'},
+      {id:344,name:'Vitamin B12 (Methycobal 500mcg)',category:'Nerve Weakness Numbness Tingling Repair Oral',stock:100,price:240,supplier:'Eisai',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:345,name:'Methycobal Injection',category:'Peripheral Neuropathy Rapid Myelin Sheath Rebuild',stock:100,price:90,supplier:'Eisai',minStock:10,packaging:'1ml Ampoule'},
+      {id:346,name:'Neurobion Tablet',category:'Vitamin B1+B6+B12 Diabetic Nerve Vitality Fix',stock:100,price:120,supplier:'Merck',minStock:10,packaging:'Strip of 20 Tabs'},
+      {id:347,name:'Neurobion Injection',category:'Severe Sciatica Backache Nerve Stimulation Shot',stock:100,price:45,supplier:'Merck',minStock:10,packaging:'3ml Ampoule'},
+      {id:348,name:'Vitamin D3 200,000 IU (Indrop D)',category:'Mega Dose Cholecalciferol Rickets Joint Oral Oral',stock:100,price:180,supplier:'Searle',minStock:10,packaging:'1ml Oral Ampoule'},
+      {id:349,name:'Surbex T Tablet',category:'High Potency Vitamin B Complex with Vitamin C Energy',stock:100,price:110,supplier:'Abbott',minStock:10,packaging:'Strip of 30 Tabs'},
+      {id:350,name:'Sangobion Capsules',category:'Blood Mineral Replenisher Hemoglobin Force Blend',stock:100,price:160,supplier:'Merck',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:351,name:'Amphotericin B 50mg Injection',category:'Systemic Deep Black Fungus Ultimate Antifungal IV',stock:100,price:3200,supplier:'Sami',minStock:10,packaging:'Vial for Infusion'},
+      {id:352,name:'Caspofungin 50mg Injection',category:'Echinocandin Invasive Candidiasis ICU Defense Antifung',stock:100,price:14500,supplier:'MSD',minStock:10,packaging:'Vial for Infusion'},
+      {id:353,name:'Fluconazole 150mg (Diflucan)',category:'Single Dose Vaginal Thrush Elimination Antifungal',stock:100,price:390,supplier:'Pfizer',minStock:10,packaging:'Single Capsule Pack'},
+      {id:354,name:'Zelcon 150mg (Fluconazole)',category:'Popular Highly Effective Fungal Nail Scalp Stop',stock:100,price:120,supplier:'Getz',minStock:10,packaging:'Single Capsule Pack'},
+      {id:355,name:'Itraconazole 100mg (Itra)',category:'Stubborn Ringworm Tinea Versicolor Eradicator Oral',stock:100,price:450,supplier:'Getz',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:356,name:'Sporanox (Itraconazole 100mg)',category:'Premium Deep Tissue Systemic Fungal Clearance',stock:100,price:1100,supplier:'Janssen',minStock:10,packaging:'Strip of 4 Caps'},
+      {id:357,name:'Terbinafine 250mg (Lamisil)',category:'Dermatophyte Nail Onychomycosis 3 Months Cure Oral',stock:100,price:850,supplier:'Novartis',minStock:10,packaging:'Strip of 14 Tabs'},
+      {id:358,name:'Terboderm 250mg',category:'Affordable Broad Spectrum Skin Anti-Fungal Oral',stock:100,price:320,supplier:'Sami',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:359,name:'Griseofulvin 125mg',category:'Pediatric Tinea Capitis Ringworm Hair Loss Cure',stock:100,price:60,supplier:'Glaxo',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:360,name:'Nystatin Oral Drops (Nilstat)',category:'Infant Neonatal Oral Thrush Tongue Whitening Solution',stock:100,price:75,supplier:'Cyanamid',minStock:10,packaging:'30ml Dropper Bottle'},
+      {id:361,name:'Chloroquine Phosphate (Aralen)',category:'Traditional Malaria Acute Prophylaxis Suppress Rheum',stock:100,price:40,supplier:'Sanofi',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:362,name:'Primaquine Phosphate 15mg',category:'Radical Cure Malaria Vivax Hypnozoite Liver Clear',stock:100,price:95,supplier:'Sami',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:363,name:'Fansidar Tablet',category:'Malaria Combined Antifolate Multi Resistance Protocol',stock:100,price:80,supplier:'Roche',minStock:10,packaging:'Strip of 3 Tabs'},
+      {id:364,name:'Artemether + Lumefantrine (Coartem)',category:'WHO Standard ACT Uncomplicated Falciparum Eradicate',stock:100,price:340,supplier:'Novartis',minStock:10,packaging:'Strip of 24 Tabs'},
+      {id:365,name:'Artequin Tablet',category:'Artesunate Plus Mefloquine Quick Blood Parasite Wipe',stock:100,price:420,supplier:'Sami',minStock:10,packaging:'Blister Combo Pack'},
+      {id:366,name:'Quinine Sulfate 300mg',category:'Severe Cerebral Malaria Night Leg Cramps Relief',stock:100,price:110,supplier:'Abbott',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:367,name:'Pyrimethamine 25mg (Daraprim)',category:'Toxoplasmosis Opportunistic Immunodeficient Protocol',stock:100,price:160,supplier:'GSK',minStock:10,packaging:'Strip of 30 Tabs'},
+      {id:368,name:'Albendazole 400mg (Zentel)',category:'Single Dose Stomach Worms Pinworm Paralyzer Kill',stock:100,price:45,supplier:'GSK',minStock:10,packaging:'Single Chewable Tab'},
+      {id:369,name:'Zentel Suspension',category:'Pediatric Broad Spectrum Worm Infestation Clearance',stock:100,price:50,supplier:'GSK',minStock:10,packaging:'10ml Bottle Single Dose'},
+      {id:370,name:'Vermox 100mg (Mebendazole)',category:'Intestinal Roundworm Hookworm Hook Paralyzer Protocol',stock:100,price:35,supplier:'Janssen',minStock:10,packaging:'Strip of 6 Tabs'},
+      {id:371,name:'Vermox Suspension',category:'Pediatric Safe Routine 3 Days Deworming Syrup',stock:100,price:45,supplier:'Janssen',minStock:10,packaging:'30ml Bottle'},
+      {id:372,name:'Diloxanide Furoate (Furamide)',category:'Lumenal Amoebiasis Chronic Cyst Passer Eradicator',stock:100,price:90,supplier:'Searle',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:373,name:'Nitazoxanide 500mg (Crypton)',category:'Broad Spectrum Cryptosporidium Giardia Diarrhea Stop',stock:100,price:240,supplier:'Getz',minStock:10,packaging:'Strip of 6 Tabs'},
+      {id:374,name:'Vancomycin 500mg Injection',category:'Glycopeptide MRSA Superbug Intravenous Savior Antibiotic',stock:100,price:950,supplier:'Sami',minStock:10,packaging:'Vial for Injection'},
+      {id:375,name:'Teicoplanin 400mg (Targocid)',category:'Advanced Lipoglycopeptide Severe Endocarditis Sepsis',stock:100,price:3800,supplier:'Sanofi',minStock:10,packaging:'Vial with Diluent'},
+      {id:376,name:'Linezolid 600mg (Zyvox)',category:'Oxazolidinone Resistant Pneumonia Skin Bacterial Kill',stock:100,price:650,supplier:'Pfizer',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:377,name:'Linezolid Infusion (Linospan)',category:'Intravenous Direct Bioavailability VRE Infection Shield',stock:100,price:890,supplier:'Sami',minStock:10,packaging:'300ml IV Bag'},
+      {id:378,name:'Clindamycin 300mg Oral (Evoclin)',category:'Anaerobic Bacterial Bone Dental Infection Specialist',stock:100,price:320,supplier:'Getz',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:379,name:'Polymyxin B Injection',category:'MDR Pseudomonas Ultimate Resistance Critical ICU Shot',stock:100,price:4200,supplier:'Sami',minStock:10,packaging:'Injection Vial Pack'},
+      {id:380,name:'Colistin Injection (Coly-Mycin)',category:'Prodrug Polymyxin E Pan-Drug Resistant Salvage',stock:100,price:5500,supplier:'Imported',minStock:10,packaging:'Vial 1 Million IU'},
+      {id:381,name:'Acyclovir 500mg Injection',category:'Herpes Encephalitis Severe Shingles Intravenous Stop',stock:100,price:1250,supplier:'Sami',minStock:10,packaging:'Vial for IV Infusion'},
+      {id:382,name:'Ganciclovir 500mg (Cymevene)',category:'CMV Retinitis Immunocompromised Sight Savior Infus',stock:100,price:6800,supplier:'Roche',minStock:10,packaging:'Injection Vial Pack'},
+      {id:383,name:'Oseltamivir 75mg (Tamiflu)',category:'Influenza Swine Flu Antiviral Neuraminidase Block',stock:100,price:2900,supplier:'Roche',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:384,name:'Ribavirin 400mg (Copegus)',category:'Hepatitis C Respiratory Syncytial Antiviral Engine',stock:100,price:1850,supplier:'Roche',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:385,name:'Sofi (Sofosbuvir 400mg)',category:'Direct Acting Antiviral Hepatitis C 99% Cure Engine',stock:100,price:5500,supplier:'Ferozsons',minStock:10,packaging:'Bottle of 28 Tabs'},
+      {id:386,name:'Dacla (Daclatasvir 60mg)',category:'NS5A Inhibitor Companion Sofosbuvir Combo PanGen',stock:100,price:2200,supplier:'Ferozsons',minStock:10,packaging:'Strip of 28 Tabs'},
+      {id:387,name:'Entecavir 0.5mg (Baraclude)',category:'Hepatitis B Chronic Viral Replication Suppressor',stock:100,price:3800,supplier:'BMS',minStock:10,packaging:'Strip of 30 Tabs'},
+      {id:388,name:'Tenofovir Alafenamide (Tafrin)',category:'Advanced Bone Kidney Safe Hepatitis B Guard Daily',stock:100,price:2400,supplier:'Getz',minStock:10,packaging:'Bottle of 30 Tabs'},
+      {id:389,name:'Lamivudine 100mg (Zeffix)',category:'Classic Hepatitis B Safe Reverse Transcriptase Stop',stock:100,price:650,supplier:'GSK',minStock:10,packaging:'Strip of 28 Tabs'},
+      {id:390,name:'Interferon Alpha 2b Injection',category:'Subcutaneous Viral Load Suppression Oncology Catalyst',stock:100,price:1450,supplier:'Ferozsons',minStock:10,packaging:'Vial with Syringe'},
+      {id:391,name:'Cyclophosphamide 50mg (Endoxan)',category:'Alkylating Cancer Immunotherapy Autoimmune Cytotoxic',stock:100,price:950,supplier:'Baxter',minStock:10,packaging:'Bottle of 50 Tabs'},
+      {id:392,name:'Mercaptopurine 50mg (Puri-Nethol)',category:'Acute Lymphoblastic Leukemia Purine Antagonist Antineo',stock:100,price:1850,supplier:'GSK',minStock:10,packaging:'Bottle of 25 Tabs'},
+      {id:393,name:'Imatinib 400mg (Gleevec)',category:'Targeted Tyrosine Kinase CML Blood Cancer Wonder',stock:100,price:22000,supplier:'Novartis',minStock:10,packaging:'Strip of 30 Tabs'},
+      {id:394,name:'Tamoxifen 20mg (Nolvadex)',category:'Estrogen Receptor Blocker Breast Cancer Recurrence Stop',stock:100,price:450,supplier:'AstraZeneca',minStock:10,packaging:'Strip of 30 Tabs'},
+      {id:395,name:'Anastrozole 1mg (Arimidex)',category:'Aromatase Inhibitor Postmenopausal Breast Tumor Starve',stock:100,price:3200,supplier:'AstraZeneca',minStock:10,packaging:'Strip of 28 Tabs'},
+      {id:396,name:'Letrozole 2.5mg (Femara)',category:'Potent Tumor Suppressor Ovulation Induction Fertility',stock:100,price:2800,supplier:'Novartis',minStock:10,packaging:'Strip of 30 Tabs'},
+      {id:397,name:'Bicalutamide 50mg (Casodex)',category:'Anti-Androgen Prostate Malignancy Testosterone Starve',stock:100,price:4500,supplier:'AstraZeneca',minStock:10,packaging:'Strip of 28 Tabs'},
+      {id:398,name:'Hydroxyurea 500mg (Hydrea)',category:'Sickle Cell Pain Crisis Reducer Chronic Myeloid Antineo',stock:100,price:650,supplier:'BMS',minStock:10,packaging:'Bottle of 100 Caps'},
+      {id:399,name:'Capecitabine 500mg (Xeloda)',category:'Oral Fluorouracil Prodrug Colorectal Gastric Cancer',stock:100,price:8500,supplier:'Roche',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:400,name:'Flutamide 250mg (Cytomid)',category:'Prostate Carcinoma Cellular Androgen Receptor Blocker',stock:100,price:1250,supplier:'Sami',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:401,name:'Halothane Liquid Vapor',category:'Inhalation General Anesthesia Surgical Vapor Gas Anesth',stock:100,price:1450,supplier:'ICI',minStock:10,packaging:'250ml Liquid Amber Bottle'},
+      {id:402,name:'Isoflurane Vapor Liquid',category:'Modern Maintenance General Surgical Anesthesia Vapor An',stock:100,price:3200,supplier:'Abbott',minStock:10,packaging:'250ml Liquid Bottle'},
+      {id:403,name:'Ketamine 50mg/ml Injection',category:'Dissociative Short Sedation Emergency Trauma Setting Anes',stock:100,price:180,supplier:'Sami',minStock:10,packaging:'10ml Injection Vial'},
+      {id:404,name:'Propofol 1% Injection',category:'Famous Milk of Amnesia Rapid IV Inducer Day Care Surg',stock:100,price:350,supplier:'Fresenius',minStock:10,packaging:'20ml Ampoule'},
+      {id:405,name:'Thiopentone Sodium 500mg',category:'Ultra Short Barbiturate Induction Intracranial Tension',stock:100,price:120,supplier:'Sami',minStock:10,packaging:'Dry Powder Injection Vial'},
+      {id:406,name:'Lignocaine 2% Plain Inj',category:'Local Anesthesia Infiltration Minor Suturing Block Anest',stock:100,price:40,supplier:'Sami',minStock:10,packaging:'50ml Multi Dose Vial'},
+      {id:407,name:'Lignocaine + Adrenaline',category:'Vasoconstrictor Prolonged Block Bleeding Minimizer Ane',stock:100,price:55,supplier:'Sami',minStock:10,packaging:'50ml Multi Dose Vial'},
+      {id:408,name:'Xylocaine 10% Spray',category:'Topical Mucosal Numbing Spray Endoscopy Dental Anesth',stock:100,price:450,supplier:'AstraZeneca',minStock:10,packaging:'50ml Spray Canister'},
+      {id:409,name:'Bupivacaine 0.5% Plain',category:'Long Duration Nerve Block Regional Infiltration Anesth',stock:100,price:110,supplier:'Sami',minStock:10,packaging:'20ml Ampoule'},
+      {id:410,name:'Bupivacaine Heavy 0.5%',category:'Hyperbaric Spinal Anesthesia Cesarean Orthopedic Anest',stock:100,price:140,supplier:'Sami',minStock:10,packaging:'4ml Spinal Ampoule'},
+      {id:411,name:'Atracurium Besylate Injection',category:'Intermediate Muscle Relaxant Intubation Mechanical Vent',stock:100,price:190,supplier:'Sami',minStock:10,packaging:'5ml Ampoule'},
+      {id:412,name:'Pancuronium Bromide (Pavulon)',category:'Long Acting Non-Depolarizing Paralysis ICU Ventilation',stock:100,price:160,supplier:'Organon',minStock:10,packaging:'2ml Ampoule'},
+      {id:413,name:'Suxamethonium (Scoline)',category:'Ultra Fast Depolarizing Muscle Relaxant Laryngospasm An',stock:100,price:50,supplier:'Sami',minStock:10,packaging:'2ml Ampoule Emergency'},
+      {id:414,name:'Midazolam Injection (Dormicum)',category:'Surgical Conscious Sedation Seizure Terminator Benzod',stock:100,price:80,supplier:'Roche',minStock:10,packaging:'3ml Ampoule'},
+      {id:415,name:'Naloxone Injection (Narcan)',category:'Emergency Opioid Heroin Morphine Overdose Antidote Revers',stock:100,price:240,supplier:'Sami',minStock:10,packaging:'1ml Ampoule Emergency'},
+      {id:416,name:'Flumazenil Injection (Anexate)',category:'Benzodiazepine Overdose Midazolam Reversal Antidote',stock:100,price:1850,supplier:'Roche',minStock:10,packaging:'5ml Ampoule'},
+      {id:417,name:'Atropine Sulfate Injection',category:'Emergency Bradycardia Anticholinergic Organophosphate Anti',stock:100,price:15,supplier:'Sami',minStock:10,packaging:'1ml Ampoule Cardiac'},
+      {id:418,name:'Pralidoxime Injection (2-PAM)',category:'Cholinesterase Reactivator Insecticide Poisoning Antidote',stock:100,price:650,supplier:'Sami',minStock:10,packaging:'Vial with Diluent'},
+      {id:419,name:'Activated Charcoal Powder',category:'Emergency Toxic Ingestion Gastric Poison Adsorbent Antid',stock:100,price:350,supplier:'Local',minStock:10,packaging:'50g Emergency Pack'},
+      {id:420,name:'Protamine Sulfate Injection',category:'Heparin Anticoagulant Immediate Neutralization Antidote',stock:100,price:480,supplier:'Sami',minStock:10,packaging:'5ml Ampoule'},
+      {id:421,name:'Methergin Injection',category:'Postpartum Hemorrhage Uterine Tonic Bleeding Stop Obs',stock:100,price:45,supplier:'Novartis',minStock:10,packaging:'1ml Ampoule'},
+      {id:422,name:'Oxytocin Injection (Syntocinon)',category:'Labor Induction Post Delivery Contraction Starter Obst',stock:100,price:30,supplier:'Novartis',minStock:10,packaging:'1ml Ampoule'},
+      {id:423,name:'Prostaglandin E2 Gel (Prostin)',category:'Cervical Ripening Facilitator Induction Gynae Oxytocic',stock:100,price:1250,supplier:'Pfizer',minStock:10,packaging:'3g Endocervical Syringe'},
+      {id:424,name:'Misoprostol 200mcg (Cytotec)',category:'Postpartum Hemorrhage Shield Gastric NSAID Ulcer Gyna',stock:100,price:60,supplier:'Pfizer',minStock:10,packaging:'Strip of 4 Tabs'},
+      {id:425,name:'Magnesium Sulfate Injection',category:'Eclampsia Severe Pregnancy Hypertension Convulsion Gyna',stock:100,price:40,supplier:'Sami',minStock:10,packaging:'5ml Ampoule 50%'},
+      {id:426,name:'Salbutamol Nebuliser Solution',category:'Acute Asthma Attack Bronchospasm Vaporizer Respi',stock:100,price:180,supplier:'GSK',minStock:10,packaging:'20ml Nebules Bottle'},
+      {id:427,name:'Ipratropium Nebuliser (Atrovent)',category:'Anticholinergic COPD Severe Asthmatic Bronchodilat Res',stock:100,price:290,supplier:'Boehringer',minStock:10,packaging:'20ml Nebules Bottle'},
+      {id:428,name:'Beclomethasone Nebules (Clenil)',category:'Inhaled Topical Corticosteroid Airway Swelling Calm Res',stock:100,price:450,supplier:'Chiesi',minStock:10,packaging:'Pack of 10 Respules'},
+      {id:429,name:'Aminophylline Injection',category:'Emergency Xanthine Severe Status Asthmaticus Opener Res',stock:100,price:35,supplier:'Sami',minStock:10,packaging:'10ml Ampoule'},
+      {id:430,name:'Hydrocortisone Injection (Solu-Cortef)',category:'Acute Adrenal Crisis Anaphylactic Shock Steroid Shock Res',stock:100,price:110,supplier:'Pfizer',minStock:10,packaging:'100mg Dual Vial Pack'},
+      {id:431,name:'Timolol 0.5% Eye Drops',category:'Beta Blocker Intraocular Glaucoma Pressure Lower Drops',stock:100,price:140,supplier:'Alcon',minStock:10,packaging:'5ml Dropper Bottle'},
+      {id:432,name:'Xalatan Eye Drops (Latanoprost)',category:'Prostaglandin Analogue Advanced Glaucoma Fluid Outlet Dr',stock:100,price:1250,supplier:'Pfizer',minStock:10,packaging:'2.5ml Dropper Bottle'},
+      {id:433,name:'Alphagan Drops (Brimonidine)',category:'Alpha Agonist Double Glaucoma Control Drop Drops',stock:100,price:850,supplier:'Allergan',minStock:10,packaging:'5ml Dropper Bottle'},
+      {id:434,name:'Pilocar Eye Drops 2%',category:'Miotic Pupil Constrictor Emergency Acute Angle Glaucoma',stock:100,price:95,supplier:'Sami',minStock:10,packaging:'5ml Dropper Bottle'},
+      {id:435,name:'Tears Naturale Eye Drops',category:'Artificial Tears Dry Eye Burn Gritty Eye Lubricant Drops',stock:100,price:160,supplier:'Alcon',minStock:10,packaging:'15ml Dropper Bottle'},
+      {id:436,name:'Betnesol Eye Ear Drops',category:'Betamethasone Topical Corticosteroid Inflammation Calm Dr',stock:100,price:40,supplier:'GSK',minStock:10,packaging:'5ml Dropper Bottle'},
+      {id:437,name:'Tobradex Eye Drops',category:'Dexamethasone Tobramycin Potent Post Op Steroid Antib',stock:100,price:320,supplier:'Alcon',minStock:10,packaging:'5ml Dropper Bottle'},
+      {id:438,name:'Ciloxan Ophthalmic (Ciprofloxacin)',category:'Corneal Ulcer Bacterial Conjunctivitis Shield Drops',stock:100,price:180,supplier:'Alcon',minStock:10,packaging:'5ml Dropper Bottle'},
+      {id:439,name:'Chloramphenicol Optic Drops',category:'Traditional Acute Pink Eye Bacterial Clearance Drops',stock:100,price:30,supplier:'Sami',minStock:10,packaging:'10ml Dropper Bottle'},
+      {id:440,name:'Olive Oil Ear Drops (Waxsol)',category:'Gentle Cerumen Ear Wax Softener Impaction Removal Drop',stock:100,price:90,supplier:'Local',minStock:10,packaging:'10ml Bottle with Dropper'},
+      {id:441,name:'Silver Sulfadiazine Cream (Burnol)',category:'Topical Burns Scalds Infection Prophylaxis Cream Skin',stock:100,price:85,supplier:'Sami',minStock:10,packaging:'50g Tube'},
+      {id:442,name:'Selsun Blue Shampoo 1%',category:'Selenium Sulfide Severe Dandruff Seborrheic Derm Derma',stock:100,price:450,supplier:'Abbott',minStock:10,packaging:'120ml Bottle'},
+      {id:443,name:'Permethrin 5% Cream (Scabion)',category:'Anti-Scabies Mites Night Application Eradicator Derma',stock:100,price:95,supplier:'Sami',minStock:10,packaging:'30g Tube'},
+      {id:444,name:'Benzyl Benzoate Lotion',category:'Traditional Multi Scabies Body Lice Parasiticide Derma',stock:100,price:70,supplier:'Glaxo',minStock:10,packaging:'100ml Bottle'},
+      {id:445,name:'Calamine Soothing Lotion',category:'Prickly Heat Sunburn Chickenpox Itch Soother Relief',stock:100,price:80,supplier:'Sami',minStock:10,packaging:'120ml Bottle'},
+      {id:446,name:'Salicylic Acid Ointment 5%',category:'Keratolytic Wart Corn Thick Skin Peeling Softener Derma',stock:100,price:60,supplier:'Local',minStock:10,packaging:'20g Jar'},
+      {id:447,name:'Erythromycin 4% Topical (Eryderm)',category:'Anti-Acne Vulgaris Inflammatory Pimples Solution Der',stock:100,price:140,supplier:'Atco',minStock:10,packaging:'30ml Bottle with Applicator'},
+      {id:448,name:'Benzoyl Peroxide 5% (Brevoxyl)',category:'Oxidizing Acne Pore Peeling Bacteria Killer Derma',stock:100,price:180,supplier:'Stiefel',minStock:10,packaging:'20g Tube'},
+      {id:449,name:'Isotretinoin 20mg (Roaccutane)',category:'Severe Cystic Acne Sebaceous Gland Shrinker Retinoid',stock:100,price:2400,supplier:'Roche',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:450,name:'Acitretin 10mg (Neotigason)',category:'Severe Psoriasis Keratoderma Disease Modifying Derma',stock:100,price:3800,supplier:'Roche',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:451,name:'Methoxsalen 10mg (Oxsoralen)',category:'Vitiligo Leukoderma Psoriasis PUVA Phototherapy Derma',stock:100,price:1250,supplier:'Stiefel',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:452,name:'Mebendazole Chewable 500mg',category:'Stomach Worms Pinworm Paralyzer Kill',stock:100,price:140,supplier:'Janssen',minStock:10,packaging:'Pack of 1 Tab'},
+      {id:453,name:'Pyrantel Pamoate 250mg',category:'Combantrin Pinworm Roundworm Family Pack Chew',stock:100,price:45,supplier:'Pfizer',minStock:10,packaging:'Strip of 4 Tabs'},
+      {id:454,name:'Piperazine Elixir',category:'Piperazine Syrup Roundworm Expulsion Pediatric Liquid',stock:100,price:50,supplier:'Sami',minStock:10,packaging:'60ml Bottle'},
+      {id:455,name:'Diethylcarbamazine 50mg',category:'Hetrazan Filariasis Elephantiasis Tropical Eosino',stock:100,price:95,supplier:'GSK',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:456,name:'Ivenmectin 3mg',category:'Stromectol Scabies Rosacea Treatment',stock:100,price:240,supplier:'MSD',minStock:10,packaging:'Pack of 4 Tabs'},
+      {id:457,name:'Leflunomide 10mg',category:'Arava Low Rheumatoid Maintenance Lower Strength',stock:100,price:420,supplier:'Sanofi',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:458,name:'Penicillamine 250mg',category:'Cuprimine Wilson\'s Disease Copper Heavy Metal Che',stock:100,price:1950,supplier:'MSD',minStock:10,packaging:'Strip of 10 Caps'},
+      {id:459,name:'Deferoxamine Mesylate',category:'Desferal 500mg Thalassemia Iron Overload Chelation IV',stock:100,price:450,supplier:'Novartis',minStock:10,packaging:'1 Injection Vial'},
+      {id:460,name:'Deferasirox 500mg Oral',category:'Exjade Dispersible Thalassemia Oral Iron Chelation Daily',stock:100,price:3600,supplier:'Novartis',minStock:10,packaging:'Strip of 7 Tabs'},
+      {id:461,name:'Sodium Polystyrene Sulf',category:'Kayexalate Powder Hyperkalemia High Potassium Kidney Care',stock:100,price:4200,supplier:'Sanofi',minStock:10,packaging:'454g Canister'},
+      {id:462,name:'Calcium Acetate 667mg',category:'PhosLo Phosphate End-Stage Renal Kidney Phosphorus Block',stock:100,price:180,supplier:'Sami',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:463,name:'Sevelamer Carbonate 800mg',category:'Renvela Dialysis Chronic Kidney Disease Phosphorus Care',stock:100,price:1450,supplier:'Sanofi',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:464,name:'Cinacalcet 30mg (Sensipar)',category:'Secondary Hyperparathyroidism Chronic Renal Failure Care',stock:100,price:4800,supplier:'Amgen',minStock:10,packaging:'Strip of 10 Tabs'},
+      {id:465,name:'Levocarnitine 1g Injection',category:'Carnitor Muscle Weakness Hemodialysis Deficiency Tonic',stock:100,price:290,supplier:'Sami',minStock:10,packaging:'5ml Ampoule'},
+      {id:466,name:'Sodium Bicarbonate 8.4% Inj',category:'Severe Metabolic Acidosis Cardiac Arrest Resuscitation',stock:100,price:110,supplier:'Sami',minStock:10,packaging:'50ml Infusion Vial'},
+      {id:467,name:'Potassium Chloride Inj (KCl)',category:'Severe Hypokalemia Concentrated Electrolyte Dilution Only',stock:100,price:35,supplier:'Sami',minStock:10,packaging:'10ml Ampoule'}
+    ];
+
+    function handleLogin() {
+      var user = document.getElementById('login-user').value.trim();
+      var pass = document.getElementById('login-pass').value;
+      var errEl = document.getElementById('login-error');
+      errEl.style.display = 'none'; errEl.textContent = '';
+      try {
+        if (user === 'admin' && pass === 'admin123') loginUser('Admin', 'admin');
+        else if (user === 'staff' && pass === 'staff123') loginUser('Staff', 'staff');
+        else { errEl.textContent = 'Galat ID/Password. Use admin/admin123'; errEl.style.display = 'block'; }
+      } catch (e) { errEl.textContent = 'Login Error: ' + e.message; errEl.style.display = 'block'; }
+    }
+
+    function loginUser(roleName, roleType) {
+      state.currentUser = { name: roleName, role: roleType };
+      document.getElementById('login-screen').style.display = 'none';
+      document.getElementById('app').style.display = 'block';
+      document.getElementById('user-info').textContent = roleName + ' • ' + state.currentStore;
+      initApp();
+      showNotification('Login Successful! Welcome ' + roleName);
+    }
+
+    function logout() { location.reload(); }
+
+    function initApp() {
+      try {
+        var key = 'khan_data_' + state.currentStore.replace(/\s+/g, '_');
+        var saved = localStorage.getItem(key);
+        if (saved) {
+          var data = JSON.parse(saved);
+          state.inventory[state.currentStore] = data.inventory || [];
+          state.bills[state.currentStore] = data.bills || [];
+          state.orders[state.currentStore] = data.orders || [];
+        } else {
+          state.inventory[state.currentStore] = JSON.parse(JSON.stringify(pakistaniMedicines));
+          state.bills[state.currentStore] = [];
+          state.orders[state.currentStore] = [];
+        }
+        updateDashboard();
+      } catch (e) { console.error('Init Error', e); showNotification('App Error: ' + e.message, 'error'); }
+    }
+
+    function saveData() {
+      try {
+        var key = 'khan_data_' + state.currentStore.replace(/\s+/g, '_');        localStorage.setItem(key, JSON.stringify({
+          inventory: state.inventory[state.currentStore],
+          bills: state.bills[state.currentStore],
+          orders: state.orders[state.currentStore]
+        }));
+      } catch(e) { console.log('Save failed', e); }
+    }
+
+    function changeStore() {
+      state.currentStore = document.getElementById('store-select').value;
+      state.cart = [];
+      document.getElementById('user-info').textContent = state.currentUser.name + ' • ' + state.currentStore;
+      initApp();
+      showNotification('Switched to ' + state.currentStore);
+    }
+
+    function showTab(tab) {
+      ['dashboard','inventory','billing','orders','alerts','reports'].forEach(t => {
+        var el = document.getElementById(t); if (el) el.style.display = t === tab ? 'block' : 'none';
+      });
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      if (event && event.target) event.target.classList.add('active');
+      if (tab === 'dashboard') updateDashboard();
+      if (tab === 'inventory') renderInventory();
+      if (tab === 'billing') renderBillSearch();
+      if (tab === 'orders') renderOrders();
+      if (tab === 'alerts') renderAlerts();
+      if (tab === 'reports') renderReports();
+    }
+
+    function updateDashboard() {
+      var inv = state.inventory[state.currentStore] || [];
+      var bills = state.bills[state.currentStore] || [];
+      document.getElementById('stat-total').textContent = inv.length;
+      document.getElementById('stat-value').textContent = 'PKR ' + inv.reduce((s,i)=>s+(i.stock*i.price),0).toFixed(0);
+      document.getElementById('stat-low').textContent = inv.filter(i => i.stock<=i.minStock && i.stock>0).length;
+      document.getElementById('stat-out').textContent = inv.filter(i => i.stock===0).length;
+      document.getElementById('stat-bills').textContent = bills.length;
+      var today = new Date().toISOString().split('T')[0];
+      document.getElementById('stat-revenue').textContent = 'PKR ' + bills.filter(b=>b.date&&b.date.startsWith(today)).reduce((s,b)=>s+b.total,0).toFixed(0);
+    }
+
+    function renderInventory() {
+      var inv = state.inventory[state.currentStore] || [];
+      var search = document.getElementById('inv-search').value.toLowerCase();
+      var filtered = inv.filter(i => i.name.toLowerCase().includes(search) || i.category.toLowerCase().includes(search));
+      var tbody = document.querySelector('#inv-table tbody');
+      if (!tbody) return;
+      tbody.innerHTML = filtered.map(item => `
+        <tr>          <td><b>${item.name}</b></td><td>${item.category}</td>
+          <td style="color:${item.stock===0?'#ff5252':item.stock<=item.minStock?'#ffc107':'#00e676'};font-weight:700">${item.stock}</td>
+          <td>PKR ${item.price}</td>
+          <td>${item.stock===0?'<span class="badge badge-out">Out</span>':item.stock<=item.minStock?'<span class="badge badge-low">Low</span>':'<span class="badge badge-ok">OK</span>'}</td>
+          <td>
+            <button class="btn btn-secondary" style="padding:6px 10px;font-size:12px" onclick="editMed(${item.id})">Edit</button>
+            <button class="btn" style="padding:6px 10px;font-size:12px" onclick="addToCart(${item.id})">Add</button>
+            <button class="btn btn-danger" style="padding:6px 10px;font-size:12px" onclick="deleteMed(${item.id})">Delete</button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function openAddModal() {
+      state.editId = null;
+      document.getElementById('modal-title').textContent = 'Add Medicine';
+      ['med-name','med-stock','med-price','med-min','med-supplier','med-phone','med-expiry'].forEach(id => document.getElementById(id).value = '');
+      document.getElementById('med-category').value = 'Tablet';
+      document.getElementById('add-modal').classList.add('active');
+    }
+    function closeAddModal() { document.getElementById('add-modal').classList.remove('active'); }
+    
+    function editMed(id) {
+      var inv = state.inventory[state.currentStore];
+      var item = inv.find(i => i.id === id);
+      if (!item) return;
+      state.editId = id;
+      document.getElementById('modal-title').textContent = 'Edit Medicine';
+      document.getElementById('med-name').value = item.name;
+      document.getElementById('med-category').value = item.category;
+      document.getElementById('med-stock').value = item.stock;
+      document.getElementById('med-price').value = item.price;
+      document.getElementById('med-min').value = item.minStock;
+      document.getElementById('med-supplier').value = item.supplier || '';
+      document.getElementById('med-phone').value = item.phone || '';
+      document.getElementById('med-expiry').value = item.expiry || '';
+      document.getElementById('add-modal').classList.add('active');
+    }
+    
+    function deleteMed(id) {
+      if (!confirm('Are you sure you want to delete this medicine?')) return;
+      state.inventory[state.currentStore] = state.inventory[state.currentStore].filter(i => i.id !== id);
+      saveData();
+      showNotification('Medicine deleted successfully!');
+      updateDashboard();
+      renderInventory();
+    }
+
+    function saveMedicine() {
+      var name = document.getElementById('med-name').value;      var stock = parseInt(document.getElementById('med-stock').value) || 0;
+      var price = parseFloat(document.getElementById('med-price').value) || 0;
+      if (!name || !price) { showNotification('Name and Price required', 'error'); return; }
+      var med = { name, category: document.getElementById('med-category').value || 'Tablet', stock, price, minStock: parseInt(document.getElementById('med-min').value)||0, supplier: document.getElementById('med-supplier').value, phone: document.getElementById('med-phone').value, expiry: document.getElementById('med-expiry').value };
+      if (state.editId) {
+        var idx = state.inventory[state.currentStore].findIndex(i => i.id === state.editId);
+        if (idx >= 0) state.inventory[state.currentStore][idx] = { ...state.inventory[state.currentStore][idx], ...med };
+        showNotification('Updated!');
+      } else {
+        med.id = Date.now(); state.inventory[state.currentStore].push(med); showNotification('Added!');
+      }
+      saveData(); closeAddModal(); updateDashboard(); renderInventory();
+    }
+
+    function addToCart(id) {
+      var inv = state.inventory[state.currentStore];
+      var item = inv.find(i => i.id === id);
+      if (!item || item.stock === 0) { showNotification('Out of stock!', 'error'); return; }
+      var existing = state.cart.find(c => c.id === id);
+      if (existing) {
+        if (existing.qty >= item.stock) { showNotification('Not enough stock!', 'error'); return; }
+        existing.qty++;
+      } else { state.cart.push({ ...item, qty: 1 }); }
+      showNotification('Added to cart'); renderCart();
+    }
+
+    function renderCart() {
+      var container = document.getElementById('cart-items');
+      document.getElementById('cart-count').textContent = state.cart.length;
+      if (state.cart.length === 0) { container.innerHTML = '<p style="text-align:center;color:#90a4ae;padding:20px">Empty</p>'; }
+      else {
+        container.innerHTML = state.cart.map(item => `
+          <div class="cart-item">
+            <div><b>${item.name}</b><div style="font-size:12px;color:#90a4ae">PKR ${item.price} × ${item.qty}</div></div>
+            <div style="display:flex;align-items:center;gap:8px">
+              <button class="qty-btn" onclick="updateCartQty(${item.id},-1)">-</button>
+              <span style="font-weight:700">${item.qty}</span>
+              <button class="qty-btn" onclick="updateCartQty(${item.id},1)">+</button>
+              <button class="btn btn-danger" style="padding:4px 8px;margin-left:8px" onclick="removeFromCart(${item.id})">×</button>
+            </div>
+          </div>
+        `).join('');
+      }
+      var subtotal = state.cart.reduce((s,i)=>s+(i.price*i.qty),0);
+      var gst = subtotal * 0.05; var total = subtotal + gst;
+      document.getElementById('cart-subtotal').textContent = 'PKR ' + subtotal.toFixed(2);
+      document.getElementById('cart-gst').textContent = 'PKR ' + gst.toFixed(2);
+      document.getElementById('cart-total').textContent = 'PKR ' + total.toFixed(2);
+    }
+    function updateCartQty(id, change) {
+      var item = state.cart.find(c => c.id === id);
+      var invItem = state.inventory[state.currentStore].find(i => i.id === id);
+      if (!item || !invItem) return;
+      var newQty = item.qty + change;
+      if (newQty <= 0) removeFromCart(id);
+      else if (newQty <= invItem.stock) { item.qty = newQty; renderCart(); }
+      else showNotification('Not enough stock!', 'error');
+    }
+    function removeFromCart(id) { state.cart = state.cart.filter(c => c.id !== id); renderCart(); }
+
+    function renderBillSearch() {
+      var inv = state.inventory[state.currentStore];
+      var search = document.getElementById('bill-search').value.toLowerCase();
+      var container = document.getElementById('bill-search-results');
+      if (!search) { container.innerHTML = ''; return; }
+      var filtered = inv.filter(i => i.name.toLowerCase().includes(search)).slice(0, 5);
+      container.innerHTML = filtered.map(item => `
+        <div class="cart-item" style="cursor:pointer" onclick="addToCart(${item.id});document.getElementById('bill-search').value='';renderBillSearch()">
+          <div><b>${item.name}</b><div style="font-size:12px;color:#90a4ae">Stock: ${item.stock} | PKR ${item.price}</div></div>
+          <button class="btn" style="padding:6px 12px">+ Add</button>
+        </div>
+      `).join('');
+    }
+
+    function generateBill() {
+      var patient = document.getElementById('bill-patient').value;
+      if (!patient) { showNotification('Patient name required!', 'error'); return; }
+      if (state.cart.length === 0) { showNotification('Cart empty!', 'error'); return; }
+      
+      var subtotal = state.cart.reduce((s,i)=>s+(i.price*i.qty),0);
+      var gst = subtotal * 0.05; var total = subtotal + gst;
+      
+      state.currentBill = {
+        id: 'BILL-' + Date.now(), date: new Date().toLocaleString(), patient, phone: document.getElementById('bill-phone').value,
+        items: [...state.cart], subtotal, gst, total, store: state.currentStore, cashier: state.currentUser.name
+      };
+      
+      state.cart.forEach(c => {
+        var item = state.inventory[state.currentStore].find(i => i.id === c.id);
+        if (item) item.stock -= c.qty;
+      });
+      state.bills[state.currentStore].push(state.currentBill);
+      saveData();
+      state.cart = [];
+      document.getElementById('bill-patient').value = ''; document.getElementById('bill-phone').value = '';
+      
+      showBillPreview(state.currentBill);
+      updateDashboard(); renderInventory();
+    }
+    function showBillPreview(bill) {
+      document.getElementById('bill-meta').innerHTML = `
+        <div><b>Bill No:</b> ${bill.id}</div><div><b>Date:</b> ${bill.date}</div>
+        <div><b>Patient:</b> ${bill.patient}</div>${bill.phone?`<div><b>Phone:</b> ${bill.phone}</div>`:''}
+        <div><b>Cashier:</b> ${bill.cashier}</div><div><b>Store:</b> ${bill.store}</div>
+      `;
+      document.getElementById('bill-items').innerHTML = bill.items.map((item, idx) => `
+        <tr><td>${idx+1}</td><td>${item.name}</td><td style="text-align:center">${item.qty}</td><td style="text-align:center">PKR ${item.price.toFixed(2)}</td><td style="text-align:right;font-weight:600">PKR ${(item.price*item.qty).toFixed(2)}</td></tr>
+      `).join('');
+      document.getElementById('bill-totals').innerHTML = `
+        <div><span>Subtotal:</span><span>PKR ${bill.subtotal.toFixed(2)}</span></div>
+        <div><span>GST (5%):</span><span>PKR ${bill.gst.toFixed(2)}</span></div>
+        <div class="bill-grand"><span>TOTAL:</span><span>PKR ${bill.total.toFixed(2)}</span></div>
+      `;
+      document.getElementById('bill-store-footer').textContent = bill.store;
+      document.getElementById('bill-modal').classList.add('active');
+    }
+
+    function closeBillModal() { document.getElementById('bill-modal').classList.remove('active'); }
+    function printBill() { window.print(); }
+    function downloadPDF() {
+      const element = document.getElementById('bill-print-area');
+      const opt = {
+        margin: 0.4, filename: `${state.currentBill.id}_KhanMedicos.pdf`,
+        image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+      html2pdf().set(opt).from(element).save();
+    }
+
+    function renderOrders() {
+      var inv = state.inventory[state.currentStore];
+      var low = inv.filter(i => i.stock <= i.minStock);
+      var container = document.getElementById('order-items');
+      if (low.length === 0) {
+        container.innerHTML = '<p style="text-align:center;color:#00e676;padding:20px">✅ All in stock!</p>';
+        document.getElementById('place-order-btn').disabled = true; return;
+      }
+      container.innerHTML = low.map(item => `
+        <div class="cart-item">
+          <div><b>${item.name}</b><div style="font-size:12px;color:#90a4ae">Current: ${item.stock} | Min: ${item.minStock}</div></div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <input type="number" class="input" style="width:80px;margin:0;padding:6px" placeholder="Qty" min="1" value="${state.orderQty[item.id]||''}" onchange="updateOrderQty(${item.id},this.value)">
+          </div>
+        </div>
+      `).join('');
+      document.getElementById('place-order-btn').disabled = true;
+    }
+    function updateOrderQty(id, qty) {      state.orderQty[id] = parseInt(qty) || 0; renderOrders();
+      document.getElementById('place-order-btn').disabled = !Object.values(state.orderQty).some(q => q > 0);
+    }
+    function placeOrder() {
+      var items = Object.entries(state.orderQty).filter(([id,qty]) => qty > 0).map(([id,qty]) => {
+        var item = state.inventory[state.currentStore].find(i => i.id == id); return { ...item, orderQty: qty };
+      });
+      if (items.length === 0) return;
+      var order = { id: 'ORD-' + Date.now(), date: new Date().toLocaleString(), status: 'Placed', items };
+      state.orders[state.currentStore].push(order); saveData(); state.orderQty = {};
+      showNotification('Order Placed!'); renderOrders();
+    }
+
+    function renderAlerts() {
+      var inv = state.inventory[state.currentStore];
+      var low = inv.filter(i => i.stock <= i.minStock && i.stock > 0);
+      var out = inv.filter(i => i.stock === 0); var html = '';
+      if (out.length > 0) html += `<div class="card" style="border-left:4px solid #ff5252"><h3 style="color:#ff5252;margin-bottom:12px">🚫 Out of Stock</h3><table><thead><tr><th>Medicine</th><th>Supplier</th></tr></thead><tbody>${out.map(i=>`<tr><td><b>${i.name}</b></td><td>${i.supplier}</td></tr>`).join('')}</tbody></table></div>`;
+      if (low.length > 0) html += `<div class="card" style="border-left:4px solid #ffc107"><h3 style="color:#ffc107;margin-bottom:12px">⚠️ Low Stock</h3><table><thead><tr><th>Medicine</th><th>Current</th><th>Min</th></tr></thead><tbody>${low.map(i=>`<tr><td><b>${i.name}</b></td><td>${i.stock}</td><td>${i.minStock}</td></tr>`).join('')}</tbody></table></div>`;
+      if (!html) html = '<div class="card" style="text-align:center;padding:40px"><div style="font-size:48px;margin-bottom:16px">✅</div><h3>All stocks healthy!</h3></div>';
+      document.getElementById('alerts-content').innerHTML = html;
+    }
+
+    function renderReports() {
+      var bills = state.bills[state.currentStore];
+      var today = new Date().toISOString().split('T')[0];
+      document.getElementById('rep-today').textContent = 'PKR ' + bills.filter(b=>b.date&&b.date.startsWith(today)).reduce((s,b)=>s+b.total,0).toFixed(0);
+      document.getElementById('rep-month').textContent = 'PKR ' + bills.reduce((s,b)=>s+b.total,0).toFixed(0);
+      var itemSales = {}; bills.forEach(b=>b.items.forEach(i=>{itemSales[i.name]=(itemSales[i.name]||0)+i.qty;}));
+      var top = Object.entries(itemSales).sort((a,b)=>b[1]-a[1]).slice(0,5);
+      var max = top.length ? top[0][1] : 1;
+      document.getElementById('top-items').innerHTML = top.map(([name,qty])=>`
+        <div class="chart-bar"><div class="chart-label">${name}</div><div class="chart-fill"><div class="chart-value" style="width:${(qty/max)*100}%"></div><div class="chart-text">${qty}</div></div></div>
+      `).join('');
+    }
+
+    function exportData() {
+      var data = { inventory: state.inventory[state.currentStore], bills: state.bills[state.currentStore], orders: state.orders[state.currentStore] };
+      var blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'khan_medicos_pakistan.json'; a.click();
+      showNotification('Exported!');
+    }
+    function importData(input) {
+      var file = input.files[0]; if (!file) return;
+      var reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          var data = JSON.parse(e.target.result);
+          if (data.inventory) {
+            var count = data.inventory.length;            if (confirm(count + ' medicines import hongi. Continue?')) {
+              state.inventory[state.currentStore] = data.inventory;
+              if (data.bills) state.bills[state.currentStore] = data.bills;
+              if (data.orders) state.orders[state.currentStore] = data.orders;
+              saveData(); showNotification(count + ' medicines imported!'); updateDashboard(); renderInventory();
+            }
+          }
+        } catch(err) { showNotification('Import failed', 'error'); }
+      };
+      reader.readAsText(file); input.value = '';
+    }
+
+    function showNotification(msg, type='success') {
+      var n = document.createElement('div'); n.className = 'notification' + (type==='error'?' error':'');
+      n.textContent = msg; document.body.appendChild(n); setTimeout(() => n.remove(), 3000);
+    }
+    function toggleTheme() {
+      var isDark = document.body.style.background !== 'white';
+      document.body.style.background = isDark ? '#f5f7fa' : '#0f1117';
+      document.body.style.color = isDark ? '#1a237e' : '#e8eaf6';
+    }
+  </script>
+</body>
+</html>
