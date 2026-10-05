@@ -731,7 +731,7 @@ function renderInventory(){
     <div class="sec-head">
       <h2>Inventory<span class="ur">Dawaon ka stock — search, filter aur manage karein</span></h2>
       <div class="actions">
-        <button class="btn btn-ghost btn-sm" onclick="exportJSON()">${icon("download")} Export JSON</button>
+        <button class="btn btn-ghost btn-sm" onclick="exportCSV()" title="Excel me kholne ke liye download karein">${icon("download")} Download CSV</button>
         <button class="btn btn-ghost btn-sm" onclick="$('import-file').click()">${icon("upload")} Import CSV</button>
         <input type="file" id="import-file" accept=".csv,.txt,.tsv" hidden onchange="importCSV(event)">
         <button class="btn btn-sm" onclick="openMedModal()">${icon("plus")} Add Medicine</button>
@@ -831,6 +831,14 @@ function delMed(idx){
 function exportJSON(){
   downloadFile("khan-medicos-inventory.json", JSON.stringify(state.meds, null, 2), "application/json");
   toast("Inventory exported as JSON.");
+}
+function exportCSV(){
+  const q = v => `"${String(v ?? "").replace(/"/g,'""')}"`;
+  const rows = [["SKU","Name","Generic","Pack","Category","MRP","Stock","Expiry","Min Stock"]];
+  state.meds.forEach(m => rows.push([m.sku, m.name, m.generic, m.pack, m.category, m.mrp, m.stock, m.expiry, m.min]));
+  const csv = "\ufeff" + rows.map(r => r.map(q).join(",")).join("\n");
+  downloadFile("khan-medicos-medicines.csv", csv, "text/csv;charset=utf-8");
+  toast("Medicine list downloaded — Excel me kholein, edit karein, Import CSV se wapas laein.");
 }
 function parseCSV(text){
   const rows = []; let row = [], cur = "", q = false;
