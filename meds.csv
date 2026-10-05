@@ -1,0 +1,933 @@
+sku,name,generic,pack,category,mrp,stock,expiry
+KM-0001,Panadol,Paracetamol 500mg,100 Tabs,Analgesics,115,200,2027-07
+KM-0002,Panadol,Paracetamol 500mg,20 Tabs,Analgesics,28,118,2027-12
+KM-0003,Panadol Extra,Paracetamol 500mg + Caffeine 65mg,48 Tabs,Analgesics,210,147,2027-12
+KM-0004,Panadol Extra,Paracetamol 500mg + Caffeine 65mg,100 Tabs,Analgesics,420,342,2027-03
+KM-0005,Panadol Night,Paracetamol 500mg + Diphenhydramine 25mg,20 Tabs,Analgesics,110,322,2027-12
+KM-0006,Panadol Joint,Paracetamol 665mg,48 Tabs,Analgesics,300,98,2027-10
+KM-0007,Panadol ActiFast,Paracetamol 500mg,20 Tabs,Analgesics,130,4,2027-04
+KM-0008,Panadol Syrup,Paracetamol 120mg/5ml,90ml Syrup,Analgesics,130,247,2027-08
+KM-0009,Panadol Drops,Paracetamol 100mg/ml,15ml Drops,Analgesics,95,149,2027-12
+KM-0010,Disprin,Aspirin 300mg (soluble),100 Tabs,Analgesics,135,363,2027-10
+KM-0011,Disprin,Aspirin 300mg (soluble),20 Tabs,Analgesics,40,123,2027-12
+KM-0012,Disprin CV,Aspirin 75mg,30 Tabs,Analgesics,130,177,2027-02
+KM-0013,Ascard,Aspirin 75mg,100 Tabs,Analgesics,330,128,2027-02
+KM-0014,Ascard,Aspirin 150mg,50 Tabs,Analgesics,260,423,2027-07
+KM-0015,Loprin,Aspirin 75mg,100 Tabs,Analgesics,250,216,2027-06
+KM-0016,Loprin DS,Aspirin 150mg,100 Tabs,Analgesics,400,44,2027-05
+KM-0017,Brufen,Ibuprofen 200mg,100 Tabs,Analgesics,280,478,2027-11
+KM-0018,Brufen,Ibuprofen 400mg,50 Tabs,Analgesics,290,459,2027-07
+KM-0019,Brufen,Ibuprofen 600mg,50 Tabs,Analgesics,360,119,2027-12
+KM-0020,Brufen Syrup,Ibuprofen 100mg/5ml,90ml Syrup,Analgesics,150,266,2027-08
+KM-0021,Ponstan,Mefenamic Acid 250mg,20 Caps,Analgesics,140,463,2027-12
+KM-0022,Ponstan Forte,Mefenamic Acid 500mg,20 Tabs,Analgesics,170,245,2027-04
+KM-0023,Voltral,Diclofenac Sodium 50mg,30 Tabs,Analgesics,580,146,2027-04
+KM-0024,Voltral SR,Diclofenac Sodium 100mg,20 Tabs,Analgesics,520,137,2027-10
+KM-0025,Voltral Gel,Diclofenac 1% Gel,30g Gel,Analgesics,320,286,2027-06
+KM-0026,Voveran,Diclofenac Sodium 50mg,30 Tabs,Analgesics,300,10,2027-08
+KM-0027,Cataflam,Diclofenac Potassium 50mg,20 Tabs,Analgesics,330,470,2027-11
+KM-0028,Cataflam,Diclofenac Potassium 25mg,30 Tabs,Analgesics,300,7,2027-07
+KM-0029,Nuberol,Paracetamol 500mg + Orphenadrine 50mg,20 Tabs,Analgesics,330,123,2027-04
+KM-0030,Nuberol Forte,Paracetamol 650mg + Orphenadrine 50mg,20 Tabs,Analgesics,420,271,2027-09
+KM-0031,Synflex,Naproxen Sodium 550mg,20 Tabs,Analgesics,380,2,2027-02
+KM-0032,Synflex,Naproxen Sodium 275mg,20 Tabs,Analgesics,260,451,2027-03
+KM-0033,Arinac,Ibuprofen 200mg + Pseudoephedrine 30mg,20 Tabs,Analgesics,300,3,2027-12
+KM-0034,Arinac Forte,Ibuprofen 400mg + Pseudoephedrine 60mg,20 Tabs,Analgesics,380,92,2027-12
+KM-0035,Tramal,Tramadol 50mg,20 Caps,Analgesics,420,227,2027-11
+KM-0036,Tramal,Tramadol 100mg SR,10 Tabs,Analgesics,480,43,2027-08
+KM-0037,Gabica,Pregabalin 50mg,14 Caps,Analgesics,650,206,2027-11
+KM-0038,Gabica,Pregabalin 75mg,14 Caps,Analgesics,850,250,2027-10
+KM-0039,Gabica,Pregabalin 100mg,14 Caps,Analgesics,950,139,2027-10
+KM-0040,Xefo,Lornoxicam 8mg,10 Tabs,Analgesics,480,451,2027-02
+KM-0041,Airtal,Aceclofenac 100mg,20 Tabs,Analgesics,550,359,2027-03
+KM-0042,Arthrotec 50,Diclofenac 50mg + Misoprostol 200mcg,20 Tabs,Analgesics,700,360,2027-10
+KM-0043,Celebrex,Celecoxib 200mg,10 Caps,Analgesics,950,395,2027-06
+KM-0044,Arcoxia,Etoricoxib 90mg,14 Tabs,Analgesics,1100,404,2027-12
+KM-0045,Mobic,Meloxicam 15mg,10 Tabs,Analgesics,420,185,2026-10
+KM-0046,Feldane,Piroxicam 20mg,10 Caps,Analgesics,380,161,2027-08
+KM-0047,Indocid,Indomethacin 25mg,30 Caps,Analgesics,260,91,2027-01
+KM-0048,Anafortan,Camylofin 25mg + Paracetamol 300mg,20 Tabs,Analgesics,280,12,2027-06
+KM-0049,Relispa,Mebeverine 135mg,20 Tabs,Analgesics,250,267,2027-04
+KM-0050,Cafergot,Ergotamine 1mg + Caffeine 100mg,20 Tabs,Analgesics,380,270,2027-03
+KM-0051,Imigran,Sumatriptan 50mg,2 Tabs,Analgesics,750,456,2027-12
+KM-0052,Buscopan,Hyoscine Butylbromide 10mg,20 Tabs,Analgesics,320,163,2027-12
+KM-0053,Spasfon,Phloroglucinol 80mg,30 Tabs,Analgesics,450,270,2027-11
+KM-0054,Colofac,Mebeverine 135mg,30 Tabs,Analgesics,520,112,2027-04
+KM-0055,Duspatalin,Mebeverine 200mg,30 Caps,Analgesics,950,202,2027-04
+KM-0056,Librax,Chlordiazepoxide 5mg + Clidinium 2.5mg,30 Tabs,Analgesics,380,287,2027-10
+KM-0057,Flurest,Paracetamol + Chlorpheniramine + Phenylephrine,20 Tabs,Analgesics,280,481,2027-02
+KM-0058,Sinarest,Paracetamol + Chlorpheniramine + Phenylephrine,20 Tabs,Analgesics,320,317,2027-07
+KM-0059,Dolo 650,Paracetamol 650mg,15 Tabs,Analgesics,95,261,2027-02
+KM-0060,Augmentin,Amoxicillin 250mg + Clavulanate 125mg,30 Tabs,Antibiotics,1050,68,2027-07
+KM-0061,Augmentin,Amoxicillin 500mg + Clavulanate 125mg,30 Tabs,Antibiotics,1700,460,2027-06
+KM-0062,Augmentin,Amoxicillin 875mg + Clavulanate 125mg,12 Tabs,Antibiotics,1350,133,2027-02
+KM-0063,Augmentin DS,Amoxicillin 400mg + Clavulanate 57mg/5ml,90ml Syrup,Antibiotics,520,134,2027-11
+KM-0064,Augmentin ES,Amoxicillin 600mg + Clavulanate 42.9mg/5ml,100ml Syrup,Antibiotics,950,495,2027-03
+KM-0065,Amoxil,Amoxicillin 250mg,100 Caps,Antibiotics,550,54,2027-09
+KM-0066,Amoxil,Amoxicillin 500mg,50 Caps,Antibiotics,650,428,2027-03
+KM-0067,Amoxil Forte,Amoxicillin 250mg/5ml,90ml Syrup,Antibiotics,280,400,2027-10
+KM-0068,Penbritin,Ampicillin 250mg,20 Caps,Antibiotics,300,403,2027-04
+KM-0069,Penbritin,Ampicillin 500mg,20 Caps,Antibiotics,450,76,2027-12
+KM-0070,Velosef,Cephradine 250mg,30 Caps,Antibiotics,650,254,2027-10
+KM-0071,Velosef,Cephradine 500mg,20 Caps,Antibiotics,800,95,2027-06
+KM-0072,Velosef,Cephradine 250mg/5ml,90ml Syrup,Antibiotics,420,281,2027-01
+KM-0073,Velosef-D,Cephradine 1g (dispersible),6 Tabs,Antibiotics,380,119,2027-10
+KM-0074,Duricef,Cefadroxil 500mg,20 Caps,Antibiotics,700,397,2027-05
+KM-0075,Duricef,Cefadroxil 250mg/5ml,90ml Syrup,Antibiotics,450,376,2027-06
+KM-0076,Urixin,Cephalexin 500mg,10 Caps,Antibiotics,350,215,2027-12
+KM-0077,Urixin,Cephalexin 250mg/5ml,60ml Syrup,Antibiotics,280,343,2027-07
+KM-0078,Ceclor,Cefaclor 250mg,15 Caps,Antibiotics,850,235,2027-10
+KM-0079,Ceclor,Cefaclor 500mg,15 Caps,Antibiotics,1450,242,2027-03
+KM-0080,Ceclor,Cefaclor 125mg/5ml,60ml Syrup,Antibiotics,520,137,2027-05
+KM-0081,Ceclor MR,Cefaclor 375mg,10 Tabs,Antibiotics,950,43,2026-12
+KM-0082,Ceftum,Cefuroxime 250mg,10 Tabs,Antibiotics,750,21,2026-11
+KM-0083,Ceftum,Cefuroxime 500mg,10 Tabs,Antibiotics,1150,312,2027-05
+KM-0084,Cefspan,Cefixime 400mg,5 Caps,Antibiotics,550,14,2027-03
+KM-0085,Cefspan,Cefixime 100mg/5ml,30ml Syrup,Antibiotics,420,373,2027-12
+KM-0086,Cefspan DT,Cefixime 100mg (dispersible),10 Tabs,Antibiotics,380,41,2027-05
+KM-0087,Xavor,Cefixime 400mg,5 Tabs,Antibiotics,620,45,2027-02
+KM-0088,Xavor,Cefixime 100mg/5ml,30ml Syrup,Antibiotics,450,451,2027-07
+KM-0089,Orbenin,Cloxacillin 250mg,20 Caps,Antibiotics,380,47,2027-10
+KM-0090,Orbenin,Cloxacillin 500mg,20 Caps,Antibiotics,650,4,2027-06
+KM-0091,Flagyl,Metronidazole 200mg,100 Tabs,Antibiotics,290,353,2027-09
+KM-0092,Flagyl,Metronidazole 400mg,100 Tabs,Antibiotics,520,120,2027-10
+KM-0093,Flagyl,Metronidazole 200mg/5ml,90ml Syrup,Antibiotics,180,78,2027-11
+KM-0094,Fasigyn,Tinidazole 500mg,4 Tabs,Antibiotics,260,306,2027-09
+KM-0095,Fasigyn DS,Tinidazole 1g,2 Tabs,Antibiotics,320,135,2027-01
+KM-0096,Secnidazole,Secnidazole 1g,2 Tabs,Antibiotics,280,7,2027-05
+KM-0097,Vibramycin,Doxycycline 100mg,10 Caps,Antibiotics,220,59,2027-03
+KM-0098,Vibramycin,Doxycycline 50mg/5ml,60ml Syrup,Antibiotics,200,348,2027-08
+KM-0099,Terramycin,Oxytetracycline 250mg,20 Caps,Antibiotics,300,192,2027-08
+KM-0100,Minocin,Minocycline 100mg,10 Caps,Antibiotics,650,221,2027-01
+KM-0101,Azomax,Azithromycin 250mg,6 Caps,Antibiotics,550,453,2027-02
+KM-0102,Azomax,Azithromycin 500mg,6 Tabs,Antibiotics,750,355,2027-12
+KM-0103,Azomax,Azithromycin 200mg/5ml,15ml Syrup,Antibiotics,380,341,2027-03
+KM-0104,Zithromax,Azithromycin 250mg,6 Caps,Antibiotics,620,42,2027-01
+KM-0105,Zithromax,Azithromycin 500mg,3 Tabs,Antibiotics,650,6,2026-10
+KM-0106,Klacid,Clarithromycin 250mg,10 Tabs,Antibiotics,950,138,2027-05
+KM-0107,Klacid,Clarithromycin 500mg,10 Tabs,Antibiotics,1650,108,2027-10
+KM-0108,Klacid,Clarithromycin 125mg/5ml,60ml Syrup,Antibiotics,700,240,2027-04
+KM-0109,Rulid,Roxithromycin 150mg,10 Tabs,Antibiotics,780,227,2027-04
+KM-0110,Erythrocin,Erythromycin 250mg,20 Tabs,Antibiotics,380,153,2027-09
+KM-0111,Erythrocin,Erythromycin 200mg/5ml,60ml Syrup,Antibiotics,260,138,2027-03
+KM-0112,Ciproxin,Ciprofloxacin 250mg,10 Tabs,Antibiotics,380,237,2027-10
+KM-0113,Ciproxin,Ciprofloxacin 500mg,10 Tabs,Antibiotics,620,61,2027-02
+KM-0114,Ciproxin,Ciprofloxacin 750mg,10 Tabs,Antibiotics,950,344,2027-10
+KM-0115,Novidat,Ciprofloxacin 500mg,10 Tabs,Antibiotics,580,1,2027-03
+KM-0116,Cifran,Ciprofloxacin 500mg,10 Tabs,Antibiotics,450,485,2027-05
+KM-0117,Levoxin,Levofloxacin 250mg,10 Tabs,Antibiotics,420,96,2027-08
+KM-0118,Levoxin,Levofloxacin 500mg,10 Tabs,Antibiotics,720,259,2027-09
+KM-0119,Levoxin,Levofloxacin 750mg,7 Tabs,Antibiotics,950,120,2027-08
+KM-0120,Tavanic,Levofloxacin 500mg,10 Tabs,Antibiotics,1250,473,2027-02
+KM-0121,Tarivid,Ofloxacin 200mg,10 Tabs,Antibiotics,520,95,2027-08
+KM-0122,Zanocin,Ofloxacin 200mg,10 Tabs,Antibiotics,480,12,2027-08
+KM-0123,Noroxin,Norfloxacin 400mg,10 Tabs,Antibiotics,420,146,2027-09
+KM-0124,Utinor,Norfloxacin 400mg,14 Tabs,Antibiotics,480,157,2027-08
+KM-0125,Tequin,Gatifloxacin 400mg,10 Tabs,Antibiotics,850,367,2027-10
+KM-0126,Factive,Gemifloxacin 320mg,5 Tabs,Antibiotics,950,349,2027-09
+KM-0127,Avelox,Moxifloxacin 400mg,5 Tabs,Antibiotics,1150,90,2027-05
+KM-0128,Septran DS,Co-trimoxazole 800/160mg,20 Tabs,Antibiotics,220,162,2026-11
+KM-0129,Septran,Co-trimoxazole 200/40mg/5ml,100ml Syrup,Antibiotics,190,40,2027-11
+KM-0130,Uvamin,Nitrofurantoin 100mg,30 Caps,Antibiotics,320,387,2027-10
+KM-0131,Furadantin,Nitrofurantoin 100mg,30 Tabs,Antibiotics,350,42,2027-07
+KM-0132,Monurol,Fosfomycin 3g,1 Sachet,Antibiotics,850,40,2027-02
+KM-0133,Dalacin C,Clindamycin 150mg,16 Caps,Antibiotics,520,310,2027-09
+KM-0134,Dalacin C,Clindamycin 300mg,16 Caps,Antibiotics,850,268,2027-10
+KM-0135,Chloromycetin,Chloramphenicol 250mg,20 Caps,Antibiotics,280,91,2027-02
+KM-0136,Unasyn,Ampicillin 250mg + Sulbactam 125mg,10 Tabs,Antibiotics,850,271,2027-03
+KM-0137,Myrin,Rifampicin 150mg + Isoniazid 75mg,30 Tabs,Antibiotics,380,446,2027-04
+KM-0138,Myrin-P,Rifampicin + Isoniazid + Pyrazinamide,30 Tabs,Antibiotics,420,46,2027-11
+KM-0139,Rimactane,Rifampicin 150mg,100 Caps,Antibiotics,450,45,2027-12
+KM-0140,Zyvox,Linezolid 600mg,10 Tabs,Antibiotics,4500,452,2027-05
+KM-0141,Risek,Omeprazole 20mg,14 Caps,Antacids & PPIs,420,217,2027-03
+KM-0142,Risek,Omeprazole 20mg,28 Caps,Antacids & PPIs,780,493,2027-11
+KM-0143,Risek Insta,Omeprazole 20mg (sachet),20 Sachets,Antacids & PPIs,650,4,2027-11
+KM-0144,Omezol,Omeprazole 20mg,30 Caps,Antacids & PPIs,380,315,2027-02
+KM-0145,Omezol,Omeprazole 40mg,14 Caps,Antacids & PPIs,420,328,2027-03
+KM-0146,Losec,Omeprazole 20mg,14 Caps,Antacids & PPIs,520,225,2027-12
+KM-0147,Losec MUPS,Omeprazole 20mg,14 Tabs,Antacids & PPIs,650,309,2027-11
+KM-0148,Nexum,Esomeprazole 20mg,14 Tabs,Antacids & PPIs,780,278,2027-07
+KM-0149,Nexum,Esomeprazole 40mg,14 Tabs,Antacids & PPIs,1050,489,2027-06
+KM-0150,Esomep,Esomeprazole 40mg,14 Caps,Antacids & PPIs,520,115,2027-12
+KM-0151,Zoton,Lansoprazole 30mg,14 Caps,Antacids & PPIs,650,377,2027-07
+KM-0152,Prevacid,Lansoprazole 30mg,14 Caps,Antacids & PPIs,750,133,2027-06
+KM-0153,Lanfast,Lansoprazole 30mg,14 Caps,Antacids & PPIs,480,213,2027-04
+KM-0154,Pantop,Pantoprazole 40mg,14 Tabs,Antacids & PPIs,520,354,2027-12
+KM-0155,Pantozol,Pantoprazole 40mg,14 Tabs,Antacids & PPIs,620,164,2027-09
+KM-0156,Protium,Pantoprazole 40mg,14 Tabs,Antacids & PPIs,580,172,2027-03
+KM-0157,Zantac,Ranitidine 150mg,20 Tabs,Antacids & PPIs,320,15,2027-09
+KM-0158,Zantac,Ranitidine 300mg,20 Tabs,Antacids & PPIs,450,329,2027-11
+KM-0159,Pepcid,Famotidine 20mg,20 Tabs,Antacids & PPIs,350,62,2027-03
+KM-0160,Famo,Famotidine 40mg,20 Tabs,Antacids & PPIs,480,9,2027-05
+KM-0161,Antepsin,Sucralfate 1g,30 Tabs,Antacids & PPIs,520,270,2027-06
+KM-0162,Mucaine,Oxethazaine + Aluminium Hydroxide Gel,180ml Syrup,Antacids & PPIs,320,78,2027-07
+KM-0163,Gelusil,Aluminium Hydroxide + Magnesium Hydroxide,200ml Syrup,Antacids & PPIs,380,462,2027-03
+KM-0164,Gelusil MPS,Aluminium Hydroxide + Mag Hydroxide + Simethicone,200ml Syrup,Antacids & PPIs,420,4,2027-07
+KM-0165,Gaviscon,Sodium Alginate + Sodium Bicarbonate,150ml Syrup,Antacids & PPIs,950,156,2027-04
+KM-0166,Gaviscon Advance,Sodium Alginate + Potassium Bicarbonate,150ml Syrup,Antacids & PPIs,1150,235,2027-10
+KM-0167,Gaviscon Double Action,Sodium Alginate + Calcium Carbonate,12 Chew Tabs,Antacids & PPIs,480,371,2026-12
+KM-0168,Rennie,Calcium Carbonate + Magnesium Carbonate,24 Chew Tabs,Antacids & PPIs,520,324,2027-12
+KM-0169,Rennie,Calcium Carbonate + Magnesium Carbonate,48 Chew Tabs,Antacids & PPIs,950,281,2027-02
+KM-0170,Polycrol,Aluminium Hydroxide + Magnesium Hydroxide,200ml Syrup,Antacids & PPIs,320,352,2027-10
+KM-0171,Polycrol Forte,Aluminium Hydroxide + Mag Hydroxide + Simethicone,200ml Syrup,Antacids & PPIs,380,164,2027-12
+KM-0172,Enzar HS,Digestive Enzymes (Pancreatin),20 Caps,Antacids & PPIs,420,64,2027-04
+KM-0173,Creon 10000,Pancreatin 10000 units,20 Caps,Antacids & PPIs,1650,146,2027-03
+KM-0174,Creon 25000,Pancreatin 25000 units,20 Caps,Antacids & PPIs,2800,466,2027-03
+KM-0175,Festal,Pancreatin + Bile Components,20 Tabs,Antacids & PPIs,280,391,2027-10
+KM-0176,Unienzyme,Fungal Diastase + Papain,20 Tabs,Antacids & PPIs,220,90,2027-06
+KM-0177,Motilium,Domperidone 10mg,30 Tabs,Antacids & PPIs,420,155,2027-11
+KM-0178,Motilium,Domperidone 1mg/ml,30ml Syrup,Antacids & PPIs,220,118,2027-07
+KM-0179,Motilium,Domperidone 1mg/ml,100ml Syrup,Antacids & PPIs,380,115,2027-12
+KM-0180,Ganaton,Itopride 50mg,20 Tabs,Antacids & PPIs,650,335,2027-06
+KM-0181,Maxolon,Metoclopramide 10mg,25 Tabs,Antacids & PPIs,280,269,2027-09
+KM-0182,Nospa,Drotaverine 40mg,20 Tabs,Antacids & PPIs,320,139,2027-02
+KM-0183,Nospa Forte,Drotaverine 80mg,20 Tabs,Antacids & PPIs,450,58,2027-12
+KM-0184,Spasfon,Phloroglucinol 80mg,30 Tabs,Antacids & PPIs,450,227,2027-06
+KM-0185,Buscopan,Hyoscine Butylbromide 10mg,20 Tabs,Antacids & PPIs,320,33,2027-02
+KM-0186,Duspatalin,Mebeverine 200mg,30 Caps,Antacids & PPIs,950,181,2027-04
+KM-0187,Duspatalin,Mebeverine 135mg,50 Tabs,Antacids & PPIs,1150,337,2027-06
+KM-0188,Librax,Chlordiazepoxide 5mg + Clidinium 2.5mg,30 Tabs,Antacids & PPIs,380,93,2027-09
+KM-0189,Gravinate,Dimenhydrinate 50mg,20 Tabs,Antacids & PPIs,320,293,2027-08
+KM-0190,Gravinate,Dimenhydrinate 12.5mg/5ml,60ml Syrup,Antacids & PPIs,240,298,2027-02
+KM-0191,Avomine,Promethazine Theoclate 25mg,20 Tabs,Antacids & PPIs,300,68,2027-03
+KM-0192,Stemetil,Prochlorperazine 5mg,20 Tabs,Antacids & PPIs,280,494,2027-04
+KM-0193,Onset,Ondansetron 8mg,10 Tabs,Antacids & PPIs,520,290,2027-02
+KM-0194,Onset,Ondansetron 2mg/5ml,30ml Syrup,Antacids & PPIs,320,438,2027-07
+KM-0195,Zofran,Ondansetron 8mg,10 Tabs,Antacids & PPIs,850,309,2027-10
+KM-0196,Duphalac,Lactulose 3.35g/5ml,120ml Syrup,Antacids & PPIs,520,86,2027-08
+KM-0197,Duphalac,Lactulose 3.35g/5ml,200ml Syrup,Antacids & PPIs,780,76,2026-10
+KM-0198,Duphalac,Lactulose 10g (sachet),20 Sachets,Antacids & PPIs,850,168,2027-07
+KM-0199,Lactulose,Lactulose 3.35g/5ml,120ml Syrup,Antacids & PPIs,380,471,2027-02
+KM-0200,Cremaffin,Liquid Paraffin + Milk of Magnesia,120ml Syrup,Antacids & PPIs,350,471,2027-07
+KM-0201,Cremaffin Plus,Liquid Paraffin + Milk of Magnesia + Docusate,120ml Syrup,Antacids & PPIs,420,118,2027-12
+KM-0202,Skilax,Bisacodyl 5mg,20 Tabs,Antacids & PPIs,180,138,2027-12
+KM-0203,Dulcolax,Bisacodyl 5mg,30 Tabs,Antacids & PPIs,320,63,2027-07
+KM-0204,Dulcolax,Bisacodyl 10mg (suppository),10 Suppositories,Antacids & PPIs,450,9,2027-08
+KM-0205,Laxoberon,Sodium Picosulfate 7.5mg/ml,30ml Drops,Antacids & PPIs,420,328,2027-04
+KM-0206,Guttalax,Sodium Picosulfate 7.5mg/ml,15ml Drops,Antacids & PPIs,380,484,2027-05
+KM-0207,Disflatyl,Simethicone 40mg,20 Tabs,Antacids & PPIs,280,453,2027-04
+KM-0208,Charcoal,Activated Charcoal 250mg,20 Caps,Antacids & PPIs,320,420,2027-04
+KM-0209,Getryl,Glimepiride 1mg,20 Tabs,Anti-Diabetic,180,462,2027-08
+KM-0210,Getryl,Glimepiride 2mg,20 Tabs,Anti-Diabetic,260,23,2027-04
+KM-0211,Getryl,Glimepiride 3mg,20 Tabs,Anti-Diabetic,330,388,2027-07
+KM-0212,Getryl,Glimepiride 4mg,20 Tabs,Anti-Diabetic,400,411,2027-08
+KM-0213,Amaryl,Glimepiride 1mg,20 Tabs,Anti-Diabetic,380,421,2027-12
+KM-0214,Amaryl,Glimepiride 2mg,20 Tabs,Anti-Diabetic,520,453,2027-05
+KM-0215,Amaryl,Glimepiride 3mg,20 Tabs,Anti-Diabetic,650,147,2027-04
+KM-0216,Amaryl,Glimepiride 4mg,20 Tabs,Anti-Diabetic,780,414,2027-03
+KM-0217,Glucophage,Metformin 500mg,100 Tabs,Anti-Diabetic,450,206,2027-02
+KM-0218,Glucophage,Metformin 850mg,100 Tabs,Anti-Diabetic,650,450,2027-09
+KM-0219,Glucophage,Metformin 1000mg,50 Tabs,Anti-Diabetic,520,124,2027-05
+KM-0220,Glucophage XR,Metformin 500mg XR,30 Tabs,Anti-Diabetic,380,429,2027-09
+KM-0221,Glucophage XR,Metformin 750mg XR,30 Tabs,Anti-Diabetic,520,6,2027-06
+KM-0222,Diamicron,Gliclazide 80mg,30 Tabs,Anti-Diabetic,520,431,2027-05
+KM-0223,Diamicron MR,Gliclazide 30mg MR,30 Tabs,Anti-Diabetic,650,125,2027-02
+KM-0224,Diamicron MR,Gliclazide 60mg MR,30 Tabs,Anti-Diabetic,850,4,2027-08
+KM-0225,Daonil,Glibenclamide 5mg,30 Tabs,Anti-Diabetic,180,179,2027-06
+KM-0226,Glibenclamide,Glibenclamide 5mg,100 Tabs,Anti-Diabetic,220,2,2027-06
+KM-0227,Minidiab,Glipizide 5mg,30 Tabs,Anti-Diabetic,220,190,2027-12
+KM-0228,Januvia,Sitagliptin 50mg,14 Tabs,Anti-Diabetic,950,271,2027-08
+KM-0229,Januvia,Sitagliptin 100mg,14 Tabs,Anti-Diabetic,1450,9,2027-07
+KM-0230,Sitag,Sitagliptin 50mg,14 Tabs,Anti-Diabetic,680,491,2027-02
+KM-0231,Sitag,Sitagliptin 100mg,14 Tabs,Anti-Diabetic,1050,70,2027-06
+KM-0232,Janumet,Sitagliptin 50mg + Metformin 500mg,28 Tabs,Anti-Diabetic,1550,102,2027-11
+KM-0233,Janumet,Sitagliptin 50mg + Metformin 1000mg,28 Tabs,Anti-Diabetic,1750,146,2027-02
+KM-0234,Galvus,Vildagliptin 50mg,28 Tabs,Anti-Diabetic,1250,66,2027-01
+KM-0235,Galvus Met,Vildagliptin 50mg + Metformin 500mg,28 Tabs,Anti-Diabetic,1450,187,2027-07
+KM-0236,Galvus Met,Vildagliptin 50mg + Metformin 1000mg,28 Tabs,Anti-Diabetic,1650,234,2027-11
+KM-0237,Forxiga,Dapagliflozin 5mg,14 Tabs,Anti-Diabetic,950,272,2027-03
+KM-0238,Forxiga,Dapagliflozin 10mg,14 Tabs,Anti-Diabetic,1250,208,2027-11
+KM-0239,Xigduo,Dapagliflozin 5mg + Metformin 850mg,28 Tabs,Anti-Diabetic,1650,4,2026-12
+KM-0240,Xigduo,Dapagliflozin 5mg + Metformin 1000mg,28 Tabs,Anti-Diabetic,1750,33,2027-08
+KM-0241,Jardiance,Empagliflozin 10mg,14 Tabs,Anti-Diabetic,1450,11,2027-10
+KM-0242,Jardiance,Empagliflozin 25mg,14 Tabs,Anti-Diabetic,1750,484,2027-10
+KM-0243,Actos,Pioglitazone 15mg,14 Tabs,Anti-Diabetic,520,362,2027-12
+KM-0244,Actos,Pioglitazone 30mg,14 Tabs,Anti-Diabetic,720,111,2027-07
+KM-0245,Glucobay,Acarbose 50mg,30 Tabs,Anti-Diabetic,520,231,2027-03
+KM-0246,Glucobay,Acarbose 100mg,30 Tabs,Anti-Diabetic,850,496,2027-12
+KM-0247,Novonorm,Repaglinide 1mg,30 Tabs,Anti-Diabetic,520,482,2027-07
+KM-0248,Novonorm,Repaglinide 2mg,30 Tabs,Anti-Diabetic,720,330,2027-07
+KM-0249,Starlix,Nateglinide 120mg,28 Tabs,Anti-Diabetic,950,350,2027-03
+KM-0250,Ozempic,Semaglutide 1mg/dose,1 Pen,Anti-Diabetic,8500,379,2027-06
+KM-0251,Rybelsus,Semaglutide 7mg,30 Tabs,Anti-Diabetic,9500,9,2027-06
+KM-0252,Rybelsus,Semaglutide 14mg,30 Tabs,Anti-Diabetic,11500,352,2027-08
+KM-0253,Trulicity,Dulaglutide 1.5mg,1 Pen,Anti-Diabetic,12500,178,2027-08
+KM-0254,Insulatard,Isophane Insulin 100 IU/ml,10ml Vial,Anti-Diabetic,950,367,2027-06
+KM-0255,Mixtard 30,Biphasic Insulin Aspart 30 100 IU/ml,10ml Vial,Anti-Diabetic,1050,294,2027-04
+KM-0256,Actrapid,Soluble Insulin 100 IU/ml,10ml Vial,Anti-Diabetic,950,109,2027-08
+KM-0257,Humulin R,Regular Insulin 100 IU/ml,10ml Vial,Anti-Diabetic,950,351,2027-08
+KM-0258,Humulin N,NPH Insulin 100 IU/ml,10ml Vial,Anti-Diabetic,1050,357,2027-04
+KM-0259,Humulin 70/30,Biphasic Insulin 100 IU/ml,10ml Vial,Anti-Diabetic,1150,326,2027-11
+KM-0260,Novorapid,Insulin Aspart 100 IU/ml,10ml Vial,Anti-Diabetic,1650,165,2027-08
+KM-0261,Novorapid FlexPen,Insulin Aspart 100 IU/ml,5x3ml Pens,Anti-Diabetic,4200,291,2027-02
+KM-0262,Novomix 30 FlexPen,Biphasic Insulin Aspart 30,5x3ml Pens,Anti-Diabetic,4500,166,2027-06
+KM-0263,Humalog,Insulin Lispro 100 IU/ml,10ml Vial,Anti-Diabetic,1750,118,2027-08
+KM-0264,Humalog Mix 25,Insulin Lispro Mix 25 100 IU/ml,10ml Vial,Anti-Diabetic,1950,413,2027-11
+KM-0265,Lantus,Insulin Glargine 100 IU/ml,10ml Vial,Anti-Diabetic,2200,321,2027-12
+KM-0266,Lantus SoloSTAR,Insulin Glargine 100 IU/ml,5x3ml Pens,Anti-Diabetic,5800,175,2027-09
+KM-0267,Toujeo SoloSTAR,Insulin Glargine 300 IU/ml,3x1.5ml Pens,Anti-Diabetic,6500,237,2027-09
+KM-0268,Levemir FlexPen,Insulin Detemir 100 IU/ml,5x3ml Pens,Anti-Diabetic,5200,356,2027-05
+KM-0269,Apidra SoloSTAR,Insulin Glulisine 100 IU/ml,5x3ml Pens,Anti-Diabetic,4800,272,2027-09
+KM-0270,Tenormin,Atenolol 50mg,14 Tabs,Cardiac,280,417,2027-04
+KM-0271,Tenormin,Atenolol 100mg,14 Tabs,Cardiac,380,348,2026-10
+KM-0272,Cardilol,Carvedilol 3.125mg,20 Tabs,Cardiac,220,156,2027-10
+KM-0273,Cardilol,Carvedilol 6.25mg,20 Tabs,Cardiac,320,350,2027-12
+KM-0274,Cardilol,Carvedilol 12.5mg,20 Tabs,Cardiac,450,328,2027-07
+KM-0275,Cardilol,Carvedilol 25mg,20 Tabs,Cardiac,620,58,2027-05
+KM-0276,Concor,Bisoprolol 2.5mg,20 Tabs,Cardiac,380,355,2027-06
+KM-0277,Concor,Bisoprolol 5mg,20 Tabs,Cardiac,550,126,2027-05
+KM-0278,Concor,Bisoprolol 10mg,20 Tabs,Cardiac,850,86,2027-02
+KM-0279,Bisloc,Bisoprolol 5mg,20 Tabs,Cardiac,320,34,2027-05
+KM-0280,Nebicard,Nebivolol 5mg,20 Tabs,Cardiac,420,254,2027-11
+KM-0281,Betaloc,Metoprolol 50mg,20 Tabs,Cardiac,320,446,2027-03
+KM-0282,Betaloc ZOK,Metoprolol 50mg XR,20 Tabs,Cardiac,520,8,2027-08
+KM-0283,Betaloc ZOK,Metoprolol 100mg XR,20 Tabs,Cardiac,850,464,2027-12
+KM-0284,Losar,Losartan 25mg,20 Tabs,Cardiac,280,305,2027-05
+KM-0285,Losar,Losartan 50mg,20 Tabs,Cardiac,420,7,2027-01
+KM-0286,Losar,Losartan 100mg,20 Tabs,Cardiac,650,215,2027-05
+KM-0287,Losar-H,Losartan 50mg + HCTZ 12.5mg,20 Tabs,Cardiac,550,86,2027-12
+KM-0288,Cozaar,Losartan 50mg,14 Tabs,Cardiac,520,363,2027-02
+KM-0289,Cozaar,Losartan 100mg,14 Tabs,Cardiac,850,468,2027-03
+KM-0290,Eziday,Losartan 25mg,20 Tabs,Cardiac,220,409,2027-08
+KM-0291,Eziday,Losartan 50mg,20 Tabs,Cardiac,320,123,2027-04
+KM-0292,Diovan,Valsartan 80mg,14 Tabs,Cardiac,650,422,2027-10
+KM-0293,Diovan,Valsartan 160mg,14 Tabs,Cardiac,950,248,2027-02
+KM-0294,Co-Diovan,Valsartan 160mg + HCTZ 12.5mg,14 Tabs,Cardiac,1050,296,2027-05
+KM-0295,Aprovel,Irbesartan 150mg,14 Tabs,Cardiac,650,480,2027-03
+KM-0296,Aprovel,Irbesartan 300mg,14 Tabs,Cardiac,950,244,2027-04
+KM-0297,Atacand,Candesartan 8mg,14 Tabs,Cardiac,520,421,2027-01
+KM-0298,Atacand,Candesartan 16mg,14 Tabs,Cardiac,850,352,2027-10
+KM-0299,Olmetec,Olmesartan 20mg,14 Tabs,Cardiac,650,297,2027-11
+KM-0300,Olmetec,Olmesartan 40mg,14 Tabs,Cardiac,950,173,2027-09
+KM-0301,Micardis,Telmisartan 40mg,14 Tabs,Cardiac,720,324,2027-01
+KM-0302,Micardis,Telmisartan 80mg,14 Tabs,Cardiac,1050,436,2027-10
+KM-0303,Tritace,Ramipril 2.5mg,14 Tabs,Cardiac,380,239,2027-04
+KM-0304,Tritace,Ramipril 5mg,14 Tabs,Cardiac,520,391,2027-09
+KM-0305,Envas,Enalapril 5mg,20 Tabs,Cardiac,220,241,2027-06
+KM-0306,Envas,Enalapril 10mg,20 Tabs,Cardiac,320,395,2027-05
+KM-0307,Zestril,Lisinopril 10mg,14 Tabs,Cardiac,420,441,2027-12
+KM-0308,Coversyl,Perindopril 5mg,14 Tabs,Cardiac,650,152,2027-10
+KM-0309,Coversyl,Perindopril 10mg,14 Tabs,Cardiac,950,259,2027-12
+KM-0310,Capoten,Captopril 25mg,20 Tabs,Cardiac,280,133,2027-06
+KM-0311,Lasix,Furosemide 40mg,20 Tabs,Cardiac,180,236,2027-03
+KM-0312,Spiromide,Spironolactone 50mg + Furosemide 20mg,20 Tabs,Cardiac,320,376,2027-06
+KM-0313,Aldactone,Spironolactone 25mg,20 Tabs,Cardiac,420,131,2027-06
+KM-0314,Aldactone,Spironolactone 100mg,20 Tabs,Cardiac,850,182,2027-07
+KM-0315,Digoxin,Digoxin 0.25mg,20 Tabs,Cardiac,180,468,2027-10
+KM-0316,Lanoxin,Digoxin 0.25mg,25 Tabs,Cardiac,220,52,2027-04
+KM-0317,Plavix,Clopidogrel 75mg,14 Tabs,Cardiac,1450,88,2027-05
+KM-0318,Lowplat,Clopidogrel 75mg,14 Tabs,Cardiac,650,207,2027-04
+KM-0319,Lowplat Plus,Clopidogrel 75mg + Aspirin 75mg,14 Tabs,Cardiac,780,372,2027-05
+KM-0320,Ecosprin,Aspirin 75mg EC,14 Tabs,Cardiac,180,43,2027-08
+KM-0321,Atorva,Atorvastatin 10mg,10 Tabs,Cardiac,320,219,2027-07
+KM-0322,Atorva,Atorvastatin 20mg,10 Tabs,Cardiac,450,288,2027-09
+KM-0323,Atorva,Atorvastatin 40mg,10 Tabs,Cardiac,650,223,2027-02
+KM-0324,Lipiget,Atorvastatin 10mg,20 Tabs,Cardiac,420,116,2027-08
+KM-0325,Lipiget,Atorvastatin 20mg,20 Tabs,Cardiac,620,210,2027-11
+KM-0326,Lipitor,Atorvastatin 20mg,14 Tabs,Cardiac,850,495,2027-02
+KM-0327,Crestor,Rosuvastatin 10mg,14 Tabs,Cardiac,950,449,2027-11
+KM-0328,Crestor,Rosuvastatin 20mg,14 Tabs,Cardiac,1450,205,2027-09
+KM-0329,Zocor,Simvastatin 20mg,14 Tabs,Cardiac,720,14,2027-07
+KM-0330,Lescol,Fluvastatin 40mg,14 Caps,Cardiac,850,163,2027-08
+KM-0331,Ezetrol,Ezetimibe 10mg,14 Tabs,Cardiac,950,447,2027-08
+KM-0332,Norvasc,Amlodipine 5mg,20 Tabs,Cardiac,420,286,2027-10
+KM-0333,Norvasc,Amlodipine 10mg,20 Tabs,Cardiac,650,420,2027-11
+KM-0334,Amlocard,Amlodipine 5mg,20 Tabs,Cardiac,280,470,2027-05
+KM-0335,Dilzem,Diltiazem 30mg,20 Tabs,Cardiac,280,260,2027-05
+KM-0336,Dilzem,Diltiazem 60mg,20 Tabs,Cardiac,420,150,2027-08
+KM-0337,Isoptin,Verapamil 40mg,20 Tabs,Cardiac,280,259,2027-02
+KM-0338,Isoptin SR,Verapamil 120mg SR,20 Tabs,Cardiac,520,210,2027-07
+KM-0339,Adalat,Nifedipine 10mg,20 Caps,Cardiac,280,353,2027-12
+KM-0340,Adalat LA,Nifedipine 30mg LA,20 Tabs,Cardiac,550,419,2027-08
+KM-0341,Apresoline,Hydralazine 25mg,20 Tabs,Cardiac,320,381,2027-04
+KM-0342,Catapres,Clonidine 0.15mg,20 Tabs,Cardiac,380,441,2027-09
+KM-0343,Aldomet,Methyldopa 250mg,20 Tabs,Cardiac,320,481,2027-04
+KM-0344,Aldomet,Methyldopa 500mg,20 Tabs,Cardiac,520,329,2027-10
+KM-0345,Minipress,Prazosin 1mg,20 Tabs,Cardiac,280,24,2027-01
+KM-0346,Minipress,Prazosin 2mg,20 Tabs,Cardiac,420,314,2027-11
+KM-0347,Cardura,Doxazosin 2mg,14 Tabs,Cardiac,520,350,2027-02
+KM-0348,Cardura,Doxazosin 4mg,14 Tabs,Cardiac,850,53,2027-12
+KM-0349,Isordil,Isosorbide Dinitrate 10mg,20 Tabs,Cardiac,220,7,2027-04
+KM-0350,Nitromint,Nitroglycerin 2.6mg,30 Tabs,Cardiac,420,454,2027-09
+KM-0351,Angised,Nitroglycerin 0.5mg SL,50 Tabs,Cardiac,320,104,2027-02
+KM-0352,Procoralan,Ivabradine 5mg,28 Tabs,Cardiac,1250,144,2027-08
+KM-0353,Procoralan,Ivabradine 7.5mg,28 Tabs,Cardiac,1450,178,2026-11
+KM-0354,Cordarone,Amiodarone 200mg,20 Tabs,Cardiac,650,243,2027-07
+KM-0355,Cordarone X,Amiodarone 200mg,20 Tabs,Cardiac,850,183,2027-08
+KM-0356,Orfarin,Warfarin 5mg,30 Tabs,Cardiac,320,153,2027-08
+KM-0357,Xarelto,Rivaroxaban 10mg,10 Tabs,Cardiac,1650,140,2027-03
+KM-0358,Xarelto,Rivaroxaban 20mg,14 Tabs,Cardiac,2800,251,2027-02
+KM-0359,Eliquis,Apixaban 5mg,20 Tabs,Cardiac,2400,394,2027-10
+KM-0360,Surbex-Z,Multivitamin + Zinc,30 Tabs,Vitamins & Supplements,950,37,2027-07
+KM-0361,Surbex-Z,Multivitamin + Zinc,60 Tabs,Vitamins & Supplements,1750,125,2027-12
+KM-0362,CaC-1000 Plus,Calcium 1000mg + Vit D3 + Minerals,20 Tabs,Vitamins & Supplements,880,46,2027-12
+KM-0363,CaC-1000 Plus Orange,Calcium 1000mg + Vit D3 (Orange),20 Tabs,Vitamins & Supplements,880,31,2027-02
+KM-0364,CaC-1000,Calcium 1000mg,10 Tabs,Vitamins & Supplements,480,497,2027-05
+KM-0365,Cacit,Calcium 500mg + Vit D,20 Tabs,Vitamins & Supplements,650,113,2027-02
+KM-0366,Osnate-D,Calcium Carbonate 500mg + Vit D3,30 Tabs,Vitamins & Supplements,720,329,2027-04
+KM-0367,Osnate-D,Calcium Carbonate 500mg + Vit D3,60 Tabs,Vitamins & Supplements,1350,133,2027-04
+KM-0368,Ossobon,Calcium + Vit D3 + Minerals,30 Tabs,Vitamins & Supplements,780,253,2026-10
+KM-0369,Ossobon-D,Calcium + Vit D3 Forte,30 Tabs,Vitamins & Supplements,880,299,2027-05
+KM-0370,Shelcal,Calcium 500mg + Vit D3,30 Tabs,Vitamins & Supplements,520,249,2027-06
+KM-0371,Shelcal HD,Calcium 500mg + Vit D3 + Minerals,30 Tabs,Vitamins & Supplements,680,403,2026-12
+KM-0372,Caltrate 600+D,Calcium 600mg + Vit D3,30 Tabs,Vitamins & Supplements,750,96,2027-11
+KM-0373,Evion,Vitamin E 200mg,20 Caps,Vitamins & Supplements,320,321,2027-03
+KM-0374,Evion,Vitamin E 400mg,20 Caps,Vitamins & Supplements,480,409,2026-11
+KM-0375,Evion,Vitamin E 600mg,10 Caps,Vitamins & Supplements,520,170,2027-03
+KM-0376,Sangobion,Iron + Folic Acid + B12,30 Caps,Vitamins & Supplements,520,307,2027-02
+KM-0377,Sangobion,Iron Tonic,120ml Syrup,Vitamins & Supplements,380,486,2027-06
+KM-0378,Fefol,Ferrous Sulphate + Folic Acid,30 Caps,Vitamins & Supplements,380,305,2027-12
+KM-0379,Fefol-Vit,Iron + Folic Acid + Vitamins,30 Caps,Vitamins & Supplements,450,475,2027-08
+KM-0380,Iberet,Iron + B-Complex + C,30 Tabs,Vitamins & Supplements,520,214,2027-05
+KM-0381,Iberet-Folic,Iron + Folic Acid + B-Complex,30 Tabs,Vitamins & Supplements,580,49,2027-11
+KM-0382,Folin,Folic Acid 5mg,30 Tabs,Vitamins & Supplements,180,364,2027-12
+KM-0383,Folvite,Folic Acid 5mg,30 Tabs,Vitamins & Supplements,220,135,2027-03
+KM-0384,Neurobion,Vit B1 + B6 + B12,20 Tabs,Vitamins & Supplements,520,367,2027-06
+KM-0385,Neurobion Forte,Vit B1 + B6 + B12 Forte,20 Tabs,Vitamins & Supplements,650,446,2027-12
+KM-0386,Methycobal,Mecobalamin 500mcg,30 Tabs,Vitamins & Supplements,850,318,2027-03
+KM-0387,Redoxon,Vitamin C 1g,10 Tabs,Vitamins & Supplements,520,418,2027-11
+KM-0388,Redoxon,Vitamin C 500mg (chewable),30 Chew Tabs,Vitamins & Supplements,650,411,2026-10
+KM-0389,Berocca,Multivitamin + Minerals (effervescent),10 Tabs,Vitamins & Supplements,650,188,2027-10
+KM-0390,Berocca,Multivitamin + Minerals (effervescent),20 Tabs,Vitamins & Supplements,1150,230,2026-12
+KM-0391,Supradyn,Multivitamin + Minerals,30 Tabs,Vitamins & Supplements,1250,46,2027-10
+KM-0392,Pharmaton,Ginseng + Multivitamin,30 Caps,Vitamins & Supplements,1450,342,2027-07
+KM-0393,Centrum,Multivitamin + Minerals,30 Tabs,Vitamins & Supplements,1450,17,2027-08
+KM-0394,Centrum Silver,Multivitamin 50+,30 Tabs,Vitamins & Supplements,1650,432,2027-09
+KM-0395,Wellman,Multivitamin for Men,30 Tabs,Vitamins & Supplements,1250,65,2027-08
+KM-0396,Wellwoman,Multivitamin for Women,30 Tabs,Vitamins & Supplements,1250,196,2027-12
+KM-0397,Seven Seas,Cod Liver Oil,30 Caps,Vitamins & Supplements,650,467,2027-09
+KM-0398,Seven Seas,Cod Liver Oil,60 Caps,Vitamins & Supplements,1150,373,2027-04
+KM-0399,Scott's Emulsion,Cod Liver Oil Emulsion,200ml Bottle,Vitamins & Supplements,950,233,2027-04
+KM-0400,Scott's Emulsion,Cod Liver Oil Emulsion,400ml Bottle,Vitamins & Supplements,1650,386,2027-10
+KM-0401,Feroglobin,Iron + B-Complex,30 Caps,Vitamins & Supplements,850,344,2027-06
+KM-0402,Feroglobin,Iron Tonic,120ml Syrup,Vitamins & Supplements,650,326,2027-10
+KM-0403,Zinct,Zinc 20mg,20 Tabs,Vitamins & Supplements,320,407,2027-09
+KM-0404,Zincat,Zinc 20mg,20 Tabs,Vitamins & Supplements,280,249,2027-08
+KM-0405,Omega-3,Fish Oil 1000mg,30 Caps,Vitamins & Supplements,1150,433,2027-11
+KM-0406,Qten,Coenzyme Q10 100mg,20 Caps,Vitamins & Supplements,1450,148,2027-07
+KM-0407,Biotin,Biotin 5mg,30 Tabs,Vitamins & Supplements,850,447,2027-05
+KM-0408,Lysovit,L-Lysine + Multivitamin,120ml Syrup,Vitamins & Supplements,520,436,2027-03
+KM-0409,Apetamin,Cyproheptadine + B-Complex,200ml Syrup,Vitamins & Supplements,650,153,2027-09
+KM-0410,Apetamin,Cyproheptadine 4mg,30 Tabs,Vitamins & Supplements,520,135,2027-09
+KM-0411,Indrop-D,"Vitamin D3 200,000 IU",1ml Ampoule,Vitamins & Supplements,280,302,2027-11
+KM-0412,Indrop-D,Vitamin D3 Oral Drops,20ml Drops,Vitamins & Supplements,350,353,2027-08
+KM-0413,Sunvit-D3,"Vitamin D3 60,000 IU",4 Caps,Vitamins & Supplements,420,183,2027-02
+KM-0414,Pediasure,Complete Nutrition Vanilla,400g Tin,Vitamins & Supplements,1850,264,2027-07
+KM-0415,Pediasure,Complete Nutrition Vanilla,900g Tin,Vitamins & Supplements,3850,104,2027-09
+KM-0416,Ensure,Complete Nutrition Vanilla,400g Tin,Vitamins & Supplements,2100,119,2027-07
+KM-0417,Ensure,Complete Nutrition Vanilla,850g Tin,Vitamins & Supplements,4200,419,2027-06
+KM-0418,Glucerna,Diabetes Nutrition Vanilla,400g Tin,Vitamins & Supplements,2400,185,2027-06
+KM-0419,Vi-Daylin,Multivitamin Drops,30ml Drops,Vitamins & Supplements,380,461,2027-11
+KM-0420,Abidec,Multivitamin Drops,25ml Drops,Vitamins & Supplements,320,370,2027-06
+KM-0421,Periactin,Cyproheptadine 4mg,20 Tabs,Vitamins & Supplements,280,295,2027-02
+KM-0422,Periactin,Cyproheptadine 2mg/5ml,100ml Syrup,Vitamins & Supplements,260,275,2027-05
+KM-0423,Mosegor,Pizotifen 0.5mg,20 Tabs,Vitamins & Supplements,380,54,2027-05
+KM-0424,Hydryllin,Diphenhydramine + Ammonium Chloride,120ml Syrup,Cough & Cold,230,379,2027-08
+KM-0425,Hydryllin DM,Dextromethorphan + Diphenhydramine,120ml Syrup,Cough & Cold,320,261,2027-10
+KM-0426,Hydryllin SF,Diphenhydramine (sugar-free),120ml Syrup,Cough & Cold,320,399,2027-05
+KM-0427,Corex DX,Chlorpheniramine + Dextromethorphan,100ml Syrup,Cough & Cold,280,364,2027-09
+KM-0428,Corex,Chlorpheniramine + Codeine,100ml Syrup,Cough & Cold,260,341,2027-09
+KM-0429,Acefyl,Diphenhydramine + Ammonium Chloride + Menthol,120ml Syrup,Cough & Cold,300,240,2027-02
+KM-0430,Benadryl,Diphenhydramine 12.5mg/5ml,120ml Syrup,Cough & Cold,320,2,2027-06
+KM-0431,Benadryl DR,Dextromethorphan 15mg/5ml,120ml Syrup,Cough & Cold,350,124,2027-08
+KM-0432,Romilar,Dextromethorphan 15mg,20 Tabs,Cough & Cold,280,365,2027-05
+KM-0433,Mucosolvan,Ambroxol 30mg,20 Tabs,Cough & Cold,380,5,2027-12
+KM-0434,Mucosolvan,Ambroxol 15mg/5ml,100ml Syrup,Cough & Cold,420,308,2027-07
+KM-0435,Bisolvon,Bromhexine 4mg/5ml,100ml Syrup,Cough & Cold,350,253,2027-10
+KM-0436,Bisolvon,Bromhexine 8mg,20 Tabs,Cough & Cold,320,282,2027-07
+KM-0437,ACC 200,Acetylcysteine 200mg,20 Sachets,Cough & Cold,650,228,2027-10
+KM-0438,Fluimucil,Acetylcysteine 200mg,20 Sachets,Cough & Cold,780,180,2027-07
+KM-0439,Robitussin,Guaifenesin 100mg/5ml,120ml Syrup,Cough & Cold,420,370,2027-09
+KM-0440,Bricanyl,Terbutaline 1.5mg/5ml,100ml Syrup,Cough & Cold,320,149,2027-06
+KM-0441,Ventolin,Salbutamol 2mg/5ml,100ml Syrup,Cough & Cold,280,139,2027-05
+KM-0442,Ventolin Inhaler,Salbutamol 100mcg/dose,200 Doses,Cough & Cold,850,72,2027-05
+KM-0443,Asthalin Inhaler,Salbutamol 100mcg/dose,200 Doses,Cough & Cold,650,172,2027-03
+KM-0444,Seretide 250,Salmeterol 25mcg + Fluticasone 250mcg,60 Doses,Cough & Cold,2800,391,2027-10
+KM-0445,Seretide 500,Salmeterol 25mcg + Fluticasone 500mcg,60 Doses,Cough & Cold,3800,497,2027-04
+KM-0446,Symbicort,Budesonide 160mcg + Formoterol 4.5mcg,120 Doses,Cough & Cold,3500,109,2027-05
+KM-0447,Flixotide 125,Fluticasone 125mcg/dose,60 Doses,Cough & Cold,1650,389,2027-09
+KM-0448,Montika,Montelukast 10mg,14 Tabs,Cough & Cold,650,152,2027-11
+KM-0449,Montika,Montelukast 5mg (chewable),14 Chew Tabs,Cough & Cold,520,400,2027-10
+KM-0450,Montelair,Montelukast 10mg,14 Tabs,Cough & Cold,720,316,2027-06
+KM-0451,Singulair,Montelukast 10mg,14 Tabs,Cough & Cold,1150,62,2027-05
+KM-0452,Theodur,Theophylline 200mg SR,20 Tabs,Cough & Cold,380,162,2027-05
+KM-0453,Doxiva,Doxofylline 400mg,10 Tabs,Cough & Cold,520,195,2027-04
+KM-0454,Zaditen,Ketotifen 1mg,20 Tabs,Cough & Cold,420,165,2027-02
+KM-0455,Codylex,Codeine + Chlorpheniramine,100ml Syrup,Cough & Cold,320,373,2027-10
+KM-0456,Tusq-DX,Dextromethorphan + Chlorpheniramine,100ml Syrup,Cough & Cold,300,75,2027-06
+KM-0457,Pholtex,Pholcodine 5mg/5ml,100ml Syrup,Cough & Cold,350,34,2027-02
+KM-0458,Vicks VapoRub,Camphor + Menthol + Eucalyptus,50g Jar,Cough & Cold,450,294,2027-06
+KM-0459,Vicks Inhaler,Menthol + Camphor,1 Inhaler,Cough & Cold,220,368,2027-04
+KM-0460,Strepsils,Amylmetacresol + DCB,24 Lozenges,Cough & Cold,380,8,2027-03
+KM-0461,Strepsils Extra,Hexylresorcinol,24 Lozenges,Cough & Cold,450,457,2027-02
+KM-0462,Cofsils,Amylmetacresol + DCB,10 Lozenges,Cough & Cold,180,304,2027-06
+KM-0463,Adulsa,Vasaka (Adhatoda) Extract,100ml Syrup,Cough & Cold,280,251,2027-09
+KM-0464,Joshina,Herbal Cold Remedy,12 Sachets,Cough & Cold,320,236,2027-07
+KM-0465,Sualin,Herbal Throat Relief,24 Lozenges,Cough & Cold,220,105,2026-10
+KM-0466,Rigix,Cetirizine 10mg,10 Tabs,Anti-Allergic,220,140,2027-09
+KM-0467,Cetzine,Cetirizine 10mg,10 Tabs,Anti-Allergic,220,69,2027-03
+KM-0468,Zyrtec,Cetirizine 10mg,10 Tabs,Anti-Allergic,380,216,2027-09
+KM-0469,Zyrtec,Cetirizine 5mg/5ml,60ml Syrup,Anti-Allergic,350,48,2027-11
+KM-0470,Fexet,Fexofenadine 120mg,10 Tabs,Anti-Allergic,380,333,2027-12
+KM-0471,Fexet,Fexofenadine 180mg,10 Tabs,Anti-Allergic,520,38,2026-11
+KM-0472,Telfast,Fexofenadine 120mg,10 Tabs,Anti-Allergic,550,87,2027-11
+KM-0473,Telfast,Fexofenadine 180mg,10 Tabs,Anti-Allergic,720,496,2027-06
+KM-0474,Telfast-D,Fexofenadine 60mg + Pseudoephedrine 120mg,10 Tabs,Anti-Allergic,650,54,2027-05
+KM-0475,Xyzal,Levocetirizine 5mg,10 Tabs,Anti-Allergic,420,71,2027-10
+KM-0476,Levocet,Levocetirizine 5mg,10 Tabs,Anti-Allergic,280,402,2027-08
+KM-0477,Claritin,Loratadine 10mg,10 Tabs,Anti-Allergic,280,321,2027-11
+KM-0478,Claritin,Loratadine 5mg/5ml,60ml Syrup,Anti-Allergic,320,415,2027-11
+KM-0479,Aerius,Desloratadine 5mg,10 Tabs,Anti-Allergic,520,126,2027-10
+KM-0480,Neoclarityn,Desloratadine 5mg,10 Tabs,Anti-Allergic,420,205,2027-09
+KM-0481,Avil,Pheniramine 25mg,20 Tabs,Anti-Allergic,180,476,2027-09
+KM-0482,Avil,Pheniramine 15mg/5ml,60ml Syrup,Anti-Allergic,150,163,2027-11
+KM-0483,Phenergan,Promethazine 25mg,20 Tabs,Anti-Allergic,280,230,2027-06
+KM-0484,Phenergan,Promethazine 5mg/5ml,100ml Syrup,Anti-Allergic,260,302,2027-11
+KM-0485,Incidal,Chlorpheniramine 4mg,20 Tabs,Anti-Allergic,180,41,2027-11
+KM-0486,Piriton,Chlorpheniramine 4mg,20 Tabs,Anti-Allergic,200,389,2027-03
+KM-0487,Piriton,Chlorpheniramine 2mg/5ml,100ml Syrup,Anti-Allergic,220,496,2027-05
+KM-0488,Betnesol,Betamethasone 0.5mg,30 Tabs,Anti-Allergic,280,331,2027-05
+KM-0489,Deltacortril,Prednisolone 5mg,20 Tabs,Anti-Allergic,320,146,2027-12
+KM-0490,Deltacortril EC,Prednisolone 5mg EC,20 Tabs,Anti-Allergic,380,52,2027-04
+KM-0491,Prednisolone,Prednisolone 5mg,20 Tabs,Anti-Allergic,220,133,2027-04
+KM-0492,Decadron,Dexamethasone 0.5mg,20 Tabs,Anti-Allergic,280,293,2027-03
+KM-0493,Kenacort,Triamcinolone 4mg,20 Tabs,Anti-Allergic,380,91,2027-02
+KM-0494,Wysolone,Prednisolone 10mg,10 Tabs,Anti-Allergic,220,220,2027-09
+KM-0495,Cetrine,Cetirizine 10mg,10 Tabs,Anti-Allergic,200,363,2027-11
+KM-0496,Histal,Chlorpheniramine + Phenylephrine,100ml Syrup,Anti-Allergic,220,251,2027-06
+KM-0497,Actified,Pseudoephedrine + Triprolidine,100ml Syrup,Anti-Allergic,320,27,2027-05
+KM-0498,Arinac,Ibuprofen 200mg + Pseudoephedrine 30mg,10 Tabs,Anti-Allergic,180,158,2027-06
+KM-0499,Imodium,Loperamide 2mg,20 Caps,Gastrointestinal,420,370,2027-09
+KM-0500,Imodium Instants,Loperamide 2mg (orodispersible),12 Tabs,Gastrointestinal,380,47,2027-12
+KM-0501,Lomotil,Diphenoxylate 2.5mg + Atropine 0.025mg,20 Tabs,Gastrointestinal,320,130,2027-06
+KM-0502,Enterogermina,Bacillus Clausii Spores,10 Vials,Gastrointestinal,950,414,2027-12
+KM-0503,Enterogermina,Bacillus Clausii Spores,20 Vials,Gastrointestinal,1750,312,2027-12
+KM-0504,Bioflor,Saccharomyces Boulardii 250mg,10 Sachets,Gastrointestinal,650,422,2027-05
+KM-0505,Smecta,Diosmectite 3g,10 Sachets,Gastrointestinal,520,228,2027-03
+KM-0506,Hidrasec,Racecadotril 100mg,10 Caps,Gastrointestinal,850,289,2027-05
+KM-0507,Essentiale Forte,Essential Phospholipids 300mg,30 Caps,Gastrointestinal,950,342,2027-04
+KM-0508,Essentiale,Essential Phospholipids 300mg,50 Caps,Gastrointestinal,1450,476,2027-06
+KM-0509,Liv-52,Herbal Liver Tonic,30 Tabs,Gastrointestinal,420,434,2027-04
+KM-0510,Liv-52,Herbal Liver Tonic,100ml Syrup,Gastrointestinal,380,47,2027-02
+KM-0511,Urdafalk,Ursodeoxycholic Acid 250mg,20 Caps,Gastrointestinal,1250,95,2027-06
+KM-0512,Udiliv,Ursodeoxycholic Acid 300mg,20 Tabs,Gastrointestinal,1450,315,2027-11
+KM-0513,Silliver,Silymarin 140mg,20 Caps,Gastrointestinal,520,482,2027-06
+KM-0514,Proctosedyl,Hydrocortisone + Cinchocaine Ointment,30g Ointment,Gastrointestinal,520,235,2027-03
+KM-0515,Proctosedyl,Hydrocortisone + Cinchocaine,12 Suppositories,Gastrointestinal,580,250,2027-06
+KM-0516,Scheriproct,Prednisolone + Cinchocaine Ointment,30g Ointment,Gastrointestinal,550,369,2027-08
+KM-0517,Daflon 500,Diosmin 450mg + Hesperidin 50mg,30 Tabs,Gastrointestinal,950,493,2027-06
+KM-0518,Venoruton,Oxerutin 500mg,20 Caps,Gastrointestinal,720,9,2027-10
+KM-0519,Iberogast,Herbal Digestive Drops,50ml Drops,Gastrointestinal,1250,263,2027-09
+KM-0520,Meteospasmyl,Alverine 60mg + Simethicone 300mg,20 Caps,Gastrointestinal,520,52,2027-11
+KM-0521,Debridat,Trimebutine 100mg,20 Tabs,Gastrointestinal,650,31,2027-08
+KM-0522,Glycerin Suppositories,Glycerin 2g,12 Suppositories,Gastrointestinal,280,387,2027-07
+KM-0523,Zentel,Albendazole 400mg,1 Tab,Gastrointestinal,180,320,2027-06
+KM-0524,Zentel,Albendazole 200mg/5ml,10ml Syrup,Gastrointestinal,220,24,2027-03
+KM-0525,Vermox,Mebendazole 100mg,6 Tabs,Gastrointestinal,260,128,2027-12
+KM-0526,Vermox,Mebendazole 100mg/5ml,30ml Syrup,Gastrointestinal,280,439,2027-11
+KM-0527,Bendex,Albendazole 400mg,1 Tab,Gastrointestinal,160,311,2027-02
+KM-0528,Combantrin,Pyrantel Pamoate 250mg,3 Tabs,Gastrointestinal,280,402,2027-12
+KM-0529,Yomesan,Niclosamide 500mg,4 Tabs,Gastrointestinal,420,431,2027-06
+KM-0530,ORS-L,Oral Rehydration Salts,6 Sachets,Gastrointestinal,120,306,2027-02
+KM-0531,Pedialyte,Oral Rehydration Solution,500ml Bottle,Gastrointestinal,450,401,2027-04
+KM-0532,Enflor,Saccharomyces Boulardii 250mg,10 Sachets,Gastrointestinal,580,251,2027-10
+KM-0533,Lopamide,Loperamide 2mg,20 Caps,Gastrointestinal,280,344,2027-09
+KM-0534,Diarest,Loperamide 2mg,20 Caps,Gastrointestinal,260,480,2027-06
+KM-0535,Norflox-TZ,Norfloxacin 400mg + Tinidazole 600mg,10 Tabs,Gastrointestinal,520,103,2027-11
+KM-0536,Cifran-TZ,Ciprofloxacin 500mg + Tinidazole 600mg,10 Tabs,Gastrointestinal,580,234,2027-12
+KM-0537,O2 Tablet,Ofloxacin 200mg + Ornidazole 500mg,10 Tabs,Gastrointestinal,480,427,2027-09
+KM-0538,Hepamerz,L-Ornithine L-Aspartate 3g,10 Sachets,Gastrointestinal,1250,57,2027-09
+KM-0539,Udapa,Ursodeoxycholic Acid 300mg,20 Tabs,Gastrointestinal,1150,189,2027-08
+KM-0540,Cremaffin,Liquid Paraffin + Milk of Magnesia,200ml Syrup,Gastrointestinal,520,181,2027-07
+KM-0541,Agiolax,Ispaghula + Senna Granules,100g Granules,Gastrointestinal,650,354,2027-03
+KM-0542,Normacol,Sterculia Granules,60 Sachets,Gastrointestinal,850,450,2027-04
+KM-0543,Isabgol,Psyllium Husk,100g Pack,Gastrointestinal,320,179,2027-08
+KM-0544,Sat Isabgol,Psyllium Husk,200g Pack,Gastrointestinal,580,366,2027-09
+KM-0545,Laxena,Senna 15mg,20 Tabs,Gastrointestinal,180,158,2027-12
+KM-0546,Prucalopride,Prucalopride 2mg,14 Tabs,Gastrointestinal,950,494,2027-08
+KM-0547,Colospa,Mebeverine 135mg,30 Tabs,Gastrointestinal,480,427,2027-10
+KM-0548,Spasmomen,Otilonium Bromide 40mg,20 Tabs,Gastrointestinal,650,29,2027-09
+KM-0549,Polyfax,Polymyxin B + Bacitracin Ointment,20g Ointment,Dermatological,350,56,2027-07
+KM-0550,Polyfax Plus,Polymyxin B + Bacitracin + Neomycin,20g Ointment,Dermatological,420,140,2026-12
+KM-0551,Soframycin,Framycetin 1% Cream,30g Cream,Dermatological,380,70,2027-08
+KM-0552,Soframycin Skin,Framycetin 1% Ointment,20g Ointment,Dermatological,320,453,2027-10
+KM-0553,Nebasulf,Neomycin + Bacitracin Powder,20g Powder,Dermatological,280,433,2027-02
+KM-0554,Cicatrin,Neomycin + Bacitracin Powder,20g Powder,Dermatological,300,347,2027-10
+KM-0555,T-Bact,Mupirocin 2% Ointment,15g Ointment,Dermatological,480,247,2027-08
+KM-0556,Bactroban,Mupirocin 2% Ointment,15g Ointment,Dermatological,650,38,2027-05
+KM-0557,Fucidin,Fusidic Acid 2% Cream,15g Cream,Dermatological,520,276,2027-07
+KM-0558,Fucidin,Fusidic Acid 2% Ointment,15g Ointment,Dermatological,520,329,2027-09
+KM-0559,Fucidin-H,Fusidic Acid 2% + Hydrocortisone 1%,15g Cream,Dermatological,650,8,2027-02
+KM-0560,Fucicort,Fusidic Acid 2% + Betamethasone 0.1%,15g Cream,Dermatological,680,115,2027-06
+KM-0561,Betnovate,Betamethasone 0.1% Cream,15g Cream,Dermatological,320,292,2027-04
+KM-0562,Betnovate,Betamethasone 0.1% Ointment,15g Ointment,Dermatological,320,485,2027-06
+KM-0563,Betnovate-N,Betamethasone + Neomycin Cream,15g Cream,Dermatological,380,235,2027-09
+KM-0564,Betnovate-C,Betamethasone + Clioquinol Cream,15g Cream,Dermatological,380,73,2027-02
+KM-0565,Betnovate Scalp,Betamethasone 0.1% Lotion,30ml Lotion,Dermatological,450,333,2027-11
+KM-0566,Dermovate,Clobetasol 0.05% Cream,25g Cream,Dermatological,420,420,2026-11
+KM-0567,Dermovate,Clobetasol 0.05% Ointment,25g Ointment,Dermatological,420,374,2027-04
+KM-0568,Dermovate Scalp,Clobetasol 0.05% Lotion,25ml Lotion,Dermatological,480,170,2027-10
+KM-0569,Quadriderm,Betamethasone + Clotrimazole + Gentamicin,15g Cream,Dermatological,450,18,2027-10
+KM-0570,Quadriderm RF,Betamethasone + Clotrimazole + Neomycin,15g Cream,Dermatological,480,219,2027-03
+KM-0571,Hydrozole,Hydrocortisone 1% + Clotrimazole 1%,15g Cream,Dermatological,320,126,2027-03
+KM-0572,Clotrim,Clotrimazole 1% Cream,20g Cream,Dermatological,280,247,2027-03
+KM-0573,Clotrim,Clotrimazole 1% Lotion,20ml Lotion,Dermatological,320,342,2027-04
+KM-0574,Canesten,Clotrimazole 1% Cream,20g Cream,Dermatological,450,266,2027-06
+KM-0575,Canesten,Clotrimazole 1% Solution,20ml Solution,Dermatological,480,9,2027-06
+KM-0576,Travocort,Isoconazole + Diflucortolone Cream,15g Cream,Dermatological,550,223,2027-09
+KM-0577,Nizoral,Ketoconazole 2% Cream,15g Cream,Dermatological,420,252,2027-05
+KM-0578,Nizoral Shampoo,Ketoconazole 2% Shampoo,100ml Bottle,Dermatological,850,244,2027-10
+KM-0579,Selsun,Selenium Sulphide 2.5% Shampoo,120ml Bottle,Dermatological,650,85,2027-08
+KM-0580,Terbisil,Terbinafine 250mg,14 Tabs,Dermatological,850,108,2027-11
+KM-0581,Lamisil,Terbinafine 250mg,14 Tabs,Dermatological,1250,271,2027-04
+KM-0582,Lamisil,Terbinafine 1% Cream,15g Cream,Dermatological,650,453,2027-03
+KM-0583,Diflucan,Fluconazole 150mg,1 Cap,Dermatological,520,152,2027-08
+KM-0584,Diflucan,Fluconazole 50mg,7 Caps,Dermatological,650,185,2027-10
+KM-0585,Scabion,Permethrin 5% Lotion,100ml Lotion,Dermatological,380,147,2027-02
+KM-0586,Nixoderm,Sulphur + Salicylic Acid Ointment,25g Ointment,Dermatological,320,155,2027-06
+KM-0587,Calamine Lotion,Calamine 15% Lotion,120ml Lotion,Dermatological,280,439,2027-11
+KM-0588,Caladryl,Calamine + Diphenhydramine Lotion,100ml Lotion,Dermatological,350,307,2027-12
+KM-0589,Lacto-Calamine,Calamine + Kaolin Lotion,120ml Lotion,Dermatological,420,261,2027-04
+KM-0590,Dermazin,Silver Sulphadiazine 1% Cream,50g Cream,Dermatological,420,239,2027-10
+KM-0591,Burnol,Aminacrine + Cetrimide Cream,20g Cream,Dermatological,280,258,2027-07
+KM-0592,Benzac AC 5%,Benzoyl Peroxide 5% Gel,60g Gel,Dermatological,750,181,2027-01
+KM-0593,Benzac AC 2.5%,Benzoyl Peroxide 2.5% Gel,60g Gel,Dermatological,700,244,2027-07
+KM-0594,Differin,Adapalene 0.1% Gel,30g Gel,Dermatological,1250,456,2027-05
+KM-0595,Differin,Adapalene 0.1% Cream,30g Cream,Dermatological,1150,368,2027-05
+KM-0596,Isotrex,Isotretinoin 0.05% Gel,30g Gel,Dermatological,950,303,2027-08
+KM-0597,Roaccutane,Isotretinoin 20mg,30 Caps,Dermatological,2800,130,2027-08
+KM-0598,Clindacin-T,Clindamycin 1% Lotion,30ml Lotion,Dermatological,520,33,2027-07
+KM-0599,Eryacne,Erythromycin 4% Gel,30g Gel,Dermatological,450,392,2027-09
+KM-0600,Elica,Mometasone 0.1% Cream,30g Cream,Dermatological,520,372,2027-08
+KM-0601,Elica,Mometasone 0.1% Ointment,30g Ointment,Dermatological,520,208,2027-12
+KM-0602,Elocon,Mometasone 0.1% Cream,15g Cream,Dermatological,450,416,2027-12
+KM-0603,Cutivate,Fluticasone 0.05% Cream,30g Cream,Dermatological,650,88,2027-09
+KM-0604,Protopic 0.1%,Tacrolimus 0.1% Ointment,30g Ointment,Dermatological,2200,1,2027-04
+KM-0605,Protopic 0.03%,Tacrolimus 0.03% Ointment,30g Ointment,Dermatological,1950,9,2027-11
+KM-0606,Mintop 2%,Minoxidil 2% Solution,60ml Solution,Dermatological,950,180,2027-03
+KM-0607,Mintop 5%,Minoxidil 5% Solution,60ml Solution,Dermatological,1250,458,2027-09
+KM-0608,Regaine 5%,Minoxidil 5% Foam,60ml Foam,Dermatological,1850,62,2027-10
+KM-0609,Duofilm,Salicylic Acid + Lactic Acid,15ml Solution,Dermatological,650,477,2027-09
+KM-0610,Contractubex,Heparin + Allantoin + Onion Extract,50g Gel,Dermatological,1450,18,2027-04
+KM-0611,Mederma,Onion Extract Gel,20g Gel,Dermatological,1650,220,2027-12
+KM-0612,Melacare,Hydroquinone 2% + Tretinoin + Mometasone,20g Cream,Dermatological,380,90,2027-03
+KM-0613,Sunblock SPF 60,SPF 60 Sunscreen Lotion,100ml Lotion,Dermatological,950,251,2027-06
+KM-0614,Photostable,SPF 50+ Sunscreen,50ml Lotion,Dermatological,1150,184,2027-11
+KM-0615,Tobra,Tobramycin 0.3% Eye Drops,5ml Drops,Eye & Ear,380,365,2027-08
+KM-0616,Vigamox,Moxifloxacin 0.5% Eye Drops,5ml Drops,Eye & Ear,650,343,2027-03
+KM-0617,Tobradex,Tobramycin 0.3% + Dexamethasone 0.1%,5ml Drops,Eye & Ear,520,6,2027-12
+KM-0618,Tobradex,Tobramycin + Dexamethasone Ointment,3.5g Ointment,Eye & Ear,480,450,2027-10
+KM-0619,Sofradex,Framycetin + Gramicidin + Dexamethasone,5ml Drops,Eye & Ear,450,205,2026-12
+KM-0620,Betnesol Eye,Betamethasone 0.1% Eye Drops,5ml Drops,Eye & Ear,320,331,2027-09
+KM-0621,Pred Forte,Prednisolone Acetate 1% Eye Drops,5ml Drops,Eye & Ear,650,457,2027-10
+KM-0622,FML,Fluorometholone 0.1% Eye Drops,5ml Drops,Eye & Ear,520,29,2027-11
+KM-0623,Refresh Tears,Carboxymethylcellulose 0.5%,15ml Drops,Eye & Ear,750,46,2027-05
+KM-0624,Tears Naturale,Dextran + Hypromellose,15ml Drops,Eye & Ear,650,334,2027-12
+KM-0625,Systane,PEG + Propylene Glycol,15ml Drops,Eye & Ear,950,482,2027-06
+KM-0626,Genteal,Hypromellose + Dextran,15ml Drops,Eye & Ear,700,127,2027-03
+KM-0627,Candibiotic,Clotrimazole + Chloramphenicol + Betamethasone,5ml Ear Drops,Eye & Ear,420,233,2027-03
+KM-0628,Otorex,Chloramphenicol + Betamethasone Ear Drops,10ml Ear Drops,Eye & Ear,280,400,2027-12
+KM-0629,Otosporin,Polymyxin B + Neomycin + Hydrocortisone,5ml Ear Drops,Eye & Ear,480,371,2027-03
+KM-0630,Chloromycetin Eye,Chloramphenicol 1% Eye Ointment,5g Ointment,Eye & Ear,280,238,2027-04
+KM-0631,Timoptol,Timolol 0.5% Eye Drops,5ml Drops,Eye & Ear,520,366,2027-06
+KM-0632,Cosopt,Dorzolamide 2% + Timolol 0.5%,5ml Drops,Eye & Ear,950,473,2027-02
+KM-0633,Xalatan,Latanoprost 0.005% Eye Drops,2.5ml Drops,Eye & Ear,1650,34,2027-07
+KM-0634,Travatan,Travoprost 0.004% Eye Drops,2.5ml Drops,Eye & Ear,1450,418,2026-10
+KM-0635,Lumigan,Bimatoprost 0.03% Eye Drops,3ml Drops,Eye & Ear,1350,161,2027-07
+KM-0636,Alphagan,Brimonidine 0.2% Eye Drops,5ml Drops,Eye & Ear,850,202,2027-08
+KM-0637,Azarga,Brinzolamide 1% + Timolol 0.5%,5ml Drops,Eye & Ear,1050,85,2027-05
+KM-0638,Mydriacyl,Tropicamide 1% Eye Drops,5ml Drops,Eye & Ear,520,282,2027-08
+KM-0639,Atropine Eye,Atropine 1% Eye Drops,5ml Drops,Eye & Ear,380,300,2027-12
+KM-0640,Waxsol,Docusate Sodium 0.5% Ear Drops,10ml Ear Drops,Eye & Ear,320,416,2027-04
+KM-0641,Cerumol,Arachis Oil + Chlorobutanol Ear Drops,10ml Ear Drops,Eye & Ear,380,98,2027-04
+KM-0642,Renu,Contact Lens Solution,120ml Solution,Eye & Ear,650,51,2027-11
+KM-0643,Renu,Contact Lens Solution,355ml Solution,Eye & Ear,1450,456,2027-08
+KM-0644,Optive,CMC + Glycerin Eye Drops,15ml Drops,Eye & Ear,850,328,2026-11
+KM-0645,Augmentin IV,Amoxicillin 1g + Clavulanate 200mg,1 Vial,Injectables,780,265,2027-11
+KM-0646,Rocephin IV,Ceftriaxone 1g,1 Vial,Injectables,520,84,2027-05
+KM-0647,Rocephin IM,Ceftriaxone 500mg,1 Vial,Injectables,380,247,2027-12
+KM-0648,Rocephin IV,Ceftriaxone 250mg,1 Vial,Injectables,260,141,2027-09
+KM-0649,Rocephin IV,Ceftriaxone 2g,1 Vial,Injectables,950,141,2027-12
+KM-0650,Claforan,Cefotaxime 1g,1 Vial,Injectables,450,15,2027-09
+KM-0651,Claforan,Cefotaxime 500mg,1 Vial,Injectables,300,472,2026-12
+KM-0652,Magnacef,Cefoperazone 1g,1 Vial,Injectables,850,357,2027-10
+KM-0653,Flagyl IV,Metronidazole 500mg/100ml,100ml Bottle,Injectables,420,91,2027-03
+KM-0654,Ciproxin IV,Ciprofloxacin 200mg/100ml,100ml Bottle,Injectables,650,237,2027-07
+KM-0655,Levoxin IV,Levofloxacin 500mg/100ml,100ml Bottle,Injectables,850,10,2027-06
+KM-0656,Meronem,Meropenem 500mg,1 Vial,Injectables,1650,338,2027-08
+KM-0657,Meronem,Meropenem 1g,1 Vial,Injectables,2800,364,2027-06
+KM-0658,Tienam,Imipenem 500mg + Cilastatin 500mg,1 Vial,Injectables,2200,244,2027-06
+KM-0659,Tazocin,Piperacillin 2g + Tazobactam 250mg,1 Vial,Injectables,1450,112,2027-08
+KM-0660,Tazocin,Piperacillin 4g + Tazobactam 500mg,1 Vial,Injectables,2100,447,2027-09
+KM-0661,Vancocin,Vancomycin 500mg,1 Vial,Injectables,1850,65,2027-05
+KM-0662,Vancocin,Vancomycin 1g,1 Vial,Injectables,3200,206,2027-11
+KM-0663,Zyvox IV,Linezolid 600mg/300ml,300ml Bottle,Injectables,5500,194,2027-11
+KM-0664,Targocid,Teicoplanin 200mg,1 Vial,Injectables,2400,162,2027-06
+KM-0665,Targocid,Teicoplanin 400mg,1 Vial,Injectables,4200,22,2027-12
+KM-0666,Dalacin C Phosphate,Clindamycin 600mg/4ml,1 Ampoule,Injectables,780,7,2027-06
+KM-0667,Colistin,Colistimethate 1 MIU,1 Vial,Injectables,950,15,2027-11
+KM-0668,Colistin,Colistimethate 2 MIU,1 Vial,Injectables,1650,453,2027-12
+KM-0669,Unasyn IV,Ampicillin 1g + Sulbactam 500mg,1 Vial,Injectables,1250,409,2027-02
+KM-0670,Gravinate Inj,Dimenhydrinate 50mg/ml,5 Amps,Injectables,450,477,2027-11
+KM-0671,Avil Inj,Pheniramine 45.5mg/2ml,5 Amps,Injectables,320,392,2027-09
+KM-0672,Decadron Inj,Dexamethasone 4mg/ml,5 Amps,Injectables,420,437,2027-06
+KM-0673,Solu-Cortef,Hydrocortisone 100mg,1 Vial,Injectables,650,408,2027-05
+KM-0674,Voltral Inj,Diclofenac 75mg/3ml,3ml Ampoule,Injectables,220,321,2027-07
+KM-0675,Nospa Inj,Drotaverine 40mg/2ml,6 Amps,Injectables,380,123,2027-12
+KM-0676,Spasfon Inj,Phloroglucinol 40mg/4ml,6 Amps,Injectables,650,108,2027-11
+KM-0677,Buscopan Inj,Hyoscine Butylbromide 20mg/ml,5 Amps,Injectables,520,139,2027-12
+KM-0678,Onset Inj,Ondansetron 4mg/2ml,3 Amps,Injectables,450,397,2026-11
+KM-0679,Maxolon Inj,Metoclopramide 10mg/2ml,5 Amps,Injectables,320,332,2027-03
+KM-0680,Risek IV,Omeprazole 40mg,1 Vial,Injectables,550,473,2027-12
+KM-0681,Nexum IV,Esomeprazole 40mg,1 Vial,Injectables,1250,341,2027-02
+KM-0682,Lasix Inj,Furosemide 20mg/2ml,5 Amps,Injectables,280,169,2027-09
+KM-0683,Lanoxin Inj,Digoxin 0.25mg/ml,5 Amps,Injectables,380,28,2027-11
+KM-0684,Cordarone Inj,Amiodarone 150mg/3ml,3 Amps,Injectables,520,197,2027-04
+KM-0685,Heparin,Heparin 5000 IU/ml,5ml Vial,Injectables,420,57,2027-06
+KM-0686,Clexane,Enoxaparin 20mg/0.2ml,2 Syringes,Injectables,850,178,2027-08
+KM-0687,Clexane,Enoxaparin 40mg/0.4ml,2 Syringes,Injectables,1150,100,2027-05
+KM-0688,Clexane,Enoxaparin 60mg/0.6ml,2 Syringes,Injectables,1450,78,2027-10
+KM-0689,Clexane,Enoxaparin 80mg/0.8ml,2 Syringes,Injectables,1750,459,2027-07
+KM-0690,Arixtra,Fondaparinux 2.5mg/0.5ml,10 Syringes,Injectables,6500,282,2027-10
+KM-0691,Venofer,Iron Sucrose 100mg/5ml,5 Amps,Injectables,2800,478,2027-06
+KM-0692,Methycobal Inj,Mecobalamin 500mcg/ml,10 Amps,Injectables,1250,436,2027-04
+KM-0693,Neurobion Inj,Vit B1 + B6 + B12,3 Amps,Injectables,450,5,2027-09
+KM-0694,Konakion,Vitamin K1 10mg/ml,5 Amps,Injectables,650,423,2027-06
+KM-0695,Calcium Sandoz,Calcium Gluconate 10ml,10 Amps,Injectables,850,393,2027-07
+KM-0696,Adrenaline,Adrenaline 1mg/ml,10 Amps,Injectables,380,422,2027-03
+KM-0697,Dopamine,Dopamine 200mg/5ml,5 Amps,Injectables,420,250,2027-03
+KM-0698,Dobutamine,Dobutamine 250mg/20ml,1 Vial,Injectables,5200,83,2027-05
+KM-0699,Atropine Inj,Atropine 1mg/ml,10 Amps,Injectables,320,451,2027-12
+KM-0700,Diazepam Inj,Diazepam 10mg/2ml,5 Amps,Injectables,280,381,2027-12
+KM-0701,Midazolam,Midazolam 5mg/5ml,5 Amps,Injectables,650,214,2027-10
+KM-0702,Ketamine,Ketamine 500mg/10ml,10ml Vial,Injectables,850,198,2027-03
+KM-0703,Propofol,Propofol 200mg/20ml,20ml Vial,Injectables,950,415,2027-08
+KM-0704,Xylocaine,Lidocaine 2% (plain),50ml Vial,Injectables,380,18,2027-06
+KM-0705,Lidocaine,Lidocaine 2% (plain),50ml Vial,Injectables,320,285,2027-03
+KM-0706,Cyklokapron,Tranexamic Acid 500mg/5ml,5 Amps,Injectables,650,243,2027-07
+KM-0707,Dicynene,Etamsylate 250mg/2ml,6 Amps,Injectables,520,355,2027-12
+KM-0708,Oxytocin,Oxytocin 10 IU/ml,10 Amps,Injectables,320,145,2027-11
+KM-0709,Methergine,Methylergometrine 0.2mg/ml,5 Amps,Injectables,280,206,2027-12
+KM-0710,Tetanus Toxoid,Tetanus Toxoid 0.5ml,1 Ampoule,Injectables,180,492,2027-07
+KM-0711,Rabies Vaccine,Rabies Vaccine (cell culture) 1ml,1 Vial,Injectables,1850,66,2027-12
+KM-0712,Hepatitis B Vaccine,Hep B Vaccine 20mcg/ml,1ml Vial,Injectables,950,130,2027-09
+KM-0713,Influenza Vaccine,Influenza Vaccine 0.5ml,1 Syringe,Injectables,1650,23,2027-11
+KM-0714,Typhoid Vaccine,Typhoid Vi Vaccine 0.5ml,1 Syringe,Injectables,1250,463,2027-10
+KM-0715,Depo-Provera,Medroxyprogesterone 150mg/ml,1 Vial,Injectables,3200,6,2027-11
+KM-0716,Normal Saline,Sodium Chloride 0.9%,1000ml Bottle,IV Fluids,380,124,2027-12
+KM-0717,Normal Saline,Sodium Chloride 0.9%,500ml Bottle,IV Fluids,280,43,2027-12
+KM-0718,Ringer Lactate,Hartmann's Solution,1000ml Bottle,IV Fluids,420,432,2027-09
+KM-0719,Ringer Lactate,Hartmann's Solution,500ml Bottle,IV Fluids,320,5,2027-12
+KM-0720,Dextrose 5%,Dextrose 5% in Water,1000ml Bottle,IV Fluids,420,220,2027-03
+KM-0721,Dextrose 5%,Dextrose 5% in Water,500ml Bottle,IV Fluids,320,82,2027-02
+KM-0722,Dextrose Saline,Dextrose 5% + NaCl 0.9%,1000ml Bottle,IV Fluids,450,495,2026-10
+KM-0723,Dextrose Saline,Dextrose 5% + NaCl 0.9%,500ml Bottle,IV Fluids,340,166,2027-09
+KM-0724,Isolyte-P,Paediatric Maintenance Solution,500ml Bottle,IV Fluids,380,70,2027-03
+KM-0725,Isolyte-M,Maintenance Solution with Dextrose,500ml Bottle,IV Fluids,380,131,2027-10
+KM-0726,Mannitol 20%,Mannitol 20%,500ml Bottle,IV Fluids,650,80,2027-08
+KM-0727,Plasmalyte,Balanced Crystalloid,1000ml Bottle,IV Fluids,850,243,2027-07
+KM-0728,Voluven,Hydroxyethyl Starch 6%,500ml Bottle,IV Fluids,1250,354,2027-10
+KM-0729,Gelofusine,Succinylated Gelatin 4%,500ml Bottle,IV Fluids,1150,225,2027-11
+KM-0730,Aminoven,Amino Acids 10%,500ml Bottle,IV Fluids,1450,391,2027-04
+KM-0731,Lipofundin,Lipid Emulsion 20%,500ml Bottle,IV Fluids,1850,464,2027-08
+KM-0732,Dextrose 10%,Dextrose 10% in Water,500ml Bottle,IV Fluids,420,346,2027-03
+KM-0733,Dextrose 25%,Dextrose 25%,100ml Bottle,IV Fluids,380,437,2027-09
+KM-0734,Water for Injection,Sterile Water for Injection,10x10ml Amps,IV Fluids,380,10,2027-08
+KM-0735,Water for Injection,Sterile Water for Injection,20x5ml Amps,IV Fluids,420,491,2027-06
+KM-0736,Artem,Artemether 20mg + Lumefantrine 120mg,24 Tabs,Anti-Malarial,950,27,2027-07
+KM-0737,Artem DS,Artemether 40mg + Lumefantrine 240mg,12 Tabs,Anti-Malarial,850,122,2027-09
+KM-0738,Artem,Artemether 15mg/5ml,60ml Syrup,Anti-Malarial,520,238,2027-05
+KM-0739,Artem Inj,Artemether 80mg/ml,6 Amps,Anti-Malarial,1250,448,2027-07
+KM-0740,Coartem,Artemether 20mg + Lumefantrine 120mg,24 Tabs,Anti-Malarial,1150,61,2027-12
+KM-0741,Malirid,Primaquine 7.5mg,14 Tabs,Anti-Malarial,320,199,2027-10
+KM-0742,Malirid,Primaquine 15mg,14 Tabs,Anti-Malarial,480,472,2027-12
+KM-0743,Lariago,Chloroquine 250mg,10 Tabs,Anti-Malarial,280,194,2027-02
+KM-0744,Lariago,Chloroquine 80mg/5ml,60ml Syrup,Anti-Malarial,220,214,2027-06
+KM-0745,Lariago Inj,Chloroquine 200mg/2ml,5 Amps,Anti-Malarial,420,108,2027-03
+KM-0746,Resochin,Chloroquine 250mg,10 Tabs,Anti-Malarial,320,496,2027-09
+KM-0747,Fansidar,Sulfadoxine 500mg + Pyrimethamine 25mg,3 Tabs,Anti-Malarial,380,57,2027-12
+KM-0748,Malarone,Atovaquone 250mg + Proguanil 100mg,12 Tabs,Anti-Malarial,3800,119,2026-10
+KM-0749,Thyrox,Levothyroxine 50mcg,100 Tabs,Hormonal,380,36,2027-07
+KM-0750,Thyrox,Levothyroxine 100mcg,100 Tabs,Hormonal,450,135,2027-04
+KM-0751,Eltroxin,Levothyroxine 50mcg,100 Tabs,Hormonal,420,413,2027-11
+KM-0752,Eltroxin,Levothyroxine 100mcg,100 Tabs,Hormonal,520,116,2027-03
+KM-0753,Neomercazole,Carbimazole 5mg,100 Tabs,Hormonal,650,435,2027-10
+KM-0754,Sustanon 250,Testosterone Blend 250mg/ml,1 Ampoule,Hormonal,650,117,2027-11
+KM-0755,Nebido,Testosterone Undecanoate 1000mg/4ml,4ml Vial,Hormonal,12500,4,2027-05
+KM-0756,Andriol,Testosterone Undecanoate 40mg,30 Caps,Hormonal,3200,179,2027-04
+KM-0757,Progynova,Estradiol Valerate 2mg,21 Tabs,Hormonal,850,414,2027-11
+KM-0758,Premarin,Conjugated Estrogens 0.625mg,28 Tabs,Hormonal,1250,12,2027-06
+KM-0759,Duphaston,Dydrogesterone 10mg,20 Tabs,Hormonal,950,3,2027-04
+KM-0760,Utrogestan,Progesterone 100mg,30 Caps,Hormonal,1650,9,2027-06
+KM-0761,Famila-28,Levonorgestrel + Ethinylestradiol,28 Tabs,Hormonal,850,419,2027-04
+KM-0762,Yasmin,Drospirenone 3mg + EE 0.03mg,21 Tabs,Hormonal,1450,67,2027-12
+KM-0763,Yaz,Drospirenone 3mg + EE 0.02mg,28 Tabs,Hormonal,1650,454,2027-02
+KM-0764,Marvelon,Desogestrel 0.15mg + EE 0.03mg,21 Tabs,Hormonal,950,78,2027-02
+KM-0765,Diane-35,Cyproterone 2mg + EE 0.035mg,21 Tabs,Hormonal,1050,194,2027-05
+KM-0766,Postinor-2,Levonorgestrel 0.75mg,2 Tabs,Hormonal,650,312,2027-07
+KM-0767,Wysolone,Prednisolone 10mg,10 Tabs,Hormonal,220,19,2027-04
+KM-0768,Deltacortril,Prednisolone 5mg,30 Tabs,Hormonal,450,146,2027-02
+KM-0769,Citopam,Citalopram 20mg,14 Tabs,CNS & Psychiatric,650,75,2027-08
+KM-0770,Citopam,Citalopram 40mg,14 Tabs,CNS & Psychiatric,950,280,2027-03
+KM-0771,Lexapro,Escitalopram 10mg,14 Tabs,CNS & Psychiatric,1150,392,2027-03
+KM-0772,Lexapro,Escitalopram 20mg,14 Tabs,CNS & Psychiatric,1650,254,2027-09
+KM-0773,Prozac,Fluoxetine 20mg,14 Caps,CNS & Psychiatric,850,409,2027-07
+KM-0774,Seroxat,Paroxetine 20mg,14 Tabs,CNS & Psychiatric,950,273,2027-11
+KM-0775,Zoliget,Sertraline 50mg,14 Tabs,CNS & Psychiatric,520,66,2027-09
+KM-0776,Zoliget,Sertraline 100mg,14 Tabs,CNS & Psychiatric,850,268,2027-05
+KM-0777,Efexor XR,Venlafaxine 75mg XR,14 Caps,CNS & Psychiatric,1250,495,2027-11
+KM-0778,Efexor XR,Venlafaxine 150mg XR,14 Caps,CNS & Psychiatric,1750,1,2027-12
+KM-0779,Remeron,Mirtazapine 30mg,14 Tabs,CNS & Psychiatric,1150,277,2027-06
+KM-0780,Epival,Sodium Valproate 250mg,30 Tabs,CNS & Psychiatric,720,245,2027-12
+KM-0781,Epival,Sodium Valproate 500mg,30 Tabs,CNS & Psychiatric,1250,26,2027-02
+KM-0782,Epival,Sodium Valproate 200mg/5ml,120ml Syrup,CNS & Psychiatric,520,8,2027-08
+KM-0783,Tegral,Carbamazepine 200mg,50 Tabs,CNS & Psychiatric,520,229,2027-12
+KM-0784,Tegral,Carbamazepine 400mg,50 Tabs,CNS & Psychiatric,850,66,2027-09
+KM-0785,Tegral,Carbamazepine 100mg/5ml,100ml Syrup,CNS & Psychiatric,420,375,2027-09
+KM-0786,Topamax,Topiramate 25mg,28 Tabs,CNS & Psychiatric,950,48,2027-03
+KM-0787,Topamax,Topiramate 50mg,28 Tabs,CNS & Psychiatric,1450,175,2027-11
+KM-0788,Neurontin,Gabapentin 300mg,30 Caps,CNS & Psychiatric,950,86,2027-03
+KM-0789,Lyrica,Pregabalin 50mg,14 Caps,CNS & Psychiatric,1050,75,2027-06
+KM-0790,Lyrica,Pregabalin 100mg,14 Caps,CNS & Psychiatric,1650,330,2027-12
+KM-0791,Risperdal,Risperidone 1mg,20 Tabs,CNS & Psychiatric,850,310,2027-10
+KM-0792,Risperdal,Risperidone 2mg,20 Tabs,CNS & Psychiatric,1250,375,2026-12
+KM-0793,Risperdal,Risperidone 1mg/ml,30ml Syrup,CNS & Psychiatric,650,206,2027-11
+KM-0794,Seroquel,Quetiapine 100mg,30 Tabs,CNS & Psychiatric,1450,282,2027-06
+KM-0795,Seroquel,Quetiapine 200mg,30 Tabs,CNS & Psychiatric,2400,243,2027-10
+KM-0796,Seroquel XR,Quetiapine 200mg XR,30 Tabs,CNS & Psychiatric,2800,320,2027-08
+KM-0797,Zyprexa,Olanzapine 10mg,14 Tabs,CNS & Psychiatric,1450,61,2027-03
+KM-0798,Abilify,Aripiprazole 10mg,14 Tabs,CNS & Psychiatric,2200,447,2027-12
+KM-0799,Leponex,Clozapine 100mg,30 Tabs,CNS & Psychiatric,1850,344,2027-10
+KM-0800,Dogmatil,Sulpiride 50mg,20 Caps,CNS & Psychiatric,420,380,2027-05
+KM-0801,Haloperidol,Haloperidol 5mg,30 Tabs,CNS & Psychiatric,380,231,2027-09
+KM-0802,Camcolit,Lithium Carbonate 400mg,30 Tabs,CNS & Psychiatric,520,465,2027-05
+KM-0803,Sinemet,Levodopa 250mg + Carbidopa 25mg,30 Tabs,CNS & Psychiatric,650,222,2027-07
+KM-0804,Sinemet CR,Levodopa + Carbidopa CR,30 Tabs,CNS & Psychiatric,850,434,2027-09
+KM-0805,Madopar,Levodopa 100mg + Benserazide 25mg,30 Caps,CNS & Psychiatric,520,215,2027-08
+KM-0806,Artane,Trihexyphenidyl 2mg,30 Tabs,CNS & Psychiatric,320,384,2027-03
+KM-0807,Alp,Alprazolam 0.5mg,30 Tabs,CNS & Psychiatric,320,171,2027-08
+KM-0808,Alp,Alprazolam 1mg,30 Tabs,CNS & Psychiatric,480,171,2027-12
+KM-0809,Lexotanil,Bromazepam 1.5mg,30 Tabs,CNS & Psychiatric,320,141,2027-07
+KM-0810,Lexotanil,Bromazepam 3mg,30 Tabs,CNS & Psychiatric,420,499,2027-04
+KM-0811,Ativan,Lorazepam 1mg,30 Tabs,CNS & Psychiatric,380,362,2027-09
+KM-0812,Ativan,Lorazepam 2mg,30 Tabs,CNS & Psychiatric,520,45,2027-03
+KM-0813,Valium,Diazepam 5mg,30 Tabs,CNS & Psychiatric,320,436,2027-03
+KM-0814,Valium,Diazepam 10mg,30 Tabs,CNS & Psychiatric,450,58,2027-08
+KM-0815,Stilnox,Zolpidem 10mg,14 Tabs,CNS & Psychiatric,650,60,2027-07
+KM-0816,Disposable Syringe 3cc,3ml with 23G needle,100 Pcs,Surgical & Disposables,850,426,2027-04
+KM-0817,Disposable Syringe 5cc,5ml with 22G needle,100 Pcs,Surgical & Disposables,950,295,2027-02
+KM-0818,Disposable Syringe 10cc,10ml with 21G needle,50 Pcs,Surgical & Disposables,750,311,2027-10
+KM-0819,Insulin Syringe 1cc,1ml with 30G needle,100 Pcs,Surgical & Disposables,1150,298,2027-07
+KM-0820,IV Cannula 18G,18G x 1.25 inch,50 Pcs,Surgical & Disposables,1450,354,2027-03
+KM-0821,IV Cannula 20G,20G x 1.25 inch,50 Pcs,Surgical & Disposables,1450,221,2027-07
+KM-0822,IV Cannula 22G,22G x 1 inch,50 Pcs,Surgical & Disposables,1450,458,2027-12
+KM-0823,IV Cannula 24G,24G x 0.75 inch,50 Pcs,Surgical & Disposables,1550,492,2027-08
+KM-0824,Surgical Gloves,"Sterile latex, powdered",100 Pcs,Surgical & Disposables,1850,455,2027-02
+KM-0825,Examination Gloves,Non-sterile latex,100 Pcs,Surgical & Disposables,1450,158,2027-11
+KM-0826,N95 Mask,N95 respirator,20 Pcs,Surgical & Disposables,1250,5,2027-07
+KM-0827,Surgical Mask,3-ply disposable,50 Pcs,Surgical & Disposables,650,64,2026-11
+KM-0828,Gauze Roll 10cm,Absorbent gauze roll,12 Pcs,Surgical & Disposables,850,90,2027-12
+KM-0829,Gauze Roll 15cm,Absorbent gauze roll,12 Pcs,Surgical & Disposables,1050,8,2027-05
+KM-0830,Sterile Gauze Pads,10x10cm sterile pads,100 Pcs,Surgical & Disposables,950,444,2027-03
+KM-0831,Crepe Bandage 10cm,Elastic crepe bandage,1 Roll,Surgical & Disposables,180,190,2027-10
+KM-0832,Crepe Bandage 15cm,Elastic crepe bandage,1 Roll,Surgical & Disposables,220,199,2027-03
+KM-0833,Pyodine Scrub,Povidone Iodine 7.5% scrub,100ml Bottle,Surgical & Disposables,380,401,2027-06
+KM-0834,Pyodine Solution,Povidone Iodine 10% solution,100ml Bottle,Surgical & Disposables,350,304,2027-05
+KM-0835,Pyodine Solution,Povidone Iodine 10% solution,500ml Bottle,Surgical & Disposables,1250,424,2027-08
+KM-0836,Dettol Antiseptic,Chloroxylenol antiseptic liquid,100ml Bottle,Surgical & Disposables,320,443,2027-10
+KM-0837,Dettol Antiseptic,Chloroxylenol antiseptic liquid,250ml Bottle,Surgical & Disposables,650,403,2027-11
+KM-0838,Surgical Spirit,Methylated spirit,450ml Bottle,Surgical & Disposables,380,325,2027-12
+KM-0839,Hydrogen Peroxide,Hydrogen Peroxide 6%,450ml Bottle,Surgical & Disposables,320,340,2027-10
+KM-0840,Hydrogen Peroxide,Hydrogen Peroxide 6%,100ml Bottle,Surgical & Disposables,150,24,2027-11
+KM-0841,Cotton Roll 500g,Absorbent cotton roll,500g Roll,Surgical & Disposables,650,486,2027-12
+KM-0842,Cotton Roll 200g,Absorbent cotton roll,200g Roll,Surgical & Disposables,320,435,2027-06
+KM-0843,Absorbent Cotton,Absorbent cotton wool,25g Pack,Surgical & Disposables,95,25,2027-04
+KM-0844,Band-Aid Strips,Adhesive bandage strips,100 Pcs,Surgical & Disposables,550,150,2027-06
+KM-0845,Band-Aid Waterproof,Waterproof adhesive strips,20 Pcs,Surgical & Disposables,280,482,2027-07
+KM-0846,ORS Sachets,Oral Rehydration Salts,50 Sachets,Surgical & Disposables,750,190,2027-02
+KM-0847,Digital Thermometer,Digital thermometer,1 Pc,Surgical & Disposables,450,103,2027-04
+KM-0848,BP Apparatus (Aneroid),Manual BP monitor with cuff,1 Pc,Surgical & Disposables,3800,300,2027-12
+KM-0849,BP Apparatus (Digital),Digital BP monitor,1 Pc,Surgical & Disposables,6500,216,2027-03
+KM-0850,Stethoscope,Single-head stethoscope,1 Pc,Surgical & Disposables,2800,83,2026-10
+KM-0851,Glucometer,Blood glucose meter,1 Pc,Surgical & Disposables,2200,57,2027-10
+KM-0852,Glucose Test Strips,Glucometer test strips,50 Strips,Surgical & Disposables,1850,121,2027-08
+KM-0853,Glucose Test Strips,Glucometer test strips,25 Strips,Surgical & Disposables,1050,225,2027-09
+KM-0854,Lancets,Blood lancets,100 Pcs,Surgical & Disposables,450,185,2027-04
+KM-0855,Nebulizer Machine,Compressor nebulizer,1 Pc,Surgical & Disposables,6800,200,2026-12
+KM-0856,Nebulizer Mask Adult,Adult nebulizer mask,1 Pc,Surgical & Disposables,350,380,2027-07
+KM-0857,Nebulizer Mask Child,Child nebulizer mask,1 Pc,Surgical & Disposables,350,408,2027-11
+KM-0858,Urine Bag,2000ml urine collection bag,10 Pcs,Surgical & Disposables,650,316,2027-03
+KM-0859,Foley Catheter 16Fr,2-way Foley catheter,1 Pc,Surgical & Disposables,320,463,2027-02
+KM-0860,Foley Catheter 18Fr,2-way Foley catheter,1 Pc,Surgical & Disposables,320,90,2027-04
+KM-0861,Ryle's Tube 16Fr,Nasogastric tube,1 Pc,Surgical & Disposables,280,397,2027-11
+KM-0862,Surgical Tape 2.5cm,Adhesive surgical tape,1 Roll,Surgical & Disposables,180,36,2027-12
+KM-0863,Surgical Tape 5cm,Adhesive surgical tape,1 Roll,Surgical & Disposables,280,52,2027-06
+KM-0864,Adhesive Plaster,7.5cm adhesive plaster roll,1 Roll,Surgical & Disposables,320,237,2027-12
+KM-0865,Alcohol Swabs,70% isopropyl alcohol swabs,100 Pcs,Surgical & Disposables,550,228,2027-09
+KM-0866,IV Set,IV infusion set with needle,20 Pcs,Surgical & Disposables,850,321,2027-09
+KM-0867,Scalp Vein Set 25G,Butterfly needle 25G,100 Pcs,Surgical & Disposables,1250,223,2027-06
+KM-0868,Surgical Blade,Sterile surgical blades,10 Pcs,Surgical & Disposables,280,121,2026-10
+KM-0869,Suture Silk 2/0,Silk suture with needle,12 Pcs,Surgical & Disposables,850,187,2027-08
+KM-0870,Suture Vicryl 2/0,Absorbable suture with needle,12 Pcs,Surgical & Disposables,1650,67,2027-06
+KM-0871,Needle 21G,Disposable hypodermic needles,100 Pcs,Surgical & Disposables,650,358,2027-12
+KM-0872,Needle 23G,Disposable hypodermic needles,100 Pcs,Surgical & Disposables,650,314,2027-09
+KM-0873,Hot Water Bottle,Rubber hot water bottle 2L,1 Pc,Surgical & Disposables,650,280,2027-12
+KM-0874,Ice Bag,Reusable ice bag,1 Pc,Surgical & Disposables,450,168,2027-02
+KM-0875,Oxygen Mask Adult,Adult oxygen mask with tubing,1 Pc,Surgical & Disposables,420,123,2027-08
+KM-0876,Nasal Cannula,Nasal oxygen cannula,1 Pc,Surgical & Disposables,280,317,2026-10
+KM-0877,Kidney Tray,Stainless steel kidney tray,1 Pc,Surgical & Disposables,850,14,2027-05
+KM-0878,Bed Pan,Plastic bed pan,1 Pc,Surgical & Disposables,950,165,2027-05
+KM-0879,Pampers Newborn,Newborn diapers (up to 5kg),58 Pcs,Baby Care,2200,403,2027-04
+KM-0880,Pampers Small,Small diapers (4-8kg),50 Pcs,Baby Care,2200,402,2027-06
+KM-0881,Pampers Medium,Medium diapers (6-11kg),44 Pcs,Baby Care,2200,159,2027-07
+KM-0882,Pampers Large,Large diapers (9-14kg),38 Pcs,Baby Care,2200,72,2027-02
+KM-0883,Pampers XL,Extra-large diapers (12-17kg),34 Pcs,Baby Care,2200,265,2027-01
+KM-0884,Pampers Premium Care NB,Premium newborn diapers,40 Pcs,Baby Care,2600,100,2027-04
+KM-0885,Johnson's Baby Lotion,Baby lotion,200ml Bottle,Baby Care,950,205,2027-10
+KM-0886,Johnson's Baby Shampoo,Baby shampoo,200ml Bottle,Baby Care,850,371,2027-05
+KM-0887,Johnson's Baby Oil,Baby oil,200ml Bottle,Baby Care,750,267,2027-10
+KM-0888,Johnson's Baby Powder,Baby powder,200g Pack,Baby Care,650,437,2026-12
+KM-0889,Johnson's Baby Soap,Baby soap bar,100g Bar,Baby Care,380,47,2027-08
+KM-0890,Baby Wipes,Gentle baby wipes,80 Pcs,Baby Care,650,452,2027-02
+KM-0891,Desitin,Zinc Oxide diaper rash cream,50g Tube,Baby Care,850,7,2027-02
+KM-0892,Sudocrem,Diaper rash cream,60g Jar,Baby Care,750,246,2027-03
+KM-0893,Bonjela,Teething gel,10g Gel,Baby Care,520,452,2027-07
+KM-0894,Gripe Water,Herbal gripe water,120ml Bottle,Baby Care,280,305,2027-08
+KM-0895,Woodward's Gripe Water,Herbal gripe water,148ml Bottle,Baby Care,320,304,2027-08
+KM-0896,Calpol Syrup,Paracetamol 120mg/5ml,90ml Syrup,Baby Care,260,374,2027-12
+KM-0897,Calpol Drops,Paracetamol 100mg/ml,15ml Drops,Baby Care,220,224,2027-06
+KM-0898,Lactogen 1,Infant formula (0-6 months),400g Tin,Baby Care,1650,69,2027-08
+KM-0899,Lactogen 2,Follow-on formula (6-12 months),400g Tin,Baby Care,1650,21,2027-07
+KM-0900,Enfamil A+,Infant formula with DHA,400g Tin,Baby Care,2400,98,2027-11
+KM-0901,NAN 1,Infant formula (0-6 months),400g Tin,Baby Care,2200,246,2027-07
+KM-0902,Cerelac Wheat,Wheat infant cereal with milk,400g Pack,Baby Care,1450,56,2027-08
+KM-0903,Cerelac Rice,Rice infant cereal,400g Pack,Baby Care,1450,443,2027-03
+KM-0904,Pediasure,Complete nutrition vanilla,400g Tin,Baby Care,1850,135,2027-08
+KM-0905,Feeding Bottle 125ml,BPA-free feeding bottle,1 Pc,Baby Care,550,312,2027-08
+KM-0906,Feeding Bottle 250ml,BPA-free feeding bottle,1 Pc,Baby Care,750,279,2027-03
+KM-0907,Baby Nipples,Silicone nipples,2 Pcs,Baby Care,320,213,2026-12
+KM-0908,Pyodine,Povidone Iodine 10% solution,60ml Bottle,First Aid,220,392,2027-07
+KM-0909,Dettol Antiseptic,Chloroxylenol antiseptic liquid,60ml Bottle,First Aid,220,124,2027-07
+KM-0910,Hydrogen Peroxide,Hydrogen Peroxide 6%,60ml Bottle,First Aid,120,409,2027-04
+KM-0911,Band-Aid Strips,Adhesive bandage strips,20 Pcs,First Aid,180,50,2027-10
+KM-0912,Gauze Roll 7.5cm,Absorbent gauze roll,1 Roll,First Aid,220,335,2027-03
+KM-0913,Crepe Bandage 7.5cm,Elastic crepe bandage,1 Roll,First Aid,150,282,2027-10
+KM-0914,Absorbent Cotton,Absorbent cotton wool,25g Pack,First Aid,95,4,2027-07
+KM-0915,Surgical Tape 1.25cm,Adhesive surgical tape,1 Roll,First Aid,120,190,2027-12
+KM-0916,Burnol,Aminacrine + Cetrimide cream,10g Tube,First Aid,180,428,2027-04
+KM-0917,Soframycin,Framycetin 1% cream,15g Tube,First Aid,220,131,2027-03
+KM-0918,ORS,Oral Rehydration Salts,6 Sachets,First Aid,120,85,2027-06
+KM-0919,First Aid Box,Stocked first aid kit,1 Box,First Aid,1450,112,2027-04
+KM-0920,First Aid Kit Bag,Empty first aid bag,1 Pc,First Aid,850,319,2027-04
+KM-0921,Instant Cold Pack,Instant cold compress,1 Pc,First Aid,320,400,2027-12
+KM-0922,Triangular Bandage,Cotton triangular bandage,1 Pc,First Aid,220,49,2027-04
+KM-0923,Eye Wash Cup,Sterile eye wash cup,1 Pc,First Aid,180,498,2027-12
+KM-0924,Saline Eye Wash,Sterile saline 0.9%,500ml Bottle,First Aid,520,263,2027-09
+KM-0925,Tweezers,Stainless steel tweezers,1 Pc,First Aid,280,397,2027-11
+KM-0926,CPR Face Shield,Disposable CPR face shield,1 Pc,First Aid,250,400,2027-11
+KM-0927,Povidone Ointment,Povidone Iodine 10% ointment,20g Tube,First Aid,280,240,2027-12
+KM-0928,Antiseptic Wipes,Antiseptic cleansing wipes,20 Pcs,First Aid,220,484,2027-11
+KM-0929,Finger Splint,Aluminium finger splint,1 Pc,First Aid,180,340,2027-12
+KM-0930,Elastic Knee Support,Knee support band,1 Pc,First Aid,650,330,2027-07
+KM-0931,Ankle Support,Elastic ankle support,1 Pc,First Aid,550,453,2027-12
+KM-0932,Wrist Support,Elastic wrist support,1 Pc,First Aid,450,172,2027-04
